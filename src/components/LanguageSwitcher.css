@@ -1,0 +1,88 @@
+/* Language Switcher */
+.language-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.language-switcher-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: #1d1d1f;
+}
+
+.language-switcher-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.language-flag {
+  font-size: 1.2em;
+}
+
+.language-code {
+  font-weight: 500;
+  min-width: 24px;
+}
+
+.language-arrow {
+  font-size: 0.7em;
+  transition: transform 0.2s ease;
+}
+
+.language-arrow.open {
+  transform: rotate(180deg);
+}
+
+.language-switcher-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 1001;
+  min-width: 150px;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: #1d1d1f;
+  font-size: 0.9rem;
+}
+
+.language-option:hover {
+  background: #f5f5f7;
+}
+
+.language-option.active {
+  background: #007aff;
+  color: white;
+}
+
+.language-option.active:hover {
+  background: #0056cc;
+}
+
+.language-name {
+  font-weight: 500;
+}

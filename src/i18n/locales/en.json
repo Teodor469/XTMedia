@@ -1,0 +1,146 @@
+{
+  "common": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "getQuote": "Get Quote",
+    "startProject": "Start Project",
+    "viewGallery": "View Gallery & Details",
+    "contactUs": "Contact Us",
+    "loading": "Loading...",
+    "submit": "Submit",
+    "next": "Next",
+    "back": "Back",
+    "close": "Close",
+    "all": "All",
+    "materials": "Materials",
+    "wood": "Wood",
+    "metal": "Metal",
+    "glass": "Glass",
+    "acrylic": "Acrylic",
+    "leather": "Leather",
+    "fabric": "Fabric",
+    "fromPrice": "From ${price}",
+    "startingAt": "Starting at ${price}",
+    "popular": "Popular",
+    "premium": "Premium",
+    "professional": "Professional"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "laserEngraving": "Laser Engraving",
+    "sublimationPrinting": "Sublimation Printing",
+    "dtgPrinting": "DTG Printing",
+    "photoPrinting": "Photo Printing"
+  },
+  "home": {
+    "hero": {
+      "title": "Precision crafted.\nBrand perfected.",
+      "subtitle": "Transform your vision into reality with our cutting-edge laser engraving, sublimation printing, and DTG solutions. Where innovation meets artistry.",
+      "cta": "Get Started",
+      "secondary": "Learn More"
+    },
+    "services": {
+      "title": "Our Expertise",
+      "laserEngraving": {
+        "title": "Laser Engraving",
+        "description": "Precision laser technology for detailed, permanent marking on any material."
+      },
+      "sublimationPrinting": {
+        "title": "Sublimation Printing",
+        "description": "Vibrant, fade-resistant designs that become one with your materials."
+      },
+      "dtgPrinting": {
+        "title": "DTG Printing",
+        "description": "Direct-to-garment printing for complex, colorful designs on textiles."
+      },
+      "photoPrinting": {
+        "title": "Photo Printing",
+        "description": "Professional-grade photo reproduction with exceptional clarity and color."
+      }
+    },
+    "cta": {
+      "title": "Ready to elevate your brand?",
+      "subtitle": "Let's bring your ideas to life with precision and creativity.",
+      "button": "Start Your Project"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive branding solutions powered by cutting-edge technology and expert craftsmanship.",
+    "laserEngraving": {
+      "title": "Laser Engraving",
+      "description": "Precision laser technology for detailed, permanent marking on any material.",
+      "features": [
+        "Wood, metal, glass, and plastic engraving",
+        "Custom logos and text",
+        "Precision cutting services",
+        "Personalized gifts and awards"
+      ]
+    },
+    "sublimationPrinting": {
+      "title": "Sublimation Printing",
+      "description": "Vibrant, fade-resistant designs that become one with your materials.",
+      "features": [
+        "Full-color photo quality prints",
+        "Mugs, t-shirts, and mousepads",
+        "Custom promotional items",
+        "Weather-resistant outdoor signage"
+      ]
+    },
+    "dtgPrinting": {
+      "title": "DTG Printing",
+      "description": "Direct-to-garment printing for complex, colorful designs on textiles.",
+      "features": [
+        "High-quality cotton apparel",
+        "Complex multi-color designs",
+        "Small batch and custom orders",
+        "Eco-friendly water-based inks"
+      ]
+    },
+    "photoPrinting": {
+      "title": "Photo Printing",
+      "description": "Professional-grade photo reproduction with exceptional clarity and color.",
+      "features": [
+        "Canvas and metal prints",
+        "Large format printing",
+        "Color-accurate reproductions",
+        "Gallery-quality materials"
+      ]
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "Contact us today to discuss your project and get a custom quote.",
+      "button": "Get Quote"
+    }
+  },
+  "laserEngraving": {
+    "hero": {
+      "title": "Laser Engraving",
+      "subtitle": "Precision laser technology for detailed, permanent marking on any material. From custom logos to personalized gifts, we bring your vision to life with exceptional quality.",
+      "primaryButton": "Get Started",
+      "secondaryButton": "All Services"
+    },
+    "whatWeOffer": {
+      "title": "What We Offer",
+      "subtitle": "Professional laser engraving services with cutting-edge technology and expert craftsmanship.",
+      "features": [
+        "Wood, metal, glass, and plastic engraving",
+        "Custom logos and text",
+        "Precision cutting services", 
+        "Personalized gifts and awards",
+        "Industrial marking and nameplates",
+        "Architectural signage",
+        "Memorial and commemorative pieces",
+        "Small batch and large volume orders"
+      ]
+    },
+    "cta": {
+      "title": "Ready to create something amazing?",
+      "subtitle": "Let's discuss your laser engraving project and bring your ideas to life with precision and creativity.",
+      "button": "Start Your Project"
+    }
+  }
+}

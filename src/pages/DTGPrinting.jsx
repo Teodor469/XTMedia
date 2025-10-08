@@ -3,6 +3,7 @@ import DTGGallery from '../components/DTGGallery'
 import DTGDesignSection from '../components/DTGDesignSection'
 import { useState } from 'react'
 import QuoteModal from '../components/QuoteModal'
+import './DTGPrinting.css'
 
 function DTGPrinting() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)

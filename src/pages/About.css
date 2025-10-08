@@ -1,0 +1,66 @@
+/* About Page */
+.about-content {
+  padding: 80px 24px;
+  background: white;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 48px 0 24px 0;
+  color: #1d1d1f;
+}
+
+.about-text h2:first-child {
+  margin-top: 0;
+}
+
+.about-text p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #86868b;
+  margin-bottom: 24px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.feature {
+  text-align: center;
+  padding: 32px 24px;
+  background: #f5f5f7;
+  border-radius: 16px;
+}
+
+.feature h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1d1d1f;
+}
+
+.feature p {
+  color: #86868b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .about-content {
+    padding: 60px 16px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}

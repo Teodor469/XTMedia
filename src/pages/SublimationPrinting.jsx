@@ -3,6 +3,7 @@ import SublimationGallery from '../components/SublimationGallery'
 import SublimationDesignSection from '../components/SublimationDesignSection'
 import { useState } from 'react'
 import QuoteModal from '../components/QuoteModal'
+import './SublimationPrinting.css'
 
 function SublimationPrinting() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)

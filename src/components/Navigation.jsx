@@ -1,7 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import LanguageSwitcher from './LanguageSwitcher'
 
 function Navigation() {
   const location = useLocation()
+  const { t } = useTranslation()
 
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/'
@@ -17,20 +20,21 @@ function Navigation() {
             to="/services" 
             className={isActive('/services') ? 'active' : ''}
           >
-            Services
+            {t('navigation.services')}
           </Link>
           <Link 
             to="/about" 
             className={isActive('/about') ? 'active' : ''}
           >
-            About
+            {t('navigation.about')}
           </Link>
           <Link 
             to="/contact" 
             className={isActive('/contact') ? 'active' : ''}
           >
-            Contact
+            {t('navigation.contact')}
           </Link>
+          <LanguageSwitcher />
         </div>
       </div>
     </nav>

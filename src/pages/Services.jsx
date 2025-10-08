@@ -1,50 +1,34 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import './Services.css'
 
 function Services() {
+  const { t } = useTranslation()
+
   const services = [
     {
       icon: '⚡',
-      title: 'Laser Engraving',
-      description: 'Precision laser technology for detailed, permanent marking on any material.',
-      features: [
-        'Wood, metal, glass, and plastic engraving',
-        'Custom logos and text',
-        'Precision cutting services',
-        'Personalized gifts and awards'
-      ]
+      titleKey: 'services.laserEngraving.title',
+      descriptionKey: 'services.laserEngraving.description',
+      featuresKey: 'services.laserEngraving.features'
     },
     {
       icon: '🎨',
-      title: 'Sublimation Printing',
-      description: 'Vibrant, fade-resistant designs that become one with your materials.',
-      features: [
-        'Full-color photo quality prints',
-        'Mugs, t-shirts, and mousepads',
-        'Custom promotional items',
-        'Weather-resistant outdoor signage'
-      ]
+      titleKey: 'services.sublimationPrinting.title',
+      descriptionKey: 'services.sublimationPrinting.description',
+      featuresKey: 'services.sublimationPrinting.features'
     },
     {
       icon: '👕',
-      title: 'DTG Printing',
-      description: 'Direct-to-garment printing for complex, colorful designs on textiles.',
-      features: [
-        'High-quality cotton apparel',
-        'Complex multi-color designs',
-        'Small batch and custom orders',
-        'Eco-friendly water-based inks'
-      ]
+      titleKey: 'services.dtgPrinting.title',
+      descriptionKey: 'services.dtgPrinting.description',
+      featuresKey: 'services.dtgPrinting.features'
     },
     {
       icon: '📸',
-      title: 'Photo Printing',
-      description: 'Professional-grade photo reproduction with exceptional clarity and color.',
-      features: [
-        'Canvas and metal prints',
-        'Large format printing',
-        'Color-accurate reproductions',
-        'Gallery-quality materials'
-      ]
+      titleKey: 'services.photoPrinting.title',
+      descriptionKey: 'services.photoPrinting.description',
+      featuresKey: 'services.photoPrinting.features'
     }
   ]
 
@@ -52,9 +36,9 @@ function Services() {
     <>
       <section className="page-hero">
         <div className="page-hero-content">
-          <h1 className="page-title">Our Services</h1>
+          <h1 className="page-title">{t('services.title')}</h1>
           <p className="page-subtitle">
-            Comprehensive branding solutions powered by cutting-edge technology and expert craftsmanship.
+            {t('services.subtitle')}
           </p>
         </div>
       </section>
@@ -67,12 +51,12 @@ function Services() {
                 <div className="service-detailed-header">
                   <div className="service-icon">{service.icon}</div>
                   <div>
-                    <h2>{service.title}</h2>
-                    <p>{service.description}</p>
+                    <h2>{t(service.titleKey)}</h2>
+                    <p>{t(service.descriptionKey)}</p>
                   </div>
                 </div>
                 <ul className="service-features">
-                  {service.features.map((feature, idx) => (
+                  {t(service.featuresKey, { returnObjects: true }).map((feature, idx) => (
                     <li key={idx}>{feature}</li>
                   ))}
                 </ul>
@@ -80,28 +64,28 @@ function Services() {
                 {index === 0 && (
                   <div className="service-action">
                     <Link to="/services/laser-engraving" className="btn-primary">
-                      View Gallery & Details
+                      {t('common.viewGallery')}
                     </Link>
                   </div>
                 )}
                 {index === 1 && (
                   <div className="service-action">
                     <Link to="/services/sublimation-printing" className="btn-primary">
-                      View Gallery & Details
+                      {t('common.viewGallery')}
                     </Link>
                   </div>
                 )}
                 {index === 2 && (
                   <div className="service-action">
                     <Link to="/services/dtg-printing" className="btn-primary">
-                      View Gallery & Details
+                      {t('common.viewGallery')}
                     </Link>
                   </div>
                 )}
                 {index === 3 && (
                   <div className="service-action">
                     <Link to="/services/photo-printing" className="btn-primary">
-                      View Gallery & Details
+                      {t('common.viewGallery')}
                     </Link>
                   </div>
                 )}
@@ -113,9 +97,9 @@ function Services() {
 
       <section className="cta">
         <div className="cta-content">
-          <h2>Ready to get started?</h2>
-          <p>Contact us today to discuss your project and get a custom quote.</p>
-          <Link to="/contact" className="btn-primary">Get Quote</Link>
+          <h2>{t('services.cta.title')}</h2>
+          <p>{t('services.cta.subtitle')}</p>
+          <Link to="/contact" className="btn-primary">{t('services.cta.button')}</Link>
         </div>
       </section>
     </>

@@ -1,0 +1,437 @@
+/* DTG Gallery */
+.dtg-gallery {
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  padding: 80px 24px;
+}
+
+/* DTG Design Section */
+.dtg-design-section {
+  background: #fafafa;
+  padding: 80px 24px;
+  margin-top: 60px;
+}
+
+/* Apparel Cards */
+.apparel-section {
+  animation: fadeInUp 0.5s ease;
+}
+
+.apparel-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.apparel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.apparel-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.apparel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.apparel-card.selected {
+  border-color: #ec4899;
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.2);
+}
+
+.apparel-preview {
+  height: 200px;
+  background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.apparel-info {
+  padding: 24px;
+}
+
+.apparel-info h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1d1d1f;
+}
+
+.apparel-info p {
+  color: #86868b;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.apparel-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.apparel-features .feature-tag {
+  font-size: 0.75rem;
+  background: #fdf2f8;
+  color: #ec4899;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.apparel-sizes,
+.apparel-colors {
+  margin-bottom: 16px;
+}
+
+.apparel-sizes p,
+.apparel-colors p {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1d1d1f;
+  margin-bottom: 8px;
+}
+
+.sizes-list,
+.colors-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.color-tag {
+  font-size: 0.75rem;
+  background: #f8fafc;
+  color: #64748b;
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.apparel-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apparel-price {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ec4899;
+}
+
+.btn-apparel-select {
+  background: #ec4899;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-apparel-select:hover {
+  background: #db2777;
+  transform: scale(1.05);
+}
+
+.apparel-card.selected .btn-apparel-select {
+  background: #10b981;
+}
+
+/* Apparel Customization */
+.apparel-customization {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  margin-top: 32px;
+}
+
+.apparel-customization h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #1d1d1f;
+}
+
+/* DTG Process Section */
+.dtg-process {
+  background: white;
+  padding: 80px 24px;
+}
+
+.dtg-process .process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.dtg-process .process-step {
+  padding: 24px;
+  background: #fafafa;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.dtg-process .process-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dtg-process .process-step .step-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.dtg-process .process-step h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1d1d1f;
+}
+
+.dtg-process .process-step p {
+  color: #86868b;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+/* DTG Advantages Section */
+.dtg-advantages {
+  background: #f8fafc;
+  padding: 80px 24px;
+}
+
+.advantages-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.advantage-card {
+  background: white;
+  padding: 32px 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.advantage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.advantage-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.advantage-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1d1d1f;
+}
+
+.advantage-card p {
+  color: #86868b;
+  line-height: 1.6;
+  font-size: 0.875rem;
+}
+
+/* Guidelines Section */
+.guidelines-section {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.5s ease;
+}
+
+.guidelines-intro {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.guidelines-intro h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1d1d1f;
+}
+
+.guidelines-intro p {
+  color: #86868b;
+  font-size: 1rem;
+}
+
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.guideline-card {
+  background: #f8fafc;
+  padding: 24px;
+  border-radius: 12px;
+  border-left: 4px solid #ec4899;
+}
+
+.guideline-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.guideline-card h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1d1d1f;
+}
+
+.guideline-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.guideline-card li {
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.guideline-card li::before {
+  content: '•';
+  color: #ec4899;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.guideline-card strong {
+  color: #1d1d1f;
+}
+
+.guidelines-tips {
+  background: #fdf2f8;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.guidelines-tips h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1d1d1f;
+}
+
+.tips-list {
+  display: grid;
+  gap: 16px;
+}
+
+.tip {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  color: #64748b;
+  line-height: 1.5;
+  border-left: 3px solid #ec4899;
+}
+
+.tip strong {
+  color: #1d1d1f;
+}
+
+.guidelines-action {
+  text-align: center;
+}
+
+/* Design Upload Section */
+.design-upload-section {
+  animation: fadeInUp 0.5s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dtg-gallery,
+  .dtg-design-section,
+  .dtg-process,
+  .dtg-advantages {
+    padding: 60px 16px;
+  }
+  
+  .apparel-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dtg-process .process-steps {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+  }
+  
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .guidelines-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .apparel-customization {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .apparel-card {
+    margin: 0 -8px;
+  }
+  
+  .dtg-process .process-step,
+  .advantage-card,
+  .guideline-card {
+    padding: 20px 16px;
+  }
+  
+  .guidelines-section {
+    padding: 24px 16px;
+  }
+}

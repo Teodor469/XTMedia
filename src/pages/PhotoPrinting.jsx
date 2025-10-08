@@ -3,6 +3,7 @@ import PhotoGallery from '../components/PhotoGallery'
 import PhotoDesignSection from '../components/PhotoDesignSection'
 import { useState } from 'react'
 import QuoteModal from '../components/QuoteModal'
+import './PhotoPrinting.css'
 
 function PhotoPrinting() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
