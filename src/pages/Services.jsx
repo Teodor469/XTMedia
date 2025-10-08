@@ -76,6 +76,35 @@ function Services() {
                     <li key={idx}>{feature}</li>
                   ))}
                 </ul>
+                {/* Add View Details buttons for specialized services */}
+                {index === 0 && (
+                  <div className="service-action">
+                    <Link to="/services/laser-engraving" className="btn-primary">
+                      View Gallery & Details
+                    </Link>
+                  </div>
+                )}
+                {index === 1 && (
+                  <div className="service-action">
+                    <Link to="/services/sublimation-printing" className="btn-primary">
+                      View Gallery & Details
+                    </Link>
+                  </div>
+                )}
+                {index === 2 && (
+                  <div className="service-action">
+                    <Link to="/services/dtg-printing" className="btn-primary">
+                      View Gallery & Details
+                    </Link>
+                  </div>
+                )}
+                {index === 3 && (
+                  <div className="service-action">
+                    <Link to="/services/photo-printing" className="btn-primary">
+                      View Gallery & Details
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           ))}

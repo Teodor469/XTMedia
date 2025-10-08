@@ -25,26 +25,26 @@ function Home() {
         <div className="services-content">
           <h2 className="section-title">Our Expertise</h2>
           <div className="services-grid">
-            <div className="service-card">
+            <Link to="/services/laser-engraving" className="service-card">
               <div className="service-icon">⚡</div>
               <h3>Laser Engraving</h3>
               <p>Precision laser technology for detailed, permanent marking on any material.</p>
-            </div>
-            <div className="service-card">
+            </Link>
+            <Link to="/services/sublimation-printing" className="service-card">
               <div className="service-icon">🎨</div>
               <h3>Sublimation Printing</h3>
               <p>Vibrant, fade-resistant designs that become one with your materials.</p>
-            </div>
-            <div className="service-card">
+            </Link>
+            <Link to="/services/dtg-printing" className="service-card">
               <div className="service-icon">👕</div>
               <h3>DTG Printing</h3>
               <p>Direct-to-garment printing for complex, colorful designs on textiles.</p>
-            </div>
-            <div className="service-card">
+            </Link>
+            <Link to="/services/photo-printing" className="service-card">
               <div className="service-icon">📸</div>
               <h3>Photo Printing</h3>
               <p>Professional-grade photo reproduction with exceptional clarity and color.</p>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
