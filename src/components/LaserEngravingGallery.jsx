@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import ProcessTimeline from './ProcessTimeline'
 import CustomDesignSection from './CustomDesignSection'
 import QuoteModal from './QuoteModal'
 
 function LaserEngravingGallery() {
+  const { t } = useTranslation()
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedImage, setSelectedImage] = useState(null)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
@@ -17,92 +19,92 @@ function LaserEngravingGallery() {
     {
       id: 1,
       category: 'wood',
-      material: 'Oak Wood',
-      title: 'Custom Logo Engraving',
-      description: 'Precision corporate logo on premium oak',
+      material: t('laserEngraving.gallery.items.customLogo.material'),
+      title: t('laserEngraving.gallery.items.customLogo.title'),
+      description: t('laserEngraving.gallery.items.customLogo.description'),
       size: 'large',
       placeholder: 'Wood-Logo-Large'
     },
     {
       id: 2,
       category: 'metal',
-      material: 'Stainless Steel',
-      title: 'Industrial Nameplate',
-      description: 'Durable marking for industrial equipment',
+      material: t('laserEngraving.gallery.items.industrialNameplate.material'),
+      title: t('laserEngraving.gallery.items.industrialNameplate.title'),
+      description: t('laserEngraving.gallery.items.industrialNameplate.description'),
       size: 'medium',
       placeholder: 'Metal-Nameplate-Med'
     },
     {
       id: 3,
       category: 'glass',
-      material: 'Crystal Glass',
-      title: 'Award Trophy',
-      description: 'Elegant engraving for recognition',
+      material: t('laserEngraving.gallery.items.awardTrophy.material'),
+      title: t('laserEngraving.gallery.items.awardTrophy.title'),
+      description: t('laserEngraving.gallery.items.awardTrophy.description'),
       size: 'small',
       placeholder: 'Glass-Trophy-Small'
     },
     {
       id: 4,
       category: 'wood',
-      material: 'Bamboo',
-      title: 'Personalized Cutting Board',
-      description: 'Custom family name and design',
+      material: t('laserEngraving.gallery.items.cuttingBoard.material'),
+      title: t('laserEngraving.gallery.items.cuttingBoard.title'),
+      description: t('laserEngraving.gallery.items.cuttingBoard.description'),
       size: 'medium',
       placeholder: 'Bamboo-Board-Med'
     },
     {
       id: 5,
       category: 'acrylic',
-      material: 'Clear Acrylic',
-      title: 'Business Signage',
-      description: 'Professional office door sign',
+      material: t('laserEngraving.gallery.items.businessSignage.material'),
+      title: t('laserEngraving.gallery.items.businessSignage.title'),
+      description: t('laserEngraving.gallery.items.businessSignage.description'),
       size: 'large',
       placeholder: 'Acrylic-Sign-Large'
     },
     {
       id: 6,
       category: 'metal',
-      material: 'Aluminum',
-      title: 'Jewelry Engraving',
-      description: 'Delicate text on jewelry piece',
+      material: t('laserEngraving.gallery.items.jewelryEngraving.material'),
+      title: t('laserEngraving.gallery.items.jewelryEngraving.title'),
+      description: t('laserEngraving.gallery.items.jewelryEngraving.description'),
       size: 'small',
       placeholder: 'Metal-Jewelry-Small'
     },
     {
       id: 7,
       category: 'wood',
-      material: 'Walnut',
-      title: 'Wedding Guest Book',
-      description: 'Romantic design for special day',
+      material: t('laserEngraving.gallery.items.weddingGuestBook.material'),
+      title: t('laserEngraving.gallery.items.weddingGuestBook.title'),
+      description: t('laserEngraving.gallery.items.weddingGuestBook.description'),
       size: 'medium',
       placeholder: 'Wood-Wedding-Med'
     },
     {
       id: 8,
       category: 'glass',
-      material: 'Frosted Glass',
-      title: 'Corporate Gift',
-      description: 'Executive desk accessory',
+      material: t('laserEngraving.gallery.items.corporateGift.material'),
+      title: t('laserEngraving.gallery.items.corporateGift.title'),
+      description: t('laserEngraving.gallery.items.corporateGift.description'),
       size: 'small',
       placeholder: 'Glass-Corporate-Small'
     },
     {
       id: 9,
       category: 'acrylic',
-      material: 'Colored Acrylic',
-      title: 'Decorative Panel',
-      description: 'Artistic wall decoration',
+      material: t('laserEngraving.gallery.items.decorativePanel.material'),
+      title: t('laserEngraving.gallery.items.decorativePanel.title'),
+      description: t('laserEngraving.gallery.items.decorativePanel.description'),
       size: 'large',
       placeholder: 'Acrylic-Art-Large'
     }
   ]
 
   const categories = [
-    { id: 'all', name: 'All Materials', icon: '🎯' },
-    { id: 'wood', name: 'Wood', icon: '🌳' },
-    { id: 'metal', name: 'Metal', icon: '⚙️' },
-    { id: 'glass', name: 'Glass', icon: '💎' },
-    { id: 'acrylic', name: 'Acrylic', icon: '🔷' }
+    { id: 'all', name: t('laserEngraving.gallery.categories.all'), icon: '🎯' },
+    { id: 'wood', name: t('laserEngraving.gallery.categories.wood'), icon: '🌳' },
+    { id: 'metal', name: t('laserEngraving.gallery.categories.metal'), icon: '⚙️' },
+    { id: 'glass', name: t('laserEngraving.gallery.categories.glass'), icon: '💎' },
+    { id: 'acrylic', name: t('laserEngraving.gallery.categories.acrylic'), icon: '🔷' }
   ]
 
   const filteredItems = selectedCategory === 'all' 
@@ -125,8 +127,8 @@ function LaserEngravingGallery() {
   return (
     <div className="laser-gallery">
       <div className="gallery-header">
-        <h3>Our Laser Engraving Portfolio</h3>
-        <p>Explore our precision craftsmanship across various materials</p>
+        <h3>{t('laserEngraving.gallery.title')}</h3>
+        <p>{t('laserEngraving.gallery.subtitle')}</p>
       </div>
 
       <div className="gallery-filters">
@@ -162,7 +164,7 @@ function LaserEngravingGallery() {
                 <p className="material-tag">{item.material}</p>
                 <p className="description">{item.description}</p>
                 <div className="gallery-actions">
-                  <button className="btn-ghost">View Details</button>
+                  <button className="btn-ghost">{t('laserEngraving.gallery.buttons.viewDetails')}</button>
                   <button 
                     className="btn-primary-small"
                     onClick={(e) => {
@@ -170,7 +172,7 @@ function LaserEngravingGallery() {
                       handleGetQuote('laser-engraving', item.material, item.title)
                     }}
                   >
-                    Get Quote
+                    {t('laserEngraving.gallery.buttons.getQuote')}
                   </button>
                 </div>
               </div>
@@ -195,7 +197,7 @@ function LaserEngravingGallery() {
               <p className="modal-material">{selectedImage.material}</p>
               <p className="modal-description">{selectedImage.description}</p>
               <div className="modal-actions">
-                <button className="btn-secondary">Similar Projects</button>
+                <button className="btn-secondary">{t('laserEngraving.gallery.buttons.similarProjects')}</button>
                 <button 
                   className="btn-primary"
                   onClick={() => {
@@ -203,7 +205,7 @@ function LaserEngravingGallery() {
                     handleGetQuote('laser-engraving', selectedImage.material, selectedImage.title)
                   }}
                 >
-                  Request Quote
+                  {t('laserEngraving.gallery.buttons.requestQuote')}
                 </button>
               </div>
             </div>

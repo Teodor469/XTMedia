@@ -141,6 +141,249 @@
       "title": "Ready to create something amazing?",
       "subtitle": "Let's discuss your laser engraving project and bring your ideas to life with precision and creativity.",
       "button": "Start Your Project"
+    },
+    "gallery": {
+      "title": "Our Laser Engraving Portfolio",
+      "subtitle": "Explore our precision craftsmanship across various materials",
+      "categories": {
+        "all": "All Materials",
+        "wood": "Wood",
+        "metal": "Metal", 
+        "glass": "Glass",
+        "acrylic": "Acrylic"
+      },
+      "items": {
+        "customLogo": {
+          "title": "Custom Logo Engraving",
+          "description": "Precision corporate logo on premium oak",
+          "material": "Oak Wood"
+        },
+        "industrialNameplate": {
+          "title": "Industrial Nameplate", 
+          "description": "Durable marking for industrial equipment",
+          "material": "Stainless Steel"
+        },
+        "awardTrophy": {
+          "title": "Award Trophy",
+          "description": "Elegant engraving for recognition", 
+          "material": "Crystal Glass"
+        },
+        "cuttingBoard": {
+          "title": "Personalized Cutting Board",
+          "description": "Custom family name and design",
+          "material": "Bamboo"
+        },
+        "businessSignage": {
+          "title": "Business Signage",
+          "description": "Professional office door sign",
+          "material": "Clear Acrylic"
+        },
+        "jewelryEngraving": {
+          "title": "Jewelry Engraving", 
+          "description": "Delicate text on jewelry piece",
+          "material": "Aluminum"
+        },
+        "weddingGuestBook": {
+          "title": "Wedding Guest Book",
+          "description": "Romantic design for special day",
+          "material": "Walnut"
+        },
+        "corporateGift": {
+          "title": "Corporate Gift",
+          "description": "Executive desk accessory",
+          "material": "Frosted Glass"
+        },
+        "decorativePanel": {
+          "title": "Decorative Panel",
+          "description": "Artistic wall decoration", 
+          "material": "Colored Acrylic"
+        }
+      },
+      "buttons": {
+        "viewDetails": "View Details",
+        "getQuote": "Get Quote",
+        "similarProjects": "Similar Projects",
+        "requestQuote": "Request Quote"
+      }
+    },
+    "processTimeline": {
+      "title": "Our Laser Engraving Process",
+      "subtitle": "From concept to completion - see how we bring your vision to life",
+      "steps": {
+        "consultation": {
+          "title": "Design Consultation",
+          "description": "We work with you to understand your vision and requirements",
+          "details": "Our team discusses your project goals, material preferences, size requirements, and design specifications. We provide expert recommendations based on your needs and budget.",
+          "duration": "30-60 min"
+        },
+        "creation": {
+          "title": "Design Creation", 
+          "description": "Professional design creation or your artwork preparation",
+          "details": "We either create custom designs from scratch or prepare your existing artwork for laser engraving. This includes file optimization, sizing, and material-specific adjustments.",
+          "duration": "1-3 days"
+        },
+        "setup": {
+          "title": "Material Setup",
+          "description": "Precise material placement and laser calibration", 
+          "details": "Your chosen material is carefully positioned and secured. Our laser system is calibrated for optimal settings including power, speed, and focus based on material type and thickness.",
+          "duration": "15-30 min"
+        },
+        "engraving": {
+          "title": "Laser Engraving",
+          "description": "High-precision laser engraving process",
+          "details": "The laser precisely removes material according to your design. Our advanced systems ensure consistent depth and clean edges. Complex designs are completed in multiple passes if needed.",
+          "duration": "5 min - 2 hours"
+        },
+        "finishing": {
+          "title": "Quality Check", 
+          "description": "Thorough inspection and finishing touches",
+          "details": "Each piece is carefully inspected for quality and precision. Any excess material is cleaned away, and finishing touches are applied as needed.",
+          "duration": "10-15 min"
+        },
+        "delivery": {
+          "title": "Delivery",
+          "description": "Secure packaging and prompt delivery", 
+          "details": "Your finished piece is carefully packaged to prevent damage during transport. We offer various delivery options including pickup, local delivery, and shipping.",
+          "duration": "1-3 days"
+        }
+      },
+      "navigation": {
+        "step": "Step",
+        "of": "of", 
+        "typicalDuration": "Typical duration:",
+        "previous": "← Previous",
+        "next": "Next →"
+      }
+    },
+    "customDesign": {
+      "title": "Custom Design Solutions",
+      "subtitle": "Choose from our templates or upload your own design for a truly personalized result",
+      "tabs": {
+        "templates": "Design Templates",
+        "upload": "Upload Design",
+        "custom": "Custom Design"
+      },
+      "templates": {
+        "corporateLogo": {
+          "name": "Corporate Logo Template",
+          "description": "Professional logo layout for business cards and signage",
+          "price": "$25",
+          "features": ["Vector format", "Scalable design", "Multiple variants"]
+        },
+        "weddingInvitation": {
+          "name": "Wedding Invitation",
+          "description": "Elegant design for wedding invitations and save the dates", 
+          "price": "$15",
+          "features": ["Customizable text", "Romantic fonts", "Border designs"]
+        },
+        "memorialPlaque": {
+          "name": "Memorial Plaque",
+          "description": "Respectful and elegant memorial designs",
+          "price": "$35", 
+          "features": ["Traditional layouts", "Custom text", "Symbol options"]
+        }
+      },
+      "upload": {
+        "title": "Upload Your Design",
+        "description": "Have your own design? Upload it and we'll prepare it for laser engraving.",
+        "supportedFormats": "Supported formats: AI, EPS, PDF, SVG, PNG, JPG",
+        "requirements": [
+          "High resolution (300 DPI minimum)",
+          "Vector format preferred for best results", 
+          "Black and white or grayscale designs work best",
+          "Maximum file size: 10MB"
+        ],
+        "dropzone": "Drag & drop your file here or click to browse",
+        "button": "Choose File"
+      },
+      "custom": {
+        "title": "Custom Design Service",
+        "description": "Let our professional designers create something unique for you",
+        "process": [
+          "Tell us about your vision and requirements",
+          "Our designers create initial concepts",
+          "Review and provide feedback",
+          "Receive final design ready for engraving"
+        ],
+        "pricing": "Starting at $50 for custom design work",
+        "timeline": "Design process typically takes 2-5 business days"
+      },
+      "buttons": {
+        "selectTemplate": "Select Template",
+        "uploadFile": "Upload File", 
+        "requestCustom": "Request Custom Design",
+        "getQuoteWithDesign": "Get Quote with This Design",
+        "selected": "Selected",
+        "select": "Select",
+        "addToCart": "Add to Cart",
+        "getQuote": "Get Quote",
+        "remove": "×",
+        "startProject": "Start Custom Design Project"
+      },
+      "header": {
+        "title": "Custom Design Center",
+        "subtitle": "Create your perfect design or choose from our professional templates"
+      },
+      "categories": {
+        "all": "All",
+        "business": "Business",
+        "personal": "Personal", 
+        "memorial": "Memorial",
+        "home": "Home"
+      },
+      "forms": {
+        "customizeTemplate": "Customize \"{name}\"",
+        "yourText": "Your Text",
+        "fontStyle": "Font Style",
+        "material": "Material",
+        "designSpecs": "Design Specifications",
+        "width": "Width (inches)",
+        "height": "Height (inches)",
+        "selectMaterial": "Select material...",
+        "specialInstructions": "Special Instructions",
+        "projectType": "Project Type",
+        "selectProjectType": "Select project type...",
+        "designDescription": "Design Description",
+        "preferredMaterial": "Preferred Material",
+        "approximateSize": "Approximate Size",
+        "budgetRange": "Budget Range",
+        "whatHappensNext": "What happens next:",
+        "placeholders": {
+          "customText": "Enter your custom text...",
+          "designVision": "Describe your vision, style preferences, text content, and any specific requirements...",
+          "specialRequirements": "Any special requirements or notes...",
+          "widthExample": "e.g., 6",
+          "heightExample": "e.g., 4"
+        },
+        "options": {
+          "fontStyles": ["Modern Sans", "Classic Serif", "Script Elegant", "Bold Display"],
+          "materials": ["Oak Wood", "Stainless Steel", "Clear Acrylic", "Frosted Glass"],
+          "projectTypes": ["Business Signage", "Personal Gift", "Memorial Piece", "Award/Trophy", "Home Decor", "Other"],
+          "materialPreferences": ["No preference", "Wood (Oak, Walnut, etc.)", "Metal (Steel, Aluminum)", "Acrylic (Clear, Colored)", "Glass (Clear, Frosted)"],
+          "sizes": ["Small (under 6\")", "Medium (6\" - 12\")", "Large (12\" - 24\")", "Extra Large (24\"+)"],
+          "budgets": ["$25 - $50", "$50 - $100", "$100 - $250", "$250 - $500", "$500+"]
+        },
+        "processSteps": [
+          "We'll review your requirements within 24 hours",
+          "Our designer will create initial concepts", 
+          "We'll collaborate on revisions",
+          "Final design approval and production"
+        ]
+      },
+      "fileUpload": {
+        "title": "Upload Your Design",
+        "description": "Drag and drop your file here or click to browse",
+        "supportedFormats": "Supported: JPG, PNG, SVG, PDF, AI",
+        "fileInfo": {
+          "size": "Size:",
+          "type": "Type:",
+          "mb": "MB"
+        }
+      },
+      "customService": {
+        "title": "Work with Our Design Team", 
+        "description": "Let our professional designers create a completely custom piece for you"
+      }
     }
   }
 }

@@ -1,105 +1,117 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import emailjs from 'emailjs-com';
+import './QuoteModal.css'
 
 function QuoteModal({ isOpen, onClose, projectType = '', material = '', design = '' }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    projectType: projectType,
-    material: material,
-    design: design,
-    width: '',
-    height: '',
-    quantity: '1',
-    timeline: '',
-    description: '',
-    budget: ''
-  })
+  // --- React Hook Form Setup ---
+  const {
+    register,
+    handleSubmit,
+    trigger, // Used to manually trigger validation
+    reset,   // Used to reset the form fields
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm({
+    // Set default values for the form, useful for pre-filling from props
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      projectType: projectType,
+      material: material,
+      design: design,
+      width: '',
+      height: '',
+      quantity: '1',
+      timeline: '',
+      description: '',
+      budget: '',
+    },
+  });
 
-  const [currentStep, setCurrentStep] = useState(1)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [currentStep, setCurrentStep] = useState(1);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
+  // --- Effect to handle successful submission ---
+  // This replaces the logic that was inside the old handleSubmit function.
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      const timer = setTimeout(() => {
+        onClose(); // Close the modal
+        setCurrentStep(1); // Reset to the first step for next time
+        reset(); // Reset form fields to their default values
+      }, 3000);
 
-  const handleNextStep = () => {
-    if (currentStep < 3) {
-      setCurrentStep(currentStep + 1)
+      // Cleanup timeout if the component unmounts
+      return () => clearTimeout(timer);
     }
-  }
+  }, [isSubmitSuccessful, onClose, reset]);
+
+  // --- Effect to update form values if props change ---
+  useEffect(() => {
+    // This ensures if the modal is re-opened with new props, the form updates.
+    reset({ projectType, material, design });
+  }, [projectType, material, design, reset, isOpen]);
+
+
+  // --- Step Navigation ---
+  // Define which fields belong to which step for validation
+  const fieldsByStep = {
+    1: ['name', 'email'],
+    2: ['width', 'height', 'quantity'],
+    3: [], // No required fields on step 3, so no validation needed to proceed
+  };
+
+  const handleNextStep = async () => {
+    // Trigger validation for the fields on the current step
+    const isValid = await trigger(fieldsByStep[currentStep]);
+    if (isValid && currentStep < 3) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
 
   const handlePrevStep = () => {
     if (currentStep > 1) {
-      setCurrentStep(currentStep - 1)
+      setCurrentStep(currentStep - 1);
     }
-  }
+  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    
-    // Auto close after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setCurrentStep(1)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        projectType: '',
-        material: '',
-        design: '',
-        width: '',
-        height: '',
-        quantity: '1',
-        timeline: '',
-        description: '',
-        budget: ''
-      })
-      onClose()
-    }, 3000)
-  }
+  // --- EmailJS credentials ---
+  const SERVICE_ID = 'service_08rzodn';
+  const TEMPLATE_ID = 'template_9lykb25';
+  const PUBLIC_KEY = 'TuZi83K6rXe00z2w6';
 
-  if (!isOpen) return null
+  // --- Form Submission Handler ---
+  const onSubmit = async (data) => {
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, data, PUBLIC_KEY);
+      // The useEffect for isSubmitSuccessful will handle the rest.
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      alert('Oops! Something went wrong. Please try again later.');
+    }
+  };
+
+  if (!isOpen) return null;
 
   return (
     <div className="quote-modal-overlay" onClick={onClose}>
-      <div className="quote-modal" onClick={e => e.stopPropagation()}>
+      <div className="quote-modal" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close" onClick={onClose}>×</button>
         
-        {!isSubmitted ? (
+        {!isSubmitSuccessful ? (
           <>
             <div className="quote-header">
               <h2>Get Your Custom Quote</h2>
               <div className="step-indicator">
-                <div className={`step ${currentStep >= 1 ? 'active' : ''}`}>
-                  <span>1</span>
-                  <p>Contact</p>
-                </div>
-                <div className={`step ${currentStep >= 2 ? 'active' : ''}`}>
-                  <span>2</span>
-                  <p>Project</p>
-                </div>
-                <div className={`step ${currentStep >= 3 ? 'active' : ''}`}>
-                  <span>3</span>
-                  <p>Details</p>
-                </div>
+                {/* Step indicator remains the same */}
+                <div className={`step ${currentStep >= 1 ? 'active' : ''}`}><span>1</span><p>Contact</p></div>
+                <div className={`step ${currentStep >= 2 ? 'active' : ''}`}><span>2</span><p>Project</p></div>
+                <div className={`step ${currentStep >= 3 ? 'active' : ''}`}><span>3</span><p>Details</p></div>
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="quote-form">
+            {/* We pass our onSubmit function wrapped in the library's handleSubmit */}
+            <form onSubmit={handleSubmit(onSubmit)} className="quote-form" noValidate>
               {currentStep === 1 && (
                 <div className="form-step">
                   <h3>Contact Information</h3>
@@ -107,32 +119,32 @@ function QuoteModal({ isOpen, onClose, projectType = '', material = '', design =
                     <label>Full Name *</label>
                     <input
                       type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
                       placeholder="Enter your full name"
+                      {...register('name', { required: 'Full Name is required' })}
                     />
+                    {errors.name && <p className="error-message">{errors.name.message}</p>}
                   </div>
                   <div className="form-group">
                     <label>Email Address *</label>
                     <input
                       type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
                       placeholder="your@email.com"
+                      {...register('email', {
+                        required: 'Email is required',
+                        pattern: {
+                          value: /^\S+@\S+$/i,
+                          message: 'Please enter a valid email address',
+                        },
+                      })}
                     />
+                    {errors.email && <p className="error-message">{errors.email.message}</p>}
                   </div>
                   <div className="form-group">
                     <label>Phone Number</label>
                     <input
                       type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="(555) 123-4567"
+                      placeholder="+359 1234 567 89"
+                      {...register('phone')}
                     />
                   </div>
                 </div>
@@ -143,11 +155,7 @@ function QuoteModal({ isOpen, onClose, projectType = '', material = '', design =
                   <h3>Project Specifications</h3>
                   <div className="form-group">
                     <label>Project Type</label>
-                    <select
-                      name="projectType"
-                      value={formData.projectType}
-                      onChange={handleInputChange}
-                    >
+                    <select {...register('projectType')}>
                       <option value="">Select project type</option>
                       <option value="business-signage">Business Signage</option>
                       <option value="personal-gift">Personal Gift</option>
@@ -159,11 +167,7 @@ function QuoteModal({ isOpen, onClose, projectType = '', material = '', design =
                   </div>
                   <div className="form-group">
                     <label>Material Preference</label>
-                    <select
-                      name="material"
-                      value={formData.material}
-                      onChange={handleInputChange}
-                    >
+                    <select {...register('material')}>
                       <option value="">Select material</option>
                       <option value="oak-wood">Oak Wood</option>
                       <option value="walnut-wood">Walnut Wood</option>
@@ -181,37 +185,31 @@ function QuoteModal({ isOpen, onClose, projectType = '', material = '', design =
                       <label>Width (inches)</label>
                       <input
                         type="number"
-                        name="width"
-                        value={formData.width}
-                        onChange={handleInputChange}
                         placeholder="e.g., 6"
                         step="0.1"
-                        min="0.1"
+                        {...register('width', { min: { value: 0.1, message: 'Must be > 0' }, valueAsNumber: true })}
                       />
+                      {errors.width && <p className="error-message">{errors.width.message}</p>}
                     </div>
                     <div className="form-group">
                       <label>Height (inches)</label>
                       <input
                         type="number"
-                        name="height"
-                        value={formData.height}
-                        onChange={handleInputChange}
                         placeholder="e.g., 4"
                         step="0.1"
-                        min="0.1"
+                        {...register('height', { min: { value: 0.1, message: 'Must be > 0' }, valueAsNumber: true })}
                       />
+                      {errors.height && <p className="error-message">{errors.height.message}</p>}
                     </div>
                   </div>
                   <div className="form-group">
                     <label>Quantity</label>
                     <input
                       type="number"
-                      name="quantity"
-                      value={formData.quantity}
-                      onChange={handleInputChange}
-                      min="1"
                       placeholder="1"
+                      {...register('quantity', { min: { value: 1, message: 'Minimum 1' }, valueAsNumber: true })}
                     />
+                     {errors.quantity && <p className="error-message">{errors.quantity.message}</p>}
                   </div>
                 </div>
               )}
@@ -219,13 +217,9 @@ function QuoteModal({ isOpen, onClose, projectType = '', material = '', design =
               {currentStep === 3 && (
                 <div className="form-step">
                   <h3>Additional Details</h3>
-                  <div className="form-group">
+                   <div className="form-group">
                     <label>Timeline Needed</label>
-                    <select
-                      name="timeline"
-                      value={formData.timeline}
-                      onChange={handleInputChange}
-                    >
+                    <select {...register('timeline')}>
                       <option value="">Select timeline</option>
                       <option value="rush-1-3-days">Rush (1-3 days) - Additional cost</option>
                       <option value="standard-1-week">Standard (1 week)</option>
@@ -234,11 +228,7 @@ function QuoteModal({ isOpen, onClose, projectType = '', material = '', design =
                   </div>
                   <div className="form-group">
                     <label>Budget Range</label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                    >
+                    <select {...register('budget')}>
                       <option value="">Select budget range</option>
                       <option value="25-50">$25 - $50</option>
                       <option value="50-100">$50 - $100</option>
@@ -250,11 +240,9 @@ function QuoteModal({ isOpen, onClose, projectType = '', material = '', design =
                   <div className="form-group">
                     <label>Project Description</label>
                     <textarea
-                      name="description"
-                      value={formData.description}
-                      onChange={handleInputChange}
-                      placeholder="Describe your project, including any text content, design ideas, special requirements, or reference materials..."
+                      placeholder="Describe your project..."
                       rows="4"
+                      {...register('description')}
                     />
                   </div>
                 </div>
@@ -292,7 +280,7 @@ function QuoteModal({ isOpen, onClose, projectType = '', material = '', design =
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default QuoteModal
+export default QuoteModal;

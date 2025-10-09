@@ -1,64 +1,66 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 function ProcessTimeline() {
+  const { t } = useTranslation()
   const [activeStep, setActiveStep] = useState(0)
 
   const steps = [
     {
       id: 0,
-      title: 'Design Consultation',
+      title: t('laserEngraving.processTimeline.steps.consultation.title'),
       icon: '💡',
-      description: 'We work with you to understand your vision and requirements',
-      details: 'Our team discusses your project goals, material preferences, size requirements, and design specifications. We provide expert recommendations based on your needs and budget.',
-      duration: '30-60 min'
+      description: t('laserEngraving.processTimeline.steps.consultation.description'),
+      details: t('laserEngraving.processTimeline.steps.consultation.details'),
+      duration: t('laserEngraving.processTimeline.steps.consultation.duration')
     },
     {
       id: 1,
-      title: 'Design Creation',
+      title: t('laserEngraving.processTimeline.steps.creation.title'),
       icon: '🎨',
-      description: 'Professional design creation or your artwork preparation',
-      details: 'We either create custom designs from scratch or prepare your existing artwork for laser engraving. This includes file optimization, sizing, and material-specific adjustments.',
-      duration: '1-3 days'
+      description: t('laserEngraving.processTimeline.steps.creation.description'),
+      details: t('laserEngraving.processTimeline.steps.creation.details'),
+      duration: t('laserEngraving.processTimeline.steps.creation.duration')
     },
     {
       id: 2,
-      title: 'Material Setup',
+      title: t('laserEngraving.processTimeline.steps.setup.title'),
       icon: '🔧',
-      description: 'Precise material placement and laser calibration',
-      details: 'Your chosen material is carefully positioned and secured. Our laser system is calibrated for optimal settings including power, speed, and focus based on material type and thickness.',
-      duration: '15-30 min'
+      description: t('laserEngraving.processTimeline.steps.setup.description'),
+      details: t('laserEngraving.processTimeline.steps.setup.details'),
+      duration: t('laserEngraving.processTimeline.steps.setup.duration')
     },
     {
       id: 3,
-      title: 'Laser Engraving',
+      title: t('laserEngraving.processTimeline.steps.engraving.title'),
       icon: '⚡',
-      description: 'High-precision laser engraving process',
-      details: 'The laser precisely removes material according to your design. Our advanced systems ensure consistent depth and clean edges. Complex designs are completed in multiple passes if needed.',
-      duration: '5 min - 2 hours'
+      description: t('laserEngraving.processTimeline.steps.engraving.description'),
+      details: t('laserEngraving.processTimeline.steps.engraving.details'),
+      duration: t('laserEngraving.processTimeline.steps.engraving.duration')
     },
     {
       id: 4,
-      title: 'Quality Check',
+      title: t('laserEngraving.processTimeline.steps.finishing.title'),
       icon: '🔍',
-      description: 'Thorough inspection and finishing touches',
-      details: 'Each piece is carefully inspected for quality and precision. Any excess material is cleaned away, and finishing touches are applied as needed.',
-      duration: '10-15 min'
+      description: t('laserEngraving.processTimeline.steps.finishing.description'),
+      details: t('laserEngraving.processTimeline.steps.finishing.details'),
+      duration: t('laserEngraving.processTimeline.steps.finishing.duration')
     },
     {
       id: 5,
-      title: 'Delivery',
+      title: t('laserEngraving.processTimeline.steps.delivery.title'),
       icon: '📦',
-      description: 'Secure packaging and prompt delivery',
-      details: 'Your finished piece is carefully packaged to prevent damage during transport. We offer various delivery options including pickup, local delivery, and shipping.',
-      duration: '1-3 days'
+      description: t('laserEngraving.processTimeline.steps.delivery.description'),
+      details: t('laserEngraving.processTimeline.steps.delivery.details'),
+      duration: t('laserEngraving.processTimeline.steps.delivery.duration')
     }
   ]
 
   return (
     <div className="process-timeline">
       <div className="timeline-header">
-        <h3>Our Laser Engraving Process</h3>
-        <p>From concept to completion - see how we bring your vision to life</p>
+        <h3>{t('laserEngraving.processTimeline.title')}</h3>
+        <p>{t('laserEngraving.processTimeline.subtitle')}</p>
       </div>
 
       <div className="timeline-container">
@@ -86,7 +88,7 @@ function ProcessTimeline() {
               <div className="detail-icon">{steps[activeStep].icon}</div>
               <div>
                 <h3>{steps[activeStep].title}</h3>
-                <span className="detail-duration">Typical duration: {steps[activeStep].duration}</span>
+                <span className="detail-duration">{t('laserEngraving.processTimeline.navigation.typicalDuration')} {steps[activeStep].duration}</span>
               </div>
             </div>
             <p className="detail-description">{steps[activeStep].details}</p>
@@ -99,7 +101,7 @@ function ProcessTimeline() {
                 ></div>
               </div>
               <span className="progress-text">
-                Step {activeStep + 1} of {steps.length}
+                {t('laserEngraving.processTimeline.navigation.step')} {activeStep + 1} {t('laserEngraving.processTimeline.navigation.of')} {steps.length}
               </span>
             </div>
 
@@ -109,14 +111,14 @@ function ProcessTimeline() {
                 onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
                 disabled={activeStep === 0}
               >
-                ← Previous
+                {t('laserEngraving.processTimeline.navigation.previous')}
               </button>
               <button 
                 className="nav-btn next" 
                 onClick={() => setActiveStep(Math.min(steps.length - 1, activeStep + 1))}
                 disabled={activeStep === steps.length - 1}
               >
-                Next →
+                {t('laserEngraving.processTimeline.navigation.next')}
               </button>
             </div>
           </div>

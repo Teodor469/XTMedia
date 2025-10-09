@@ -99,3 +99,31 @@
     padding: 60px 16px;
   }
 }
+
+/* Style for validation error messages */
+.error-message {
+  color: #d93025;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+/* Style for the input field when there's an error */
+.form-group input:invalid,
+.form-group textarea:invalid {
+  /* You can add a red border for invalid fields if you like */
+  /* border-color: #d93025; */
+}
+
+/* Style for the success message container */
+.form-success {
+  border: 1px solid #28a745;
+  background-color: #f0fff4;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.form-success h3 {
+  margin-top: 0;
+  color: #28a745;
+}
