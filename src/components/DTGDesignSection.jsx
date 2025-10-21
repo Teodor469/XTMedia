@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ProductCard from './ProductCard'
 
 function DTGDesignSection({ onGetQuote }) {
   const [activeTab, setActiveTab] = useState('apparel')
@@ -154,50 +155,21 @@ function DTGDesignSection({ onGetQuote }) {
 
             <div className="apparel-grid">
               {filteredApparel.map((garment, index) => (
-                <div 
-                  key={garment.id} 
-                  className={`apparel-card ${selectedGarment?.id === garment.id ? 'selected' : ''}`}
+                <ProductCard
+                  key={garment.id}
+                  product={{
+                    ...garment,
+                    title: garment.name,
+                    formattedPrice: `Starting at ${garment.price}`,
+                    icon: garment.placeholder
+                  }}
+                  variant="selectable"
+                  isSelected={selectedGarment?.id === garment.id}
+                  onSelect={handleGarmentSelect}
+                  showActions={false}
+                  className="animation-delay"
                   style={{ animationDelay: `${index * 0.1}s` }}
-                  onClick={() => handleGarmentSelect(garment)}
-                >
-                  <div className="apparel-preview">
-                    <div className="preview-placeholder">
-                      <div className="placeholder-icon">👕</div>
-                      <div className="placeholder-text">{garment.placeholder}</div>
-                    </div>
-                  </div>
-                  <div className="apparel-info">
-                    <h4>{garment.name}</h4>
-                    <p>{garment.description}</p>
-                    <div className="apparel-features">
-                      {garment.features.map((feature, idx) => (
-                        <span key={idx} className="feature-tag">{feature}</span>
-                      ))}
-                    </div>
-                    <div className="apparel-sizes">
-                      <p><strong>Available sizes:</strong></p>
-                      <div className="sizes-list">
-                        {garment.sizes.map((size, idx) => (
-                          <span key={idx} className="size-tag">{size}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="apparel-colors">
-                      <p><strong>Colors:</strong></p>
-                      <div className="colors-list">
-                        {garment.colors.map((color, idx) => (
-                          <span key={idx} className="color-tag">{color}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="apparel-footer">
-                      <span className="apparel-price">Starting at {garment.price}</span>
-                      <button className="btn-apparel-select">
-                        {selectedGarment?.id === garment.id ? 'Selected' : 'Select'}
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                />
               ))}
             </div>
 

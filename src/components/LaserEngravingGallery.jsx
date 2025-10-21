@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ProcessTimeline from './ProcessTimeline'
-import CustomDesignSection from './CustomDesignSection'
+import LaserEngravingDesignSection from './LaserEngravingDesignSection'
 import QuoteModal from './QuoteModal'
 
 function LaserEngravingGallery() {
@@ -216,8 +216,8 @@ function LaserEngravingGallery() {
       {/* Process Timeline */}
       <ProcessTimeline />
 
-      {/* Custom Design Section */}
-      <CustomDesignSection onGetQuote={handleGetQuote} />
+      {/* Laser Engraving Design Section */}
+      <LaserEngravingDesignSection onGetQuote={handleGetQuote} />
 
       {/* Quote Modal */}
       <QuoteModal 

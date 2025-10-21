@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ProductCard from './ProductCard'
 
 function PhotoDesignSection({ onGetQuote }) {
   const [activeTab, setActiveTab] = useState('substrates')
@@ -154,50 +155,21 @@ function PhotoDesignSection({ onGetQuote }) {
 
             <div className="substrates-grid">
               {filteredSubstrates.map((substrate, index) => (
-                <div 
-                  key={substrate.id} 
-                  className={`substrate-card ${selectedSubstrate?.id === substrate.id ? 'selected' : ''}`}
+                <ProductCard
+                  key={substrate.id}
+                  product={{
+                    ...substrate,
+                    title: substrate.name,
+                    formattedPrice: `Starting at ${substrate.price}`,
+                    icon: substrate.placeholder
+                  }}
+                  variant="selectable"
+                  isSelected={selectedSubstrate?.id === substrate.id}
+                  onSelect={handleSubstrateSelect}
+                  showActions={false}
+                  className="animation-delay"
                   style={{ animationDelay: `${index * 0.1}s` }}
-                  onClick={() => handleSubstrateSelect(substrate)}
-                >
-                  <div className="substrate-preview">
-                    <div className="preview-placeholder">
-                      <div className="placeholder-icon">📸</div>
-                      <div className="placeholder-text">{substrate.placeholder}</div>
-                    </div>
-                  </div>
-                  <div className="substrate-info">
-                    <h4>{substrate.name}</h4>
-                    <p>{substrate.description}</p>
-                    <div className="substrate-features">
-                      {substrate.features.map((feature, idx) => (
-                        <span key={idx} className="feature-tag">{feature}</span>
-                      ))}
-                    </div>
-                    <div className="substrate-sizes">
-                      <p><strong>Available sizes:</strong></p>
-                      <div className="sizes-list">
-                        {substrate.sizes.map((size, idx) => (
-                          <span key={idx} className="size-tag">{size}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="substrate-finishes">
-                      <p><strong>Finish options:</strong></p>
-                      <div className="finishes-list">
-                        {substrate.finishes.map((finish, idx) => (
-                          <span key={idx} className="finish-tag">{finish}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="substrate-footer">
-                      <span className="substrate-price">Starting at {substrate.price}</span>
-                      <button className="btn-substrate-select">
-                        {selectedSubstrate?.id === substrate.id ? 'Selected' : 'Select'}
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                />
               ))}
             </div>
 

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ProductCard from './ProductCard'
 
-function CustomDesignSection({ onGetQuote }) {
+function LaserEngravingDesignSection({ onGetQuote }) {
   const [activeTab, setActiveTab] = useState('templates')
   const [selectedTemplate, setSelectedTemplate] = useState(null)
   const [uploadedFile, setUploadedFile] = useState(null)
@@ -73,8 +73,8 @@ function CustomDesignSection({ onGetQuote }) {
 
   const [selectedCategory, setSelectedCategory] = useState('all')
 
-  const filteredTemplates = selectedCategory === 'all' 
-    ? designTemplates 
+  const filteredTemplates = selectedCategory === 'all'
+    ? designTemplates
     : designTemplates.filter(template => template.category === selectedCategory)
 
   const handleFileUpload = (event) => {
@@ -96,26 +96,26 @@ function CustomDesignSection({ onGetQuote }) {
   return (
     <div className="custom-design-section">
       <div className="design-header">
-        <h3>Custom Design Center</h3>
-        <p>Create your perfect design or choose from our professional templates</p>
+        <h3>Laser Engraving Design Center</h3>
+        <p>Create your perfect engraved design or choose from our professional templates</p>
       </div>
 
       <div className="design-tabs">
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'templates' ? 'active' : ''}`}
           onClick={() => setActiveTab('templates')}
         >
           <span className="tab-icon">📋</span>
           Design Templates
         </button>
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'upload' ? 'active' : ''}`}
           onClick={() => setActiveTab('upload')}
         >
           <span className="tab-icon">📁</span>
           Upload Your Design
         </button>
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'custom' ? 'active' : ''}`}
           onClick={() => setActiveTab('custom')}
         >
@@ -186,7 +186,7 @@ function CustomDesignSection({ onGetQuote }) {
                       <option>Frosted Glass</option>
                     </select>
                   </div>
-                  <button 
+                  <button
                     className="btn-primary"
                     onClick={() => onGetQuote && onGetQuote('template', '', selectedTemplate.name)}
                   >
@@ -201,9 +201,9 @@ function CustomDesignSection({ onGetQuote }) {
         {activeTab === 'upload' && (
           <div className="upload-section">
             <div className="upload-area">
-              <input 
-                type="file" 
-                id="file-upload" 
+              <input
+                type="file"
+                id="file-upload"
                 accept=".jpg,.jpeg,.png,.svg,.pdf,.ai"
                 onChange={handleFileUpload}
                 style={{ display: 'none' }}
@@ -254,7 +254,7 @@ function CustomDesignSection({ onGetQuote }) {
                       <label>Special Instructions</label>
                       <textarea placeholder="Any special requirements or notes..."></textarea>
                     </div>
-                    <button 
+                    <button
                       className="btn-primary"
                       onClick={() => onGetQuote && onGetQuote('custom-upload', '', uploadedFile?.name || 'Custom Upload')}
                     >
@@ -271,9 +271,9 @@ function CustomDesignSection({ onGetQuote }) {
           <div className="custom-section">
             <div className="custom-intro">
               <h4>Work with Our Design Team</h4>
-              <p>Let our professional designers create a completely custom piece for you</p>
+              <p>Let our professional designers create a completely custom engraved piece for you</p>
             </div>
-            
+
             <div className="custom-form">
               <div className="form-group">
                 <label>Project Type</label>
@@ -287,15 +287,15 @@ function CustomDesignSection({ onGetQuote }) {
                   <option>Other</option>
                 </select>
               </div>
-              
+
               <div className="form-group">
                 <label>Design Description</label>
-                <textarea 
+                <textarea
                   placeholder="Describe your vision, style preferences, text content, and any specific requirements..."
                   rows="4"
                 ></textarea>
               </div>
-              
+
               <div className="form-row">
                 <div className="form-group">
                   <label>Preferred Material</label>
@@ -317,7 +317,7 @@ function CustomDesignSection({ onGetQuote }) {
                   </select>
                 </div>
               </div>
-              
+
               <div className="form-group">
                 <label>Budget Range</label>
                 <select>
@@ -328,7 +328,7 @@ function CustomDesignSection({ onGetQuote }) {
                   <option>$500+</option>
                 </select>
               </div>
-              
+
               <div className="custom-process">
                 <h5>What happens next:</h5>
                 <ol>
@@ -338,8 +338,8 @@ function CustomDesignSection({ onGetQuote }) {
                   <li>Final design approval and production</li>
                 </ol>
               </div>
-              
-              <button 
+
+              <button
                 className="btn-primary"
                 onClick={() => onGetQuote && onGetQuote('custom-design', '', 'Full Custom Design Project')}
               >
@@ -353,4 +353,4 @@ function CustomDesignSection({ onGetQuote }) {
   )
 }
 
-export default CustomDesignSection
+export default LaserEngravingDesignSection

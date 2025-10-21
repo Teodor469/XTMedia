@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ProductCard from './ProductCard'
 
 function SublimationDesignSection({ onGetQuote }) {
   const [activeTab, setActiveTab] = useState('products')
@@ -148,42 +149,21 @@ function SublimationDesignSection({ onGetQuote }) {
 
             <div className="products-grid">
               {filteredProducts.map((product, index) => (
-                <div 
-                  key={product.id} 
-                  className={`product-card ${selectedProduct?.id === product.id ? 'selected' : ''}`}
+                <ProductCard
+                  key={product.id}
+                  product={{
+                    ...product,
+                    title: product.name,
+                    formattedPrice: `Starting at ${product.price}`,
+                    icon: product.placeholder
+                  }}
+                  variant="selectable"
+                  isSelected={selectedProduct?.id === product.id}
+                  onSelect={handleProductSelect}
+                  showActions={false}
+                  className="animation-delay"
                   style={{ animationDelay: `${index * 0.1}s` }}
-                  onClick={() => handleProductSelect(product)}
-                >
-                  <div className="product-preview">
-                    <div className="preview-placeholder">
-                      <div className="placeholder-icon">🎨</div>
-                      <div className="placeholder-text">{product.placeholder}</div>
-                    </div>
-                  </div>
-                  <div className="product-info">
-                    <h4>{product.name}</h4>
-                    <p>{product.description}</p>
-                    <div className="product-features">
-                      {product.features.map((feature, idx) => (
-                        <span key={idx} className="feature-tag">{feature}</span>
-                      ))}
-                    </div>
-                    <div className="product-sizes">
-                      <p><strong>Available sizes:</strong></p>
-                      <div className="sizes-list">
-                        {product.sizes.map((size, idx) => (
-                          <span key={idx} className="size-tag">{size}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="product-footer">
-                      <span className="product-price">Starting at {product.price}</span>
-                      <button className="btn-product-select">
-                        {selectedProduct?.id === product.id ? 'Selected' : 'Select'}
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                />
               ))}
             </div>
 

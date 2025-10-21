@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
 import { shopifyProductService } from '../services/shopifyProducts'
 import { useShopify } from '../contexts/ShopifyContext'
+import ProductCard from '../components/ProductCard'
 import './Home.css'
 
 function Home() {
@@ -180,43 +181,13 @@ function Home() {
           ) : (
             <div className="products-carousel">
               {products.map((product) => (
-                <div key={product.id} className="product-card">
-                  <div className="product-image">
-                    {product.featuredImage?.url ? (
-                      <img 
-                        src={product.featuredImage.url} 
-                        alt={product.featuredImage.altText || product.title}
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="product-placeholder">
-                        {product.featuredImage?.altText || '🛍️'}
-                      </div>
-                    )}
-                  </div>
-                  
-                  <div className="product-info">
-                    <h3>{product.title}</h3>
-                    <p className="product-description">{product.description}</p>
-                    <div className="product-price">{product.formattedPrice}</div>
-                    
-                    <div className="product-actions">
-                      <Link 
-                        to={`/products/${product.handle}`} 
-                        className="btn-secondary product-view-btn"
-                      >
-                        View Details
-                      </Link>
-                      <button 
-                        className="btn-primary add-to-cart-btn"
-                        onClick={() => handleAddToCart(product)}
-                        disabled={cartLoading}
-                      >
-                        {cartLoading ? '🔄' : '🛒'} Add to Cart
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onAddToCart={handleAddToCart}
+                  cartLoading={cartLoading}
+                  showActions={true}
+                />
               ))}
             </div>
           )}
