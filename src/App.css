@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .app {
@@ -61,11 +62,11 @@
 }
 
 .nav-links a:hover {
-  color: #0071e3;
+  color: #08b688;
 }
 
 .nav-links a.active {
-  color: #0071e3;
+  color: #08b688;
   font-weight: 500;
 }
 
@@ -77,40 +78,47 @@
 
 /* Buttons */
 .btn-primary {
-  background: #0071e3;
+  background: linear-gradient(135deg, #08b688 0%, #059669 100%);
   color: white;
   border: none;
-  padding: 16px 32px;
-  border-radius: 24px;
-  font-size: 1rem;
-  font-weight: 500;
+  padding: 18px 36px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(0, 113, 227, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(8, 182, 136, 0.3);
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: 0.01em;
 }
 
 .btn-primary:hover {
-  background: #0056b3;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 113, 227, 0.4);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(8, 182, 136, 0.4);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #0071e3;
-  border: 2px solid #0071e3;
-  padding: 14px 32px;
-  border-radius: 24px;
-  font-size: 1rem;
-  font-weight: 500;
+  color: #08b688;
+  border: 2px solid #08b688;
+  padding: 16px 36px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: 0.01em;
 }
 
 .btn-secondary:hover {
-  background: #0071e3;
+  background: #08b688;
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(8, 182, 136, 0.25);
 }
 
 /* Section Title - Shared */
@@ -192,7 +200,7 @@
 }
 
 .footer-links a:hover {
-  color: #0071e3;
+  color: #08b688;
 }
 
 /* Responsive Design */
