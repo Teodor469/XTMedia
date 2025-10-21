@@ -1,64 +1,132 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import './About.css'
 
 function About() {
+  const { t } = useTranslation()
+
   return (
     <>
       <section className="page-hero">
         <div className="page-hero-content">
-          <h1 className="page-title">About XT Media</h1>
+          <h1 className="page-title">{t('about.hero.title')}</h1>
           <p className="page-subtitle">
-            Where precision meets creativity. We're passionate about bringing your vision to life.
+            {t('about.hero.subtitle')}
           </p>
         </div>
       </section>
 
-      <section className="about-content">
-        <div className="about-container">
-          <div className="about-text">
-            <h2>Our Story</h2>
-            <p>
-              Founded with a vision to revolutionize the branding industry, XT Media combines 
-              cutting-edge technology with traditional craftsmanship. We believe that every 
-              brand deserves to stand out, and we're here to make that happen.
-            </p>
-            
-            <h2>Our Mission</h2>
-            <p>
-              To provide businesses and individuals with exceptional branding solutions 
-              through precision laser engraving, vibrant sublimation printing, and 
-              professional direct-to-garment services. We're committed to quality, 
-              innovation, and customer satisfaction.
-            </p>
+      {/* Founder Introduction Section */}
+      <section className="founder-section">
+        <div className="founder-container">
+          <div className="founder-image">
+            <div className="founder-photo-placeholder">
+              <div className="placeholder-icon">👤</div>
+              <div className="placeholder-text">{t('about.founder.photoPlaceholder')}</div>
+            </div>
+          </div>
+          <div className="founder-story">
+            <h2>{t('about.founder.title')}</h2>
+            <p>{t('about.founder.paragraph1')}</p>
+            <p>{t('about.founder.paragraph2')}</p>
+            <p>{t('about.founder.paragraph3')}</p>
+          </div>
+        </div>
+      </section>
 
-            <h2>Why Choose Us</h2>
-            <div className="features-grid">
-              <div className="feature">
-                <h3>🎯 Precision</h3>
-                <p>State-of-the-art equipment ensures every detail is perfect.</p>
+      {/* How It All Started Section */}
+      <section className="story-section">
+        <div className="story-container">
+          <h2>{t('about.story.title')}</h2>
+          <p>{t('about.story.paragraph1')}</p>
+          <p>{t('about.story.paragraph2')}</p>
+          <p>{t('about.story.paragraph3')}</p>
+        </div>
+      </section>
+
+      {/* Who We Are Today Section */}
+      <section className="today-section">
+        <div className="today-container">
+          <div className="today-content">
+            <h2>{t('about.today.title')}</h2>
+            <p>{t('about.today.paragraph1')}</p>
+            <p>{t('about.today.paragraph2')}</p>
+            <div className="today-image">
+              <div className="today-photo-placeholder">
+                <div className="placeholder-icon">🏢</div>
+                <div className="placeholder-text">{t('about.today.photoPlaceholder')}</div>
               </div>
-              <div className="feature">
-                <h3>⚡ Speed</h3>
-                <p>Fast turnaround times without compromising quality.</p>
-              </div>
-              <div className="feature">
-                <h3>🤝 Service</h3>
-                <p>Dedicated support from concept to completion.</p>
-              </div>
-              <div className="feature">
-                <h3>💎 Quality</h3>
-                <p>Premium materials and meticulous attention to detail.</p>
-              </div>
+            </div>
+            <p>{t('about.today.paragraph3')}</p>
+            <p>{t('about.today.paragraph4')}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy & Values Section */}
+      <section className="philosophy-section">
+        <div className="philosophy-container">
+          <h2>{t('about.philosophy.title')}</h2>
+          <p>{t('about.philosophy.paragraph1')}</p>
+          <p className="core-value-highlight">
+            {t('about.philosophy.coreValue')} <strong>{t('about.philosophy.honesty')}</strong>. {t('about.philosophy.paragraph2')}
+          </p>
+          <div className="values-grid">
+            <div className="value-item">
+              <div className="value-icon">🎯</div>
+              <h3>{t('about.philosophy.values.precision.title')}</h3>
+              <p>{t('about.philosophy.values.precision.description')}</p>
+            </div>
+            <div className="value-item">
+              <div className="value-icon">⚡</div>
+              <h3>{t('about.philosophy.values.speed.title')}</h3>
+              <p>{t('about.philosophy.values.speed.description')}</p>
+            </div>
+            <div className="value-item">
+              <div className="value-icon">🤝</div>
+              <h3>{t('about.philosophy.values.partnership.title')}</h3>
+              <p>{t('about.philosophy.values.partnership.description')}</p>
+            </div>
+            <div className="value-item">
+              <div className="value-icon">💎</div>
+              <h3>{t('about.philosophy.values.quality.title')}</h3>
+              <p>{t('about.philosophy.values.quality.description')}</p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Certifications & Trust Section */}
+      <section className="trust-section">
+        <div className="trust-container">
+          <h2>{t('about.trust.title')}</h2>
+          <div className="certifications">
+            <div className="cert-badge">
+              <div className="cert-icon">✓</div>
+              <p>{t('about.trust.certifications.equipment')}</p>
+            </div>
+            <div className="cert-badge">
+              <div className="cert-icon">✓</div>
+              <p>{t('about.trust.certifications.quality')}</p>
+            </div>
+            <div className="cert-badge">
+              <div className="cert-icon">✓</div>
+              <p>{t('about.trust.certifications.ecoFriendly')}</p>
+            </div>
+            <div className="cert-badge">
+              <div className="cert-icon">✓</div>
+              <p>{t('about.trust.certifications.satisfaction')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
       <section className="cta">
         <div className="cta-content">
-          <h2>Let's work together</h2>
-          <p>Ready to bring your brand to life? We'd love to hear about your project.</p>
-          <Link to="/contact" className="btn-primary">Start a Project</Link>
+          <h2>{t('about.cta.title')}</h2>
+          <p>{t('about.cta.subtitle')}</p>
+          <Link to="/contact" className="btn-primary">{t('about.cta.button')}</Link>
         </div>
       </section>
     </>

@@ -385,5 +385,71 @@
         "description": "Let our professional designers create a completely custom piece for you"
       }
     }
+  },
+  "about": {
+    "hero": {
+      "title": "XT Media - More Than Just a Brand",
+      "subtitle": "Where precision meets creativity. We're passionate about bringing your vision to life."
+    },
+    "founder": {
+      "title": "Meet Our Founder",
+      "photoPlaceholder": "Founder Photo",
+      "paragraph1": "My name is [Founder Name], and I'm the CEO and founder of XT Media. With over 5 years of experience in the custom branding and printing industry, I've dedicated my career to helping businesses and individuals bring their creative visions to life.",
+      "paragraph2": "What started as a passion for precision craftsmanship has evolved into a full-service branding studio. I believe that every product we create tells a story, and every detail matters in bringing that story to life.",
+      "paragraph3": "At XT Media, we're not just printing designs—we're creating lasting impressions that help our clients stand out in their markets and connect with their audiences."
+    },
+    "story": {
+      "title": "How It All Started",
+      "paragraph1": "It all began with a simple need: businesses in our community were struggling to find reliable, high-quality custom printing services that could deliver both precision and creativity. The existing options were either too expensive, too slow, or compromised on quality.",
+      "paragraph2": "I saw an opportunity to fill this gap. Armed with industry knowledge and a commitment to excellence, I invested in state-of-the-art equipment including laser engravers, sublimation printers, and DTG machines. The goal was simple: provide businesses with the tools they need to make their brands unforgettable.",
+      "paragraph3": "What started as a one-person operation in a small workshop has grown into a trusted partner for hundreds of businesses. But our core mission remains the same: delivering exceptional quality with every project, big or small."
+    },
+    "today": {
+      "title": "Who We Are Today",
+      "paragraph1": "Today, XT Media is an established brand with a growing reputation for excellence in custom printing and engraving. We serve clients across multiple industries, from small businesses and startups to established corporations and individual creators.",
+      "paragraph2": "Our product line includes laser engraving on wood, metal, glass, and acrylic; vibrant sublimation printing for textiles and promotional items; direct-to-garment printing for apparel; and professional photo printing on various substrates.",
+      "photoPlaceholder": "Company Workspace",
+      "paragraph3": "Each service is designed to meet the specific needs of our diverse clientele, whether they're looking for corporate gifts, promotional materials, personalized products, or professional branding solutions.",
+      "paragraph4": "We pride ourselves on offering first-class quality with every project. All our work is fully legal, certified, and backed by rigorous quality control standards."
+    },
+    "philosophy": {
+      "title": "Our Philosophy & Core Values",
+      "paragraph1": "XT Media products and services are designed for clients who value quality, reliability, and attention to detail. We work with businesses and individuals who understand that their brand deserves the best.",
+      "coreValue": "Our core value is",
+      "honesty": "HONESTY",
+      "paragraph2": "We believe in transparent communication, fair pricing, and delivering exactly what we promise. No hidden fees, no compromises on quality, no excuses.",
+      "values": {
+        "precision": {
+          "title": "Precision",
+          "description": "Every detail matters. We use cutting-edge technology to ensure perfection."
+        },
+        "speed": {
+          "title": "Speed",
+          "description": "Fast turnaround times without compromising on quality or craftsmanship."
+        },
+        "partnership": {
+          "title": "Partnership",
+          "description": "We work alongside you from concept to completion, ensuring your vision comes to life."
+        },
+        "quality": {
+          "title": "Quality",
+          "description": "Premium materials, meticulous attention to detail, and rigorous quality control."
+        }
+      }
+    },
+    "trust": {
+      "title": "Quality & Certifications",
+      "certifications": {
+        "equipment": "Certified Equipment",
+        "quality": "Quality Assured",
+        "ecoFriendly": "Eco-Friendly Materials",
+        "satisfaction": "Customer Satisfaction"
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "subtitle": "Let's work together to bring your vision to life with precision and creativity.",
+      "button": "Get In Touch"
+    }
   }
 }
