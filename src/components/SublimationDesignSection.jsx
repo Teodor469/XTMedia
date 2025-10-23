@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import ProductCard from './ProductCard'
 
 function SublimationDesignSection({ onGetQuote }) {
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState('products')
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [uploadedFile, setUploadedFile] = useState(null)
@@ -9,73 +11,73 @@ function SublimationDesignSection({ onGetQuote }) {
   const productTemplates = [
     {
       id: 1,
-      name: 'Premium T-Shirt Design',
+      name: t('sublimationPrinting.customDesign.products.tshirt.name'),
       category: 'apparel',
-      description: 'Full-color designs on premium cotton blend tees',
-      price: '$18',
+      description: t('sublimationPrinting.customDesign.products.tshirt.description'),
+      price: t('sublimationPrinting.customDesign.products.tshirt.price'),
       placeholder: 'Tshirt-Template',
-      features: ['100% Cotton Blend', 'Machine Washable', 'Fade Resistant'],
-      sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+      features: t('sublimationPrinting.customDesign.products.tshirt.features', { returnObjects: true }),
+      sizes: t('sublimationPrinting.customDesign.products.tshirt.sizes', { returnObjects: true })
     },
     {
       id: 2,
-      name: 'Coffee Mug Collection',
+      name: t('sublimationPrinting.customDesign.products.mug.name'),
       category: 'drinkware',
-      description: 'Vibrant designs on ceramic and stainless steel mugs',
-      price: '$12',
+      description: t('sublimationPrinting.customDesign.products.mug.description'),
+      price: t('sublimationPrinting.customDesign.products.mug.price'),
       placeholder: 'Mug-Template',
-      features: ['Dishwasher Safe', 'Microwave Safe', 'Vibrant Colors'],
-      sizes: ['11oz', '15oz', '20oz Tumbler']
+      features: t('sublimationPrinting.customDesign.products.mug.features', { returnObjects: true }),
+      sizes: t('sublimationPrinting.customDesign.products.mug.sizes', { returnObjects: true })
     },
     {
       id: 3,
-      name: 'Metal Print Art',
+      name: t('sublimationPrinting.customDesign.products.metal.name'),
       category: 'home',
-      description: 'High-definition prints on aluminum panels',
-      price: '$35',
+      description: t('sublimationPrinting.customDesign.products.metal.description'),
+      price: t('sublimationPrinting.customDesign.products.metal.price'),
       placeholder: 'Metal-Template',
-      features: ['Weather Resistant', 'Scratch Proof', 'HD Quality'],
-      sizes: ['8x10"', '11x14"', '16x20"', '20x30"']
+      features: t('sublimationPrinting.customDesign.products.metal.features', { returnObjects: true }),
+      sizes: t('sublimationPrinting.customDesign.products.metal.sizes', { returnObjects: true })
     },
     {
       id: 4,
-      name: 'Mouse Pad Pro',
+      name: t('sublimationPrinting.customDesign.products.mousepad.name'),
       category: 'accessories',
-      description: 'Professional gaming and office mouse pads',
-      price: '$8',
+      description: t('sublimationPrinting.customDesign.products.mousepad.description'),
+      price: t('sublimationPrinting.customDesign.products.mousepad.price'),
       placeholder: 'Mousepad-Template',
-      features: ['Non-Slip Base', 'Smooth Surface', 'Edge Stitching'],
-      sizes: ['Standard', 'Large', 'XL Gaming']
+      features: t('sublimationPrinting.customDesign.products.mousepad.features', { returnObjects: true }),
+      sizes: t('sublimationPrinting.customDesign.products.mousepad.sizes', { returnObjects: true })
     },
     {
       id: 5,
-      name: 'Canvas Gallery Wrap',
+      name: t('sublimationPrinting.customDesign.products.canvas.name'),
       category: 'home',
-      description: 'Museum-quality canvas prints with gallery wrapping',
-      price: '$45',
+      description: t('sublimationPrinting.customDesign.products.canvas.description'),
+      price: t('sublimationPrinting.customDesign.products.canvas.price'),
       placeholder: 'Canvas-Template',
-      features: ['Gallery Wrapped', 'UV Resistant', 'Rich Colors'],
-      sizes: ['12x16"', '16x20"', '20x24"', '24x36"']
+      features: t('sublimationPrinting.customDesign.products.canvas.features', { returnObjects: true }),
+      sizes: t('sublimationPrinting.customDesign.products.canvas.sizes', { returnObjects: true })
     },
     {
       id: 6,
-      name: 'Outdoor Banner',
+      name: t('sublimationPrinting.customDesign.products.banner.name'),
       category: 'signage',
-      description: 'Weather-resistant vinyl banners for outdoor use',
-      price: '$25',
+      description: t('sublimationPrinting.customDesign.products.banner.description'),
+      price: t('sublimationPrinting.customDesign.products.banner.price'),
       placeholder: 'Banner-Template',
-      features: ['Waterproof', 'UV Protected', 'Grommets Included'],
-      sizes: ['2x4ft', '3x6ft', '4x8ft', 'Custom']
+      features: t('sublimationPrinting.customDesign.products.banner.features', { returnObjects: true }),
+      sizes: t('sublimationPrinting.customDesign.products.banner.sizes', { returnObjects: true })
     }
   ]
 
   const categories = [
-    { id: 'all', name: 'All Products', icon: '🎯' },
-    { id: 'apparel', name: 'Apparel', icon: '👕' },
-    { id: 'drinkware', name: 'Drinkware', icon: '☕' },
-    { id: 'home', name: 'Home Decor', icon: '🏠' },
-    { id: 'accessories', name: 'Accessories', icon: '📱' },
-    { id: 'signage', name: 'Signage', icon: '🪧' }
+    { id: 'all', name: t('sublimationPrinting.customDesign.categories.all'), icon: '🎯' },
+    { id: 'apparel', name: t('sublimationPrinting.customDesign.categories.apparel'), icon: '👕' },
+    { id: 'drinkware', name: t('sublimationPrinting.customDesign.categories.drinkware'), icon: '☕' },
+    { id: 'home', name: t('sublimationPrinting.customDesign.categories.home'), icon: '🏠' },
+    { id: 'accessories', name: t('sublimationPrinting.customDesign.categories.accessories'), icon: '📱' },
+    { id: 'signage', name: t('sublimationPrinting.customDesign.categories.signage'), icon: '🪧' }
   ]
 
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -103,31 +105,31 @@ function SublimationDesignSection({ onGetQuote }) {
   return (
     <div className="sublimation-design-section">
       <div className="design-header">
-        <h3>Sublimation Design Studio</h3>
-        <p>Choose your product and create stunning, fade-resistant designs</p>
+        <h3>{t('sublimationPrinting.customDesign.header.title')}</h3>
+        <p>{t('sublimationPrinting.customDesign.header.subtitle')}</p>
       </div>
 
       <div className="design-tabs">
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'products' ? 'active' : ''}`}
           onClick={() => setActiveTab('products')}
         >
           <span className="tab-icon">🛍️</span>
-          Product Gallery
+          {t('sublimationPrinting.customDesign.tabs.products')}
         </button>
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'upload' ? 'active' : ''}`}
           onClick={() => setActiveTab('upload')}
         >
           <span className="tab-icon">📁</span>
-          Upload Design
+          {t('sublimationPrinting.customDesign.tabs.upload')}
         </button>
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'custom' ? 'active' : ''}`}
           onClick={() => setActiveTab('custom')}
         >
           <span className="tab-icon">✨</span>
-          Design Service
+          {t('sublimationPrinting.customDesign.tabs.custom')}
         </button>
       </div>
 
@@ -169,14 +171,14 @@ function SublimationDesignSection({ onGetQuote }) {
 
             {selectedProduct && (
               <div className="product-customization">
-                <h4>Customize "{selectedProduct.name}"</h4>
+                <h4>{t('sublimationPrinting.customDesign.forms.customizeProduct', { name: selectedProduct.name })}</h4>
                 <div className="customization-form">
                   <div className="form-group">
-                    <label>Your Design/Text</label>
-                    <textarea placeholder="Describe your design or upload a file below..." rows="3" />
+                    <label>{t('sublimationPrinting.customDesign.forms.designText')}</label>
+                    <textarea placeholder={t('sublimationPrinting.customDesign.forms.placeholders.designDescription')} rows="3" />
                   </div>
                   <div className="form-group">
-                    <label>Size/Quantity</label>
+                    <label>{t('sublimationPrinting.customDesign.forms.size')}</label>
                     <select>
                       {selectedProduct.sizes.map((size, idx) => (
                         <option key={idx} value={size}>{size}</option>
@@ -184,14 +186,14 @@ function SublimationDesignSection({ onGetQuote }) {
                     </select>
                   </div>
                   <div className="form-group">
-                    <label>Quantity</label>
+                    <label>{t('sublimationPrinting.customDesign.forms.quantity')}</label>
                     <input type="number" min="1" defaultValue="1" />
                   </div>
-                  <button 
+                  <button
                     className="btn-primary"
                     onClick={() => onGetQuote && onGetQuote('sublimation-product', selectedProduct.category, selectedProduct.name)}
                   >
-                    Get Quote - {selectedProduct.price}+
+                    {t('sublimationPrinting.customDesign.buttons.getQuote')} - {selectedProduct.price}+
                   </button>
                 </div>
               </div>
@@ -211,9 +213,9 @@ function SublimationDesignSection({ onGetQuote }) {
               />
               <label htmlFor="file-upload-sub" className="upload-dropzone">
                 <div className="upload-icon">🎨</div>
-                <h4>Upload Your Design</h4>
-                <p>Drag and drop your artwork here or click to browse</p>
-                <span className="upload-formats">Supported: JPG, PNG, SVG, PDF, AI, PSD</span>
+                <h4>{t('sublimationPrinting.customDesign.fileUpload.title')}</h4>
+                <p>{t('sublimationPrinting.customDesign.fileUpload.description')}</p>
+                <span className="upload-formats">{t('sublimationPrinting.customDesign.fileUpload.supportedFormats')}</span>
               </label>
             </div>
 
@@ -223,48 +225,46 @@ function SublimationDesignSection({ onGetQuote }) {
                   <div className="file-icon">🖼️</div>
                   <div className="file-info">
                     <h4>{uploadedFile.name}</h4>
-                    <p>Size: {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB</p>
-                    <p>Type: {uploadedFile.type}</p>
+                    <p>{t('sublimationPrinting.customDesign.fileUpload.fileInfo.size')} {(uploadedFile.size / 1024 / 1024).toFixed(2)} {t('sublimationPrinting.customDesign.fileUpload.fileInfo.mb')}</p>
+                    <p>{t('sublimationPrinting.customDesign.fileUpload.fileInfo.type')} {uploadedFile.type}</p>
                   </div>
-                  <button className="file-remove" onClick={() => setUploadedFile(null)}>×</button>
+                  <button className="file-remove" onClick={() => setUploadedFile(null)}>{t('sublimationPrinting.customDesign.buttons.remove')}</button>
                 </div>
                 <div className="upload-options">
-                  <h4>Product Selection</h4>
+                  <h4>{t('sublimationPrinting.customDesign.forms.productSelection')}</h4>
                   <div className="specs-form">
                     <div className="form-group">
-                      <label>Product Type</label>
+                      <label>{t('sublimationPrinting.customDesign.forms.productType')}</label>
                       <select>
-                        <option value="">Select product...</option>
-                        <option value="apparel">T-Shirts & Apparel</option>
-                        <option value="drinkware">Mugs & Drinkware</option>
-                        <option value="home">Home Decor</option>
-                        <option value="accessories">Accessories</option>
-                        <option value="signage">Signs & Banners</option>
+                        <option value="">{t('sublimationPrinting.customDesign.forms.selectProduct')}</option>
+                        {t('sublimationPrinting.customDesign.forms.options.productTypes', { returnObjects: true }).map((type, index) => (
+                          <option key={index} value={type.value}>{type.label}</option>
+                        ))}
                       </select>
                     </div>
                     <div className="form-row">
                       <div className="form-group">
-                        <label>Width (inches)</label>
-                        <input type="number" placeholder="e.g., 8" step="0.1" />
+                        <label>{t('sublimationPrinting.customDesign.forms.width')}</label>
+                        <input type="number" placeholder={t('sublimationPrinting.customDesign.forms.placeholders.widthExample')} step="0.1" />
                       </div>
                       <div className="form-group">
-                        <label>Height (inches)</label>
-                        <input type="number" placeholder="e.g., 10" step="0.1" />
+                        <label>{t('sublimationPrinting.customDesign.forms.height')}</label>
+                        <input type="number" placeholder={t('sublimationPrinting.customDesign.forms.placeholders.heightExample')} step="0.1" />
                       </div>
                     </div>
                     <div className="form-group">
-                      <label>Quantity</label>
+                      <label>{t('sublimationPrinting.customDesign.forms.quantity')}</label>
                       <input type="number" min="1" defaultValue="1" />
                     </div>
                     <div className="form-group">
-                      <label>Special Instructions</label>
-                      <textarea placeholder="Color preferences, sizing notes, or other requirements..."></textarea>
+                      <label>{t('sublimationPrinting.customDesign.forms.specialInstructions')}</label>
+                      <textarea placeholder={t('sublimationPrinting.customDesign.forms.placeholders.specialRequirements')}></textarea>
                     </div>
-                    <button 
+                    <button
                       className="btn-primary"
                       onClick={() => onGetQuote && onGetQuote('sublimation-upload', '', uploadedFile?.name || 'Custom Upload')}
                     >
-                      Get Quote
+                      {t('sublimationPrinting.customDesign.buttons.getQuote')}
                     </button>
                   </div>
                 </div>
@@ -276,83 +276,71 @@ function SublimationDesignSection({ onGetQuote }) {
         {activeTab === 'custom' && (
           <div className="custom-section">
             <div className="custom-intro">
-              <h4>Professional Design Service</h4>
-              <p>Let our design team create stunning artwork optimized for sublimation printing</p>
+              <h4>{t('sublimationPrinting.customDesign.customService.title')}</h4>
+              <p>{t('sublimationPrinting.customDesign.customService.description')}</p>
             </div>
-            
+
             <div className="custom-form">
               <div className="form-group">
-                <label>Product Category</label>
+                <label>{t('sublimationPrinting.customDesign.forms.productCategory')}</label>
                 <select>
-                  <option value="">Select category...</option>
-                  <option value="apparel">Apparel & Clothing</option>
-                  <option value="drinkware">Mugs & Drinkware</option>
-                  <option value="home-decor">Home Decor</option>
-                  <option value="business">Business Products</option>
-                  <option value="promotional">Promotional Items</option>
-                  <option value="signage">Signs & Banners</option>
+                  <option value="">{t('sublimationPrinting.customDesign.forms.selectCategory')}</option>
+                  {t('sublimationPrinting.customDesign.forms.options.productCategories', { returnObjects: true }).map((cat, index) => (
+                    <option key={index} value={cat.value}>{cat.label}</option>
+                  ))}
                 </select>
               </div>
-              
+
               <div className="form-group">
-                <label>Design Concept</label>
-                <textarea 
-                  placeholder="Describe your vision: style, colors, text, imagery, target audience, and overall feel you want to achieve..."
+                <label>{t('sublimationPrinting.customDesign.forms.designConcept')}</label>
+                <textarea
+                  placeholder={t('sublimationPrinting.customDesign.forms.placeholders.designVision')}
                   rows="4"
                 ></textarea>
               </div>
-              
+
               <div className="form-row">
                 <div className="form-group">
-                  <label>Color Scheme</label>
+                  <label>{t('sublimationPrinting.customDesign.forms.colorScheme')}</label>
                   <select>
-                    <option>Bright & Vibrant</option>
-                    <option>Subtle & Elegant</option>
-                    <option>Bold & High Contrast</option>
-                    <option>Pastel & Soft</option>
-                    <option>Monochrome</option>
-                    <option>Custom Colors</option>
+                    {t('sublimationPrinting.customDesign.forms.options.colorSchemes', { returnObjects: true }).map((scheme, index) => (
+                      <option key={index}>{scheme}</option>
+                    ))}
                   </select>
                 </div>
                 <div className="form-group">
-                  <label>Design Style</label>
+                  <label>{t('sublimationPrinting.customDesign.forms.designStyle')}</label>
                   <select>
-                    <option>Modern & Clean</option>
-                    <option>Vintage & Retro</option>
-                    <option>Artistic & Creative</option>
-                    <option>Professional & Corporate</option>
-                    <option>Fun & Playful</option>
-                    <option>Minimalist</option>
+                    {t('sublimationPrinting.customDesign.forms.options.designStyles', { returnObjects: true }).map((style, index) => (
+                      <option key={index}>{style}</option>
+                    ))}
                   </select>
                 </div>
               </div>
-              
+
               <div className="form-group">
-                <label>Budget Range</label>
+                <label>{t('sublimationPrinting.customDesign.forms.budgetRange')}</label>
                 <select>
-                  <option>$50 - $100 (Simple design)</option>
-                  <option>$100 - $200 (Standard design)</option>
-                  <option>$200 - $350 (Complex design)</option>
-                  <option>$350+ (Premium design)</option>
+                  {t('sublimationPrinting.customDesign.forms.options.budgets', { returnObjects: true }).map((budget, index) => (
+                    <option key={index}>{budget}</option>
+                  ))}
                 </select>
               </div>
-              
+
               <div className="custom-process">
-                <h5>Design Process:</h5>
+                <h5>{t('sublimationPrinting.customDesign.forms.designProcess')}</h5>
                 <ol>
-                  <li>Initial consultation and concept review</li>
-                  <li>First draft design within 2-3 business days</li>
-                  <li>Up to 3 rounds of revisions included</li>
-                  <li>Final files delivered in all needed formats</li>
-                  <li>Production begins immediately after approval</li>
+                  {t('sublimationPrinting.customDesign.forms.processSteps', { returnObjects: true }).map((step, index) => (
+                    <li key={index}>{step}</li>
+                  ))}
                 </ol>
               </div>
-              
-              <button 
+
+              <button
                 className="btn-primary"
                 onClick={() => onGetQuote && onGetQuote('sublimation-design-service', '', 'Professional Design Service')}
               >
-                Start Design Project
+                {t('sublimationPrinting.customDesign.buttons.startProject')}
               </button>
             </div>
           </div>

@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import ProductCard from './ProductCard'
 
 function LaserEngravingDesignSection({ onGetQuote }) {
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState('templates')
   const [selectedTemplate, setSelectedTemplate] = useState(null)
   const [uploadedFile, setUploadedFile] = useState(null)
@@ -9,66 +11,66 @@ function LaserEngravingDesignSection({ onGetQuote }) {
   const designTemplates = [
     {
       id: 1,
-      name: 'Corporate Logo Template',
+      name: t('laserEngraving.customDesign.templates.corporateLogo.name'),
       category: 'business',
-      description: 'Professional logo layout for business cards and signage',
-      price: '$25',
+      description: t('laserEngraving.customDesign.templates.corporateLogo.description'),
+      price: t('laserEngraving.customDesign.templates.corporateLogo.price'),
       placeholder: 'Corp-Logo-Template',
-      features: ['Vector format', 'Scalable design', 'Multiple variants']
+      features: t('laserEngraving.customDesign.templates.corporateLogo.features', { returnObjects: true })
     },
     {
       id: 2,
-      name: 'Wedding Invitation',
+      name: t('laserEngraving.customDesign.templates.weddingInvitation.name'),
       category: 'personal',
-      description: 'Elegant design for wedding invitations and save the dates',
-      price: '$15',
+      description: t('laserEngraving.customDesign.templates.weddingInvitation.description'),
+      price: t('laserEngraving.customDesign.templates.weddingInvitation.price'),
       placeholder: 'Wedding-Template',
-      features: ['Customizable text', 'Romantic fonts', 'Border designs']
+      features: t('laserEngraving.customDesign.templates.weddingInvitation.features', { returnObjects: true })
     },
     {
       id: 3,
-      name: 'Memorial Plaque',
+      name: t('laserEngraving.customDesign.templates.memorialPlaque.name'),
       category: 'memorial',
-      description: 'Respectful design for memorial plaques and tributes',
-      price: '$30',
+      description: t('laserEngraving.customDesign.templates.memorialPlaque.description'),
+      price: t('laserEngraving.customDesign.templates.memorialPlaque.price'),
       placeholder: 'Memorial-Template',
-      features: ['Tasteful layout', 'Multiple sizes', 'Photo integration']
+      features: t('laserEngraving.customDesign.templates.memorialPlaque.features', { returnObjects: true })
     },
     {
       id: 4,
-      name: 'Pet Tag Design',
+      name: t('laserEngraving.customDesign.templates.petTag.name'),
       category: 'personal',
-      description: 'Fun and practical designs for pet identification tags',
-      price: '$10',
+      description: t('laserEngraving.customDesign.templates.petTag.description'),
+      price: t('laserEngraving.customDesign.templates.petTag.price'),
       placeholder: 'Pet-Tag-Template',
-      features: ['Durable materials', 'Contact info fields', 'Fun graphics']
+      features: t('laserEngraving.customDesign.templates.petTag.features', { returnObjects: true })
     },
     {
       id: 5,
-      name: 'Award Certificate',
+      name: t('laserEngraving.customDesign.templates.awardCertificate.name'),
       category: 'business',
-      description: 'Professional certificate design for achievements',
-      price: '$20',
+      description: t('laserEngraving.customDesign.templates.awardCertificate.description'),
+      price: t('laserEngraving.customDesign.templates.awardCertificate.price'),
       placeholder: 'Award-Template',
-      features: ['Formal layout', 'Achievement fields', 'Logo placement']
+      features: t('laserEngraving.customDesign.templates.awardCertificate.features', { returnObjects: true })
     },
     {
       id: 6,
-      name: 'House Number Sign',
+      name: t('laserEngraving.customDesign.templates.houseNumber.name'),
       category: 'home',
-      description: 'Modern house number design for outdoor display',
-      price: '$18',
+      description: t('laserEngraving.customDesign.templates.houseNumber.description'),
+      price: t('laserEngraving.customDesign.templates.houseNumber.price'),
       placeholder: 'House-Number-Template',
-      features: ['Weather resistant', 'Modern fonts', 'Custom colors']
+      features: t('laserEngraving.customDesign.templates.houseNumber.features', { returnObjects: true })
     }
   ]
 
   const categories = [
-    { id: 'all', name: 'All Categories', icon: '🎯' },
-    { id: 'business', name: 'Business', icon: '💼' },
-    { id: 'personal', name: 'Personal', icon: '👤' },
-    { id: 'memorial', name: 'Memorial', icon: '🕊️' },
-    { id: 'home', name: 'Home', icon: '🏠' }
+    { id: 'all', name: t('laserEngraving.customDesign.categories.all'), icon: '🎯' },
+    { id: 'business', name: t('laserEngraving.customDesign.categories.business'), icon: '💼' },
+    { id: 'personal', name: t('laserEngraving.customDesign.categories.personal'), icon: '👤' },
+    { id: 'memorial', name: t('laserEngraving.customDesign.categories.memorial'), icon: '🕊️' },
+    { id: 'home', name: t('laserEngraving.customDesign.categories.home'), icon: '🏠' }
   ]
 
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -96,8 +98,8 @@ function LaserEngravingDesignSection({ onGetQuote }) {
   return (
     <div className="custom-design-section">
       <div className="design-header">
-        <h3>Laser Engraving Design Center</h3>
-        <p>Create your perfect engraved design or choose from our professional templates</p>
+        <h3>{t('laserEngraving.customDesign.header.title')}</h3>
+        <p>{t('laserEngraving.customDesign.header.subtitle')}</p>
       </div>
 
       <div className="design-tabs">
@@ -106,21 +108,21 @@ function LaserEngravingDesignSection({ onGetQuote }) {
           onClick={() => setActiveTab('templates')}
         >
           <span className="tab-icon">📋</span>
-          Design Templates
+          {t('laserEngraving.customDesign.tabs.templates')}
         </button>
         <button
           className={`tab-btn ${activeTab === 'upload' ? 'active' : ''}`}
           onClick={() => setActiveTab('upload')}
         >
           <span className="tab-icon">📁</span>
-          Upload Your Design
+          {t('laserEngraving.customDesign.tabs.upload')}
         </button>
         <button
           className={`tab-btn ${activeTab === 'custom' ? 'active' : ''}`}
           onClick={() => setActiveTab('custom')}
         >
           <span className="tab-icon">✏️</span>
-          Custom Creation
+          {t('laserEngraving.customDesign.tabs.custom')}
         </button>
       </div>
 
@@ -162,35 +164,33 @@ function LaserEngravingDesignSection({ onGetQuote }) {
 
             {selectedTemplate && (
               <div className="template-customization">
-                <h4>Customize "{selectedTemplate.name}"</h4>
+                <h4>{t('laserEngraving.customDesign.forms.customizeTemplate', { name: selectedTemplate.name })}</h4>
                 <div className="customization-form">
                   <div className="form-group">
-                    <label>Your Text</label>
-                    <input type="text" placeholder="Enter your custom text..." />
+                    <label>{t('laserEngraving.customDesign.forms.yourText')}</label>
+                    <input type="text" placeholder={t('laserEngraving.customDesign.forms.placeholders.customText')} />
                   </div>
                   <div className="form-group">
-                    <label>Font Style</label>
+                    <label>{t('laserEngraving.customDesign.forms.fontStyle')}</label>
                     <select>
-                      <option>Modern Sans</option>
-                      <option>Classic Serif</option>
-                      <option>Script Elegant</option>
-                      <option>Bold Display</option>
+                      {t('laserEngraving.customDesign.forms.options.fontStyles', { returnObjects: true }).map((style, index) => (
+                        <option key={index}>{style}</option>
+                      ))}
                     </select>
                   </div>
                   <div className="form-group">
-                    <label>Material</label>
+                    <label>{t('laserEngraving.customDesign.forms.material')}</label>
                     <select>
-                      <option>Oak Wood</option>
-                      <option>Stainless Steel</option>
-                      <option>Clear Acrylic</option>
-                      <option>Frosted Glass</option>
+                      {t('laserEngraving.customDesign.forms.options.materials', { returnObjects: true }).map((material, index) => (
+                        <option key={index}>{material}</option>
+                      ))}
                     </select>
                   </div>
                   <button
                     className="btn-primary"
                     onClick={() => onGetQuote && onGetQuote('template', '', selectedTemplate.name)}
                   >
-                    Add to Cart - {selectedTemplate.price}
+                    {t('laserEngraving.customDesign.buttons.addToCart')} - {selectedTemplate.price}
                   </button>
                 </div>
               </div>
@@ -210,9 +210,9 @@ function LaserEngravingDesignSection({ onGetQuote }) {
               />
               <label htmlFor="file-upload" className="upload-dropzone">
                 <div className="upload-icon">📁</div>
-                <h4>Upload Your Design</h4>
-                <p>Drag and drop your file here or click to browse</p>
-                <span className="upload-formats">Supported: JPG, PNG, SVG, PDF, AI</span>
+                <h4>{t('laserEngraving.customDesign.fileUpload.title')}</h4>
+                <p>{t('laserEngraving.customDesign.fileUpload.description')}</p>
+                <span className="upload-formats">{t('laserEngraving.customDesign.fileUpload.supportedFormats')}</span>
               </label>
             </div>
 
@@ -222,43 +222,42 @@ function LaserEngravingDesignSection({ onGetQuote }) {
                   <div className="file-icon">📄</div>
                   <div className="file-info">
                     <h4>{uploadedFile.name}</h4>
-                    <p>Size: {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB</p>
-                    <p>Type: {uploadedFile.type}</p>
+                    <p>{t('laserEngraving.customDesign.fileUpload.fileInfo.size')} {(uploadedFile.size / 1024 / 1024).toFixed(2)} {t('laserEngraving.customDesign.fileUpload.fileInfo.mb')}</p>
+                    <p>{t('laserEngraving.customDesign.fileUpload.fileInfo.type')} {uploadedFile.type}</p>
                   </div>
-                  <button className="file-remove" onClick={() => setUploadedFile(null)}>×</button>
+                  <button className="file-remove" onClick={() => setUploadedFile(null)}>{t('laserEngraving.customDesign.buttons.remove')}</button>
                 </div>
                 <div className="upload-options">
-                  <h4>Design Specifications</h4>
+                  <h4>{t('laserEngraving.customDesign.forms.designSpecs')}</h4>
                   <div className="specs-form">
                     <div className="form-row">
                       <div className="form-group">
-                        <label>Width (inches)</label>
-                        <input type="number" placeholder="e.g., 6" step="0.1" />
+                        <label>{t('laserEngraving.customDesign.forms.width')}</label>
+                        <input type="number" placeholder={t('laserEngraving.customDesign.forms.placeholders.widthExample')} step="0.1" />
                       </div>
                       <div className="form-group">
-                        <label>Height (inches)</label>
-                        <input type="number" placeholder="e.g., 4" step="0.1" />
+                        <label>{t('laserEngraving.customDesign.forms.height')}</label>
+                        <input type="number" placeholder={t('laserEngraving.customDesign.forms.placeholders.heightExample')} step="0.1" />
                       </div>
                     </div>
                     <div className="form-group">
-                      <label>Material</label>
+                      <label>{t('laserEngraving.customDesign.forms.material')}</label>
                       <select>
-                        <option>Select material...</option>
-                        <option>Oak Wood</option>
-                        <option>Stainless Steel</option>
-                        <option>Clear Acrylic</option>
-                        <option>Frosted Glass</option>
+                        <option>{t('laserEngraving.customDesign.forms.selectMaterial')}</option>
+                        {t('laserEngraving.customDesign.forms.options.materials', { returnObjects: true }).map((material, index) => (
+                          <option key={index}>{material}</option>
+                        ))}
                       </select>
                     </div>
                     <div className="form-group">
-                      <label>Special Instructions</label>
-                      <textarea placeholder="Any special requirements or notes..."></textarea>
+                      <label>{t('laserEngraving.customDesign.forms.specialInstructions')}</label>
+                      <textarea placeholder={t('laserEngraving.customDesign.forms.placeholders.specialRequirements')}></textarea>
                     </div>
                     <button
                       className="btn-primary"
                       onClick={() => onGetQuote && onGetQuote('custom-upload', '', uploadedFile?.name || 'Custom Upload')}
                     >
-                      Get Quote
+                      {t('laserEngraving.customDesign.buttons.getQuote')}
                     </button>
                   </div>
                 </div>
@@ -270,72 +269,63 @@ function LaserEngravingDesignSection({ onGetQuote }) {
         {activeTab === 'custom' && (
           <div className="custom-section">
             <div className="custom-intro">
-              <h4>Work with Our Design Team</h4>
-              <p>Let our professional designers create a completely custom engraved piece for you</p>
+              <h4>{t('laserEngraving.customDesign.customService.title')}</h4>
+              <p>{t('laserEngraving.customDesign.customService.description')}</p>
             </div>
 
             <div className="custom-form">
               <div className="form-group">
-                <label>Project Type</label>
+                <label>{t('laserEngraving.customDesign.forms.projectType')}</label>
                 <select>
-                  <option>Select project type...</option>
-                  <option>Business Signage</option>
-                  <option>Personal Gift</option>
-                  <option>Memorial Piece</option>
-                  <option>Award/Trophy</option>
-                  <option>Home Decor</option>
-                  <option>Other</option>
+                  <option>{t('laserEngraving.customDesign.forms.selectProjectType')}</option>
+                  {t('laserEngraving.customDesign.forms.options.projectTypes', { returnObjects: true }).map((type, index) => (
+                    <option key={index}>{type}</option>
+                  ))}
                 </select>
               </div>
 
               <div className="form-group">
-                <label>Design Description</label>
+                <label>{t('laserEngraving.customDesign.forms.designDescription')}</label>
                 <textarea
-                  placeholder="Describe your vision, style preferences, text content, and any specific requirements..."
+                  placeholder={t('laserEngraving.customDesign.forms.placeholders.designVision')}
                   rows="4"
                 ></textarea>
               </div>
 
               <div className="form-row">
                 <div className="form-group">
-                  <label>Preferred Material</label>
+                  <label>{t('laserEngraving.customDesign.forms.preferredMaterial')}</label>
                   <select>
-                    <option>No preference</option>
-                    <option>Wood (Oak, Walnut, etc.)</option>
-                    <option>Metal (Steel, Aluminum)</option>
-                    <option>Acrylic (Clear, Colored)</option>
-                    <option>Glass (Clear, Frosted)</option>
+                    {t('laserEngraving.customDesign.forms.options.materialPreferences', { returnObjects: true }).map((pref, index) => (
+                      <option key={index}>{pref}</option>
+                    ))}
                   </select>
                 </div>
                 <div className="form-group">
-                  <label>Approximate Size</label>
+                  <label>{t('laserEngraving.customDesign.forms.approximateSize')}</label>
                   <select>
-                    <option>Small (under 6")</option>
-                    <option>Medium (6" - 12")</option>
-                    <option>Large (12" - 24")</option>
-                    <option>Extra Large (24"+)</option>
+                    {t('laserEngraving.customDesign.forms.options.sizes', { returnObjects: true }).map((size, index) => (
+                      <option key={index}>{size}</option>
+                    ))}
                   </select>
                 </div>
               </div>
 
               <div className="form-group">
-                <label>Budget Range</label>
+                <label>{t('laserEngraving.customDesign.forms.budgetRange')}</label>
                 <select>
-                  <option>$25 - $50</option>
-                  <option>$50 - $100</option>
-                  <option>$100 - $250</option>
-                  <option>$250 - $500</option>
-                  <option>$500+</option>
+                  {t('laserEngraving.customDesign.forms.options.budgets', { returnObjects: true }).map((budget, index) => (
+                    <option key={index}>{budget}</option>
+                  ))}
                 </select>
               </div>
 
               <div className="custom-process">
-                <h5>What happens next:</h5>
+                <h5>{t('laserEngraving.customDesign.forms.whatHappensNext')}</h5>
                 <ol>
-                  <li>We'll review your requirements within 24 hours</li>
-                  <li>Our designer will create initial concepts</li>
-                  <li>We'll collaborate on revisions</li>
-                  <li>Final design approval and production</li>
+                  {t('laserEngraving.customDesign.forms.processSteps', { returnObjects: true }).map((step, index) => (
+                    <li key={index}>{step}</li>
+                  ))}
                 </ol>
               </div>
 
@@ -343,7 +333,7 @@ function LaserEngravingDesignSection({ onGetQuote }) {
                 className="btn-primary"
                 onClick={() => onGetQuote && onGetQuote('custom-design', '', 'Full Custom Design Project')}
               >
-                Start Custom Design Project
+                {t('laserEngraving.customDesign.buttons.startProject')}
               </button>
             </div>
           </div>

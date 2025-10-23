@@ -272,15 +272,33 @@
         },
         "weddingInvitation": {
           "name": "Wedding Invitation",
-          "description": "Elegant design for wedding invitations and save the dates", 
+          "description": "Elegant design for wedding invitations and save the dates",
           "price": "$15",
           "features": ["Customizable text", "Romantic fonts", "Border designs"]
         },
         "memorialPlaque": {
           "name": "Memorial Plaque",
-          "description": "Respectful and elegant memorial designs",
-          "price": "$35", 
-          "features": ["Traditional layouts", "Custom text", "Symbol options"]
+          "description": "Respectful design for memorial plaques and tributes",
+          "price": "$30",
+          "features": ["Tasteful layout", "Multiple sizes", "Photo integration"]
+        },
+        "petTag": {
+          "name": "Pet Tag Design",
+          "description": "Fun and practical designs for pet identification tags",
+          "price": "$10",
+          "features": ["Durable materials", "Contact info fields", "Fun graphics"]
+        },
+        "awardCertificate": {
+          "name": "Award Certificate",
+          "description": "Professional certificate design for achievements",
+          "price": "$20",
+          "features": ["Formal layout", "Achievement fields", "Logo placement"]
+        },
+        "houseNumber": {
+          "name": "House Number Sign",
+          "description": "Modern house number design for outdoor display",
+          "price": "$18",
+          "features": ["Weather resistant", "Modern fonts", "Custom colors"]
         }
       },
       "upload": {
@@ -325,9 +343,9 @@
         "subtitle": "Create your perfect design or choose from our professional templates"
       },
       "categories": {
-        "all": "All",
+        "all": "All Categories",
         "business": "Business",
-        "personal": "Personal", 
+        "personal": "Personal",
         "memorial": "Memorial",
         "home": "Home"
       },
@@ -450,6 +468,377 @@
       "title": "Ready to Start Your Project?",
       "subtitle": "Let's work together to bring your vision to life with precision and creativity.",
       "button": "Get In Touch"
+    }
+  },
+  "sublimationPrinting": {
+    "hero": {
+      "title": "Sublimation Printing",
+      "subtitle": "Vibrant, fade-resistant designs that become one with your materials. From custom apparel to promotional items, experience the brilliance of sublimation technology.",
+      "primaryButton": "Get Started",
+      "secondaryButton": "All Services"
+    },
+    "whatWeOffer": {
+      "title": "What Makes Sublimation Special",
+      "subtitle": "Sublimation printing creates vibrant, permanent designs that won't crack, peel, or fade over time.",
+      "features": [
+        "Full-color photo quality prints",
+        "Mugs, t-shirts, and mousepads",
+        "Custom promotional items",
+        "Weather-resistant outdoor signage",
+        "Fade-resistant and wash-safe designs",
+        "Unlimited color possibilities",
+        "Perfect for photographs and complex artwork",
+        "Eco-friendly printing process"
+      ]
+    },
+    "process": {
+      "title": "How Sublimation Works",
+      "steps": {
+        "printing": {
+          "title": "Digital Printing",
+          "description": "Your design is printed onto special sublimation paper using heat-activated inks"
+        },
+        "heat": {
+          "title": "Heat Transfer",
+          "description": "Heat and pressure transform the ink from solid to gas, penetrating the material fibers"
+        },
+        "bond": {
+          "title": "Molecular Bond",
+          "description": "The ink bonds at a molecular level, becoming part of the material permanently"
+        },
+        "finish": {
+          "title": "Perfect Finish",
+          "description": "Result: vibrant, fade-resistant designs that feel soft and natural to the touch"
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to bring your designs to life?",
+      "subtitle": "Experience the vibrant world of sublimation printing with professional quality and unlimited creativity.",
+      "button": "Start Your Project"
+    },
+    "gallery": {
+      "title": "Our Sublimation Portfolio",
+      "subtitle": "Discover vibrant, fade-resistant designs across a wide range of products",
+      "categories": {
+        "all": "All Products",
+        "apparel": "Apparel",
+        "drinkware": "Drinkware",
+        "home": "Home Decor",
+        "accessories": "Accessories",
+        "signage": "Signage"
+      },
+      "items": {
+        "tshirt": {
+          "title": "Custom Photo T-Shirt",
+          "description": "High-quality photo reproduction on premium cotton",
+          "material": "Cotton T-Shirt"
+        },
+        "mug": {
+          "title": "Personalized Coffee Mug",
+          "description": "Vibrant colors that won't fade with washing",
+          "material": "Ceramic Mug"
+        },
+        "metalArt": {
+          "title": "Metal Wall Art",
+          "description": "Stunning metal prints for modern decor",
+          "material": "Aluminum Panel"
+        },
+        "mousepad": {
+          "title": "Custom Mouse Pad",
+          "description": "Smooth surface with vibrant edge-to-edge printing",
+          "material": "Polyester Fabric"
+        },
+        "banner": {
+          "title": "Weather-Resistant Signage",
+          "description": "Durable outdoor advertising with brilliant colors",
+          "material": "Outdoor Banner"
+        },
+        "tumbler": {
+          "title": "Travel Tumbler",
+          "description": "Insulated drinkware with full-wrap designs",
+          "material": "Stainless Steel"
+        },
+        "jersey": {
+          "title": "Athletic Jersey",
+          "description": "Performance wear with moisture-wicking properties",
+          "material": "Polyester Blend"
+        },
+        "canvas": {
+          "title": "Canvas Wall Print",
+          "description": "Gallery-quality canvas with rich color saturation",
+          "material": "Canvas"
+        },
+        "phoneCase": {
+          "title": "Custom Phone Case",
+          "description": "Protective cases with edge-to-edge printing",
+          "material": "Polyester"
+        }
+      },
+      "buttons": {
+        "viewDetails": "View Details",
+        "getQuote": "Get Quote",
+        "similarProducts": "Similar Products",
+        "requestQuote": "Request Quote"
+      }
+    },
+    "customDesign": {
+      "header": {
+        "title": "Sublimation Design Studio",
+        "subtitle": "Choose your product and create stunning, fade-resistant designs"
+      },
+      "tabs": {
+        "products": "Product Gallery",
+        "upload": "Upload Design",
+        "custom": "Design Service"
+      },
+      "categories": {
+        "all": "All Products",
+        "apparel": "Apparel",
+        "drinkware": "Drinkware",
+        "home": "Home Decor",
+        "accessories": "Accessories",
+        "signage": "Signage"
+      },
+      "products": {
+        "tshirt": {
+          "name": "Premium T-Shirt Design",
+          "description": "Full-color designs on premium cotton blend tees",
+          "price": "$18",
+          "features": ["100% Cotton Blend", "Machine Washable", "Fade Resistant"],
+          "sizes": ["XS", "S", "M", "L", "XL", "XXL"]
+        },
+        "mug": {
+          "name": "Coffee Mug Collection",
+          "description": "Vibrant designs on ceramic and stainless steel mugs",
+          "price": "$12",
+          "features": ["Dishwasher Safe", "Microwave Safe", "Vibrant Colors"],
+          "sizes": ["11oz", "15oz", "20oz Tumbler"]
+        },
+        "metal": {
+          "name": "Metal Print Art",
+          "description": "High-definition prints on aluminum panels",
+          "price": "$35",
+          "features": ["Weather Resistant", "Scratch Proof", "HD Quality"],
+          "sizes": ["8x10\"", "11x14\"", "16x20\"", "20x30\""]
+        },
+        "mousepad": {
+          "name": "Mouse Pad Pro",
+          "description": "Professional gaming and office mouse pads",
+          "price": "$8",
+          "features": ["Non-Slip Base", "Smooth Surface", "Edge Stitching"],
+          "sizes": ["Standard", "Large", "XL Gaming"]
+        },
+        "canvas": {
+          "name": "Canvas Gallery Wrap",
+          "description": "Museum-quality canvas prints with gallery wrapping",
+          "price": "$45",
+          "features": ["Gallery Wrapped", "UV Resistant", "Rich Colors"],
+          "sizes": ["12x16\"", "16x20\"", "20x24\"", "24x36\""]
+        },
+        "banner": {
+          "name": "Outdoor Banner",
+          "description": "Weather-resistant vinyl banners for outdoor use",
+          "price": "$25",
+          "features": ["Waterproof", "UV Protected", "Grommets Included"],
+          "sizes": ["2x4ft", "3x6ft", "4x8ft", "Custom"]
+        }
+      },
+      "forms": {
+        "customizeProduct": "Customize \"{name}\"",
+        "designText": "Your Design/Text",
+        "size": "Size/Quantity",
+        "quantity": "Quantity",
+        "productSelection": "Product Selection",
+        "productType": "Product Type",
+        "selectProduct": "Select product...",
+        "width": "Width (inches)",
+        "height": "Height (inches)",
+        "specialInstructions": "Special Instructions",
+        "productCategory": "Product Category",
+        "selectCategory": "Select category...",
+        "designConcept": "Design Concept",
+        "colorScheme": "Color Scheme",
+        "designStyle": "Design Style",
+        "budgetRange": "Budget Range",
+        "designProcess": "Design Process:",
+        "placeholders": {
+          "designDescription": "Describe your design or upload a file below...",
+          "widthExample": "e.g., 8",
+          "heightExample": "e.g., 10",
+          "specialRequirements": "Color preferences, sizing notes, or other requirements...",
+          "designVision": "Describe your vision: style, colors, text, imagery, target audience, and overall feel you want to achieve..."
+        },
+        "options": {
+          "productTypes": [
+            {"value": "apparel", "label": "T-Shirts & Apparel"},
+            {"value": "drinkware", "label": "Mugs & Drinkware"},
+            {"value": "home", "label": "Home Decor"},
+            {"value": "accessories", "label": "Accessories"},
+            {"value": "signage", "label": "Signs & Banners"}
+          ],
+          "productCategories": [
+            {"value": "apparel", "label": "Apparel & Clothing"},
+            {"value": "drinkware", "label": "Mugs & Drinkware"},
+            {"value": "home-decor", "label": "Home Decor"},
+            {"value": "business", "label": "Business Products"},
+            {"value": "promotional", "label": "Promotional Items"},
+            {"value": "signage", "label": "Signs & Banners"}
+          ],
+          "colorSchemes": [
+            "Bright & Vibrant",
+            "Subtle & Elegant",
+            "Bold & High Contrast",
+            "Pastel & Soft",
+            "Monochrome",
+            "Custom Colors"
+          ],
+          "designStyles": [
+            "Modern & Clean",
+            "Vintage & Retro",
+            "Artistic & Creative",
+            "Professional & Corporate",
+            "Fun & Playful",
+            "Minimalist"
+          ],
+          "budgets": [
+            "$50 - $100 (Simple design)",
+            "$100 - $200 (Standard design)",
+            "$200 - $350 (Complex design)",
+            "$350+ (Premium design)"
+          ]
+        },
+        "processSteps": [
+          "Initial consultation and concept review",
+          "First draft design within 2-3 business days",
+          "Up to 3 rounds of revisions included",
+          "Final files delivered in all needed formats",
+          "Production begins immediately after approval"
+        ]
+      },
+      "fileUpload": {
+        "title": "Upload Your Design",
+        "description": "Drag and drop your artwork here or click to browse",
+        "supportedFormats": "Supported: JPG, PNG, SVG, PDF, AI, PSD",
+        "fileInfo": {
+          "size": "Size:",
+          "type": "Type:",
+          "mb": "MB"
+        }
+      },
+      "customService": {
+        "title": "Professional Design Service",
+        "description": "Let our design team create stunning artwork optimized for sublimation printing"
+      },
+      "buttons": {
+        "getQuote": "Get Quote",
+        "remove": "×",
+        "startProject": "Start Design Project"
+      }
+    }
+  },
+  "dtgPrinting": {
+    "hero": {
+      "title": "DTG Printing",
+      "subtitle": "Direct-to-garment printing for complex, colorful designs on textiles. Experience unlimited colors, photographic detail, and eco-friendly water-based inks.",
+      "primaryButton": "Get Started",
+      "secondaryButton": "All Services"
+    },
+    "whatWeOffer": {
+      "title": "Why Choose DTG Printing",
+      "subtitle": "Direct-to-garment technology allows for complex, detailed designs with unlimited colors and photographic quality.",
+      "features": [
+        "High-quality cotton apparel",
+        "Complex multi-color designs",
+        "Small batch and custom orders",
+        "Eco-friendly water-based inks",
+        "Photo-realistic print quality",
+        "No minimum order quantities",
+        "Soft-hand feel that moves with fabric",
+        "Same-day design approval available"
+      ]
+    },
+    "process": {
+      "title": "How DTG Printing Works",
+      "steps": {
+        "preparation": {
+          "title": "Design Preparation",
+          "description": "Your artwork is optimized for garment printing with proper color profiles and sizing"
+        },
+        "pretreatment": {
+          "title": "Pre-Treatment",
+          "description": "Garments receive special pre-treatment to ensure ink adhesion and vibrant colors"
+        },
+        "printing": {
+          "title": "Direct Printing",
+          "description": "Water-based inks are printed directly onto the fabric using industrial DTG printers"
+        },
+        "curing": {
+          "title": "Heat Curing",
+          "description": "Prints are cured with heat to ensure durability and washability"
+        },
+        "quality": {
+          "title": "Quality Check",
+          "description": "Each piece is inspected for print quality, color accuracy, and overall finish"
+        },
+        "packaging": {
+          "title": "Packaging",
+          "description": "Finished garments are carefully folded and packaged for delivery"
+        }
+      }
+    },
+    "advantages": {
+      "title": "DTG vs Traditional Methods",
+      "items": {
+        "colors": {
+          "title": "Unlimited Colors",
+          "description": "Unlike screen printing, DTG has no color limitations. Print full-color photographs and complex gradients with ease."
+        },
+        "quality": {
+          "title": "Photo Quality",
+          "description": "Achieve photographic detail that's impossible with vinyl or screen printing. Perfect for portraits and detailed artwork."
+        },
+        "minimums": {
+          "title": "No Minimums",
+          "description": "Order as few as one piece. Great for prototypes, personal gifts, or testing designs before larger runs."
+        },
+        "eco": {
+          "title": "Eco-Friendly",
+          "description": "Water-based inks are environmentally safe and produce minimal waste compared to traditional methods."
+        },
+        "feel": {
+          "title": "Soft Feel",
+          "description": "Inks absorb into the fabric fibers, creating a soft hand-feel that won't crack or peel over time."
+        },
+        "speed": {
+          "title": "Quick Turnaround",
+          "description": "No screens to create or setup time. Fast production for rush orders and last-minute projects."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to print your next design?",
+      "subtitle": "Experience the freedom of unlimited colors and photographic detail with professional DTG printing.",
+      "button": "Start Your Project"
+    },
+    "customDesign": {
+      "header": {
+        "title": "DTG Design Studio",
+        "subtitle": "Select your garment and create stunning direct-to-garment prints with unlimited colors"
+      },
+      "tabs": {
+        "apparel": "Choose Apparel",
+        "design": "Upload Design",
+        "guidelines": "Design Guidelines"
+      },
+      "categories": {
+        "all": "All Apparel",
+        "tshirts": "T-Shirts",
+        "hoodies": "Hoodies",
+        "athletic": "Athletic",
+        "longsleeve": "Long Sleeve",
+        "kids": "Kids"
+      }
     }
   }
 }

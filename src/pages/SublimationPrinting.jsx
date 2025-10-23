@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import SublimationGallery from '../components/SublimationGallery'
 import SublimationDesignSection from '../components/SublimationDesignSection'
 import { useState } from 'react'
@@ -6,6 +7,7 @@ import QuoteModal from '../components/QuoteModal'
 import './SublimationPrinting.css'
 
 function SublimationPrinting() {
+  const { t } = useTranslation()
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
   const [quoteData, setQuoteData] = useState({
     projectType: '',
@@ -22,14 +24,13 @@ function SublimationPrinting() {
     <>
       <section className="page-hero">
         <div className="page-hero-content">
-          <h1 className="page-title">Sublimation Printing</h1>
+          <h1 className="page-title">{t('sublimationPrinting.hero.title')}</h1>
           <p className="page-subtitle">
-            Vibrant, fade-resistant designs that become one with your materials. 
-            From custom apparel to promotional items, experience the brilliance of sublimation technology.
+            {t('sublimationPrinting.hero.subtitle')}
           </p>
           <div className="hero-actions">
-            <Link to="/contact" className="btn-primary">Get Started</Link>
-            <Link to="/services" className="btn-secondary">All Services</Link>
+            <Link to="/contact" className="btn-primary">{t('sublimationPrinting.hero.primaryButton')}</Link>
+            <Link to="/services" className="btn-secondary">{t('sublimationPrinting.hero.secondaryButton')}</Link>
           </div>
         </div>
       </section>
@@ -39,19 +40,14 @@ function SublimationPrinting() {
           <div className="service-detailed-header">
             <div className="service-icon">🎨</div>
             <div>
-              <h2>What Makes Sublimation Special</h2>
-              <p>Sublimation printing creates vibrant, permanent designs that won't crack, peel, or fade over time.</p>
+              <h2>{t('sublimationPrinting.whatWeOffer.title')}</h2>
+              <p>{t('sublimationPrinting.whatWeOffer.subtitle')}</p>
             </div>
           </div>
           <ul className="service-features">
-            <li>Full-color photo quality prints</li>
-            <li>Mugs, t-shirts, and mousepads</li>
-            <li>Custom promotional items</li>
-            <li>Weather-resistant outdoor signage</li>
-            <li>Fade-resistant and wash-safe designs</li>
-            <li>Unlimited color possibilities</li>
-            <li>Perfect for photographs and complex artwork</li>
-            <li>Eco-friendly printing process</li>
+            {t('sublimationPrinting.whatWeOffer.features', { returnObjects: true }).map((feature, index) => (
+              <li key={index}>{feature}</li>
+            ))}
           </ul>
         </div>
       </section>
@@ -59,27 +55,27 @@ function SublimationPrinting() {
       {/* Sublimation Process Section */}
       <section className="sublimation-process">
         <div className="process-content">
-          <h2 className="section-title">How Sublimation Works</h2>
+          <h2 className="section-title">{t('sublimationPrinting.process.title')}</h2>
           <div className="process-steps">
             <div className="process-step">
               <div className="step-icon">🖨️</div>
-              <h3>Digital Printing</h3>
-              <p>Your design is printed onto special sublimation paper using heat-activated inks</p>
+              <h3>{t('sublimationPrinting.process.steps.printing.title')}</h3>
+              <p>{t('sublimationPrinting.process.steps.printing.description')}</p>
             </div>
             <div className="process-step">
               <div className="step-icon">🔥</div>
-              <h3>Heat Transfer</h3>
-              <p>Heat and pressure transform the ink from solid to gas, penetrating the material fibers</p>
+              <h3>{t('sublimationPrinting.process.steps.heat.title')}</h3>
+              <p>{t('sublimationPrinting.process.steps.heat.description')}</p>
             </div>
             <div className="process-step">
               <div className="step-icon">🧬</div>
-              <h3>Molecular Bond</h3>
-              <p>The ink bonds at a molecular level, becoming part of the material permanently</p>
+              <h3>{t('sublimationPrinting.process.steps.bond.title')}</h3>
+              <p>{t('sublimationPrinting.process.steps.bond.description')}</p>
             </div>
             <div className="process-step">
               <div className="step-icon">✨</div>
-              <h3>Perfect Finish</h3>
-              <p>Result: vibrant, fade-resistant designs that feel soft and natural to the touch</p>
+              <h3>{t('sublimationPrinting.process.steps.finish.title')}</h3>
+              <p>{t('sublimationPrinting.process.steps.finish.description')}</p>
             </div>
           </div>
         </div>
@@ -90,9 +86,9 @@ function SublimationPrinting() {
 
       <section className="cta">
         <div className="cta-content">
-          <h2>Ready to bring your designs to life?</h2>
-          <p>Experience the vibrant world of sublimation printing with professional quality and unlimited creativity.</p>
-          <Link to="/contact" className="btn-primary">Start Your Project</Link>
+          <h2>{t('sublimationPrinting.cta.title')}</h2>
+          <p>{t('sublimationPrinting.cta.subtitle')}</p>
+          <Link to="/contact" className="btn-primary">{t('sublimationPrinting.cta.button')}</Link>
         </div>
       </section>
 

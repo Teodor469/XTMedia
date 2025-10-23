@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import QuoteModal from './QuoteModal'
 
 function SublimationGallery() {
+  const { t } = useTranslation()
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedImage, setSelectedImage] = useState(null)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
@@ -15,93 +17,93 @@ function SublimationGallery() {
     {
       id: 1,
       category: 'apparel',
-      material: 'Cotton T-Shirt',
-      title: 'Custom Photo T-Shirt',
-      description: 'High-quality photo reproduction on premium cotton',
+      material: t('sublimationPrinting.gallery.items.tshirt.material'),
+      title: t('sublimationPrinting.gallery.items.tshirt.title'),
+      description: t('sublimationPrinting.gallery.items.tshirt.description'),
       size: 'large',
       placeholder: 'Photo-Tshirt-Large'
     },
     {
       id: 2,
       category: 'drinkware',
-      material: 'Ceramic Mug',
-      title: 'Personalized Coffee Mug',
-      description: 'Vibrant colors that won\'t fade with washing',
+      material: t('sublimationPrinting.gallery.items.mug.material'),
+      title: t('sublimationPrinting.gallery.items.mug.title'),
+      description: t('sublimationPrinting.gallery.items.mug.description'),
       size: 'medium',
       placeholder: 'Custom-Mug-Med'
     },
     {
       id: 3,
       category: 'home',
-      material: 'Aluminum Panel',
-      title: 'Metal Wall Art',
-      description: 'Stunning metal prints for modern decor',
+      material: t('sublimationPrinting.gallery.items.metalArt.material'),
+      title: t('sublimationPrinting.gallery.items.metalArt.title'),
+      description: t('sublimationPrinting.gallery.items.metalArt.description'),
       size: 'small',
       placeholder: 'Metal-Art-Small'
     },
     {
       id: 4,
       category: 'accessories',
-      material: 'Polyester Fabric',
-      title: 'Custom Mouse Pad',
-      description: 'Smooth surface with vibrant edge-to-edge printing',
+      material: t('sublimationPrinting.gallery.items.mousepad.material'),
+      title: t('sublimationPrinting.gallery.items.mousepad.title'),
+      description: t('sublimationPrinting.gallery.items.mousepad.description'),
       size: 'medium',
       placeholder: 'Mousepad-Med'
     },
     {
       id: 5,
       category: 'signage',
-      material: 'Outdoor Banner',
-      title: 'Weather-Resistant Signage',
-      description: 'Durable outdoor advertising with brilliant colors',
+      material: t('sublimationPrinting.gallery.items.banner.material'),
+      title: t('sublimationPrinting.gallery.items.banner.title'),
+      description: t('sublimationPrinting.gallery.items.banner.description'),
       size: 'large',
       placeholder: 'Banner-Sign-Large'
     },
     {
       id: 6,
       category: 'drinkware',
-      material: 'Stainless Steel',
-      title: 'Travel Tumbler',
-      description: 'Insulated drinkware with full-wrap designs',
+      material: t('sublimationPrinting.gallery.items.tumbler.material'),
+      title: t('sublimationPrinting.gallery.items.tumbler.title'),
+      description: t('sublimationPrinting.gallery.items.tumbler.description'),
       size: 'small',
       placeholder: 'Steel-Tumbler-Small'
     },
     {
       id: 7,
       category: 'apparel',
-      material: 'Polyester Blend',
-      title: 'Athletic Jersey',
-      description: 'Performance wear with moisture-wicking properties',
+      material: t('sublimationPrinting.gallery.items.jersey.material'),
+      title: t('sublimationPrinting.gallery.items.jersey.title'),
+      description: t('sublimationPrinting.gallery.items.jersey.description'),
       size: 'medium',
       placeholder: 'Athletic-Jersey-Med'
     },
     {
       id: 8,
       category: 'home',
-      material: 'Canvas',
-      title: 'Canvas Wall Print',
-      description: 'Gallery-quality canvas with rich color saturation',
+      material: t('sublimationPrinting.gallery.items.canvas.material'),
+      title: t('sublimationPrinting.gallery.items.canvas.title'),
+      description: t('sublimationPrinting.gallery.items.canvas.description'),
       size: 'small',
       placeholder: 'Canvas-Print-Small'
     },
     {
       id: 9,
       category: 'accessories',
-      material: 'Polyester',
-      title: 'Custom Phone Case',
-      description: 'Protective cases with edge-to-edge printing',
+      material: t('sublimationPrinting.gallery.items.phoneCase.material'),
+      title: t('sublimationPrinting.gallery.items.phoneCase.title'),
+      description: t('sublimationPrinting.gallery.items.phoneCase.description'),
       size: 'large',
       placeholder: 'Phone-Case-Large'
     }
   ]
 
   const categories = [
-    { id: 'all', name: 'All Products', icon: '🎯' },
-    { id: 'apparel', name: 'Apparel', icon: '👕' },
-    { id: 'drinkware', name: 'Drinkware', icon: '☕' },
-    { id: 'home', name: 'Home Decor', icon: '🏠' },
-    { id: 'accessories', name: 'Accessories', icon: '📱' },
-    { id: 'signage', name: 'Signage', icon: '🪧' }
+    { id: 'all', name: t('sublimationPrinting.gallery.categories.all'), icon: '🎯' },
+    { id: 'apparel', name: t('sublimationPrinting.gallery.categories.apparel'), icon: '👕' },
+    { id: 'drinkware', name: t('sublimationPrinting.gallery.categories.drinkware'), icon: '☕' },
+    { id: 'home', name: t('sublimationPrinting.gallery.categories.home'), icon: '🏠' },
+    { id: 'accessories', name: t('sublimationPrinting.gallery.categories.accessories'), icon: '📱' },
+    { id: 'signage', name: t('sublimationPrinting.gallery.categories.signage'), icon: '🪧' }
   ]
 
   const filteredItems = selectedCategory === 'all' 
@@ -124,8 +126,8 @@ function SublimationGallery() {
   return (
     <div className="sublimation-gallery">
       <div className="gallery-header">
-        <h3>Our Sublimation Portfolio</h3>
-        <p>Discover vibrant, fade-resistant designs across a wide range of products</p>
+        <h3>{t('sublimationPrinting.gallery.title')}</h3>
+        <p>{t('sublimationPrinting.gallery.subtitle')}</p>
       </div>
 
       <div className="gallery-filters">
@@ -161,15 +163,15 @@ function SublimationGallery() {
                 <p className="material-tag">{item.material}</p>
                 <p className="description">{item.description}</p>
                 <div className="gallery-actions">
-                  <button className="btn-ghost">View Details</button>
-                  <button 
+                  <button className="btn-ghost">{t('sublimationPrinting.gallery.buttons.viewDetails')}</button>
+                  <button
                     className="btn-primary-small"
                     onClick={(e) => {
                       e.stopPropagation()
                       handleGetQuote('sublimation-printing', item.material, item.title)
                     }}
                   >
-                    Get Quote
+                    {t('sublimationPrinting.gallery.buttons.getQuote')}
                   </button>
                 </div>
               </div>
@@ -194,15 +196,15 @@ function SublimationGallery() {
               <p className="modal-material">{selectedImage.material}</p>
               <p className="modal-description">{selectedImage.description}</p>
               <div className="modal-actions">
-                <button className="btn-secondary">Similar Products</button>
-                <button 
+                <button className="btn-secondary">{t('sublimationPrinting.gallery.buttons.similarProducts')}</button>
+                <button
                   className="btn-primary"
                   onClick={() => {
                     setSelectedImage(null)
                     handleGetQuote('sublimation-printing', selectedImage.material, selectedImage.title)
                   }}
                 >
-                  Request Quote
+                  {t('sublimationPrinting.gallery.buttons.requestQuote')}
                 </button>
               </div>
             </div>

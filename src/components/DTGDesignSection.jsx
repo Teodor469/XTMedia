@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import ProductCard from './ProductCard'
 
 function DTGDesignSection({ onGetQuote }) {
+  const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState('apparel')
   const [selectedGarment, setSelectedGarment] = useState(null)
   const [uploadedFile, setUploadedFile] = useState(null)
@@ -76,12 +78,12 @@ function DTGDesignSection({ onGetQuote }) {
   ]
 
   const categories = [
-    { id: 'all', name: 'All Apparel', icon: '👕' },
-    { id: 'tshirts', name: 'T-Shirts', icon: '👔' },
-    { id: 'hoodies', name: 'Hoodies', icon: '🧥' },
-    { id: 'athletic', name: 'Athletic', icon: '⚽' },
-    { id: 'longsleeve', name: 'Long Sleeve', icon: '🦾' },
-    { id: 'kids', name: 'Kids', icon: '🧒' }
+    { id: 'all', name: t('dtgPrinting.customDesign.categories.all'), icon: '👕' },
+    { id: 'tshirts', name: t('dtgPrinting.customDesign.categories.tshirts'), icon: '👔' },
+    { id: 'hoodies', name: t('dtgPrinting.customDesign.categories.hoodies'), icon: '🧥' },
+    { id: 'athletic', name: t('dtgPrinting.customDesign.categories.athletic'), icon: '⚽' },
+    { id: 'longsleeve', name: t('dtgPrinting.customDesign.categories.longsleeve'), icon: '🦾' },
+    { id: 'kids', name: t('dtgPrinting.customDesign.categories.kids'), icon: '🧒' }
   ]
 
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -109,31 +111,31 @@ function DTGDesignSection({ onGetQuote }) {
   return (
     <div className="dtg-design-section">
       <div className="design-header">
-        <h3>DTG Design Studio</h3>
-        <p>Select your garment and create stunning direct-to-garment prints with unlimited colors</p>
+        <h3>{t('dtgPrinting.customDesign.header.title')}</h3>
+        <p>{t('dtgPrinting.customDesign.header.subtitle')}</p>
       </div>
 
       <div className="design-tabs">
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'apparel' ? 'active' : ''}`}
           onClick={() => setActiveTab('apparel')}
         >
           <span className="tab-icon">👕</span>
-          Choose Apparel
+          {t('dtgPrinting.customDesign.tabs.apparel')}
         </button>
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'design' ? 'active' : ''}`}
           onClick={() => setActiveTab('design')}
         >
           <span className="tab-icon">🎨</span>
-          Upload Design
+          {t('dtgPrinting.customDesign.tabs.design')}
         </button>
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'guidelines' ? 'active' : ''}`}
           onClick={() => setActiveTab('guidelines')}
         >
           <span className="tab-icon">📋</span>
-          Design Guidelines
+          {t('dtgPrinting.customDesign.tabs.guidelines')}
         </button>
       </div>
 
