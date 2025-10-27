@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "name": "Maria Petrova",
+    "product": "Custom T-Shirt",
+    "rating": 5,
+    "comment": "Amazing quality! The print is vibrant and hasn't faded after multiple washes. The team was very professional and delivered on time.",
+    "date": "2024-01-15",
+    "verified": true
+  },
+  {
+    "id": "2",
+    "name": "Ivan Georgiev",
+    "product": "Laser Engraved Trophy",
+    "rating": 5,
+    "comment": "Perfect engraving for our company awards ceremony. The detail is incredible and everyone was impressed. Highly recommend!",
+    "date": "2024-01-20",
+    "verified": true
+  },
+  {
+    "id": "3",
+    "name": "Elena Dimitrova",
+    "product": "Custom Mug",
+    "rating": 4,
+    "comment": "Great product overall. The sublimation print is clear and colorful. Delivery was quick. Would order again!",
+    "date": "2024-02-05",
+    "verified": true
+  },
+  {
+    "id": "4",
+    "name": "Georgi Ivanov",
+    "product": "Business Signage",
+    "rating": 5,
+    "comment": "Outstanding work on our office sign. The laser-cut acrylic looks professional and modern. Installation instructions were clear.",
+    "date": "2024-02-12",
+    "verified": true
+  },
+  {
+    "id": "5",
+    "name": "Sofia Nikolova",
+    "product": "Branded Hoodie",
+    "rating": 5,
+    "comment": "Love the embroidered logo! The hoodie is soft and comfortable. Perfect for our team. We'll definitely order more.",
+    "date": "2024-02-18",
+    "verified": true
+  },
+  {
+    "id": "6",
+    "name": "Dimitar Stoyanov",
+    "product": "Photo Print on Canvas",
+    "rating": 4,
+    "comment": "Beautiful canvas print. Colors are accurate and the quality is excellent. Frame could be a bit sturdier, but overall very satisfied.",
+    "date": "2024-03-01",
+    "verified": true
+  },
+  {
+    "id": "7",
+    "name": "Kristina Angelova",
+    "product": "Corporate Gifts Set",
+    "rating": 5,
+    "comment": "Ordered custom gift sets for our clients. Everything was perfect - from the engraving to the packaging. Very impressed!",
+    "date": "2024-03-10",
+    "verified": true
+  },
+  {
+    "id": "8",
+    "name": "Plamen Yordanov",
+    "product": "3D Wooden Puzzle",
+    "rating": 5,
+    "comment": "Unique gift idea! The puzzle is well-crafted and the custom engraving adds a personal touch. Great quality wood.",
+    "date": "2024-03-15",
+    "verified": true
+  }
+]

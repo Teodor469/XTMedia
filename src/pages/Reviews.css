@@ -1,0 +1,147 @@
+/* Reviews Page Styles */
+
+/* Hero Section */
+.reviews-hero {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  padding: 120px 24px 80px;
+  text-align: center;
+}
+
+/* Reviews List Section */
+.reviews-list-section {
+  background: #f9fafb;
+  padding: 80px 24px;
+}
+
+.reviews-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.reviews-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviews-filter label {
+  font-size: 0.9375rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.filter-select {
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  font-size: 0.9375rem;
+  color: #1f2937;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-select:hover {
+  border-color: #08b688;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #08b688;
+  box-shadow: 0 0 0 3px rgba(8, 182, 136, 0.1);
+}
+
+/* Reviews Grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 24px;
+}
+
+/* Loading and Empty States */
+.loading-reviews {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.loading-spinner {
+  font-size: 1.25rem;
+  color: #08b688;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.no-reviews {
+  text-align: center;
+  padding: 60px 24px;
+  color: #6b7280;
+}
+
+/* Submit Review Section */
+.submit-review-section {
+  background: white;
+  padding: 80px 24px;
+}
+
+.submit-review-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .reviews-hero {
+    padding: 80px 24px 60px;
+  }
+
+  .reviews-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .reviews-filter {
+    width: 100%;
+  }
+
+  .filter-select {
+    flex: 1;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-list-section,
+  .submit-review-section {
+    padding: 60px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews-hero {
+    padding: 80px 16px 60px;
+  }
+
+  .reviews-list-section,
+  .submit-review-section {
+    padding: 60px 16px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

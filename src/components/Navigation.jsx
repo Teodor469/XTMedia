@@ -21,20 +21,26 @@ function Navigation() {
         <div className="nav-content">
           <Link to="/" className="logo">XT Media</Link>
           <div className="nav-links">
-            <Link 
-              to="/services" 
+            <Link
+              to="/services"
               className={isActive('/services') ? 'active' : ''}
             >
               {t('navigation.services')}
             </Link>
-            <Link 
-              to="/about" 
+            <Link
+              to="/reviews"
+              className={isActive('/reviews') ? 'active' : ''}
+            >
+              {t('navigation.reviews')}
+            </Link>
+            <Link
+              to="/about"
               className={isActive('/about') ? 'active' : ''}
             >
               {t('navigation.about')}
             </Link>
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className={isActive('/contact') ? 'active' : ''}
             >
               {t('navigation.contact')}

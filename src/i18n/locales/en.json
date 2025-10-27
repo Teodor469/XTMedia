@@ -30,6 +30,7 @@
     "services": "Services",
     "about": "About",
     "contact": "Contact",
+    "reviews": "Reviews",
     "laserEngraving": "Laser Engraving",
     "sublimationPrinting": "Sublimation Printing",
     "dtgPrinting": "DTG Printing",
@@ -949,6 +950,42 @@
         "title": "Custom Bookshelf",
         "description": "Handcrafted wooden bookshelf with custom dimensions"
       }
+    }
+  },
+  "reviews": {
+    "hero": {
+      "title": "Customer Reviews",
+      "subtitle": "See what our clients say about our products and services"
+    },
+    "stats": {
+      "basedOn": "Based on {{count}} reviews"
+    },
+    "list": {
+      "title": "What Our Customers Say",
+      "filterBy": "Filter by rating:",
+      "allRatings": "All Ratings",
+      "loading": "Loading reviews...",
+      "noReviews": "No reviews found for this filter.",
+      "verifiedPurchase": "Verified Purchase"
+    },
+    "form": {
+      "title": "Share Your Experience",
+      "subtitle": "We'd love to hear about your experience with our products and services",
+      "name": "Your Name",
+      "namePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "your.email@example.com",
+      "product": "Product/Service",
+      "productPlaceholder": "e.g., Custom T-Shirt, Laser Engraving",
+      "rating": "Your Rating",
+      "outOf": "out of",
+      "comment": "Your Review",
+      "commentPlaceholder": "Tell us about your experience with our product or service...",
+      "submit": "Submit Review",
+      "submitting": "Submitting...",
+      "success": "Thank you for your review! We'll review it and publish it shortly.",
+      "error": "Failed to submit review. Please try again later.",
+      "note": "* Your review will be published after moderation. We typically review submissions within 24-48 hours."
     }
   }
 }
