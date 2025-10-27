@@ -33,7 +33,8 @@
     "laserEngraving": "Laser Engraving",
     "sublimationPrinting": "Sublimation Printing",
     "dtgPrinting": "DTG Printing",
-    "photoPrinting": "Photo Printing"
+    "photoPrinting": "Photo Printing",
+    "brandProducts": "Brand Products"
   },
   "home": {
     "hero": {
@@ -108,6 +109,16 @@
         "Large format printing",
         "Color-accurate reproductions",
         "Gallery-quality materials"
+      ]
+    },
+    "brandProducts": {
+      "title": "Brand Products",
+      "description": "Custom branded merchandise including clothing, 3D puzzles, and decorative furniture.",
+      "features": [
+        "Branded clothing and apparel",
+        "Custom 3D wooden puzzles",
+        "Decorative furniture pieces",
+        "Corporate gifts and merchandise"
       ]
     },
     "cta": {
@@ -838,6 +849,105 @@
         "athletic": "Athletic",
         "longsleeve": "Long Sleeve",
         "kids": "Kids"
+      }
+    }
+  },
+  "brandProducts": {
+    "hero": {
+      "title": "Your Brand Products, Your Way",
+      "subtitle": "Custom branded clothing, 3D puzzles, and decorative furniture that tell your story",
+      "primaryButton": "Start Your Project",
+      "secondaryButton": "View Products"
+    },
+    "whatWeOffer": {
+      "title": "Premium Brand Products",
+      "subtitle": "High-quality items perfect for corporate gifts, retail, or personal branding",
+      "features": [
+        "Custom logo placement on all items",
+        "Bulk order discounts available",
+        "Fast turnaround times",
+        "Quality guaranteed on every piece",
+        "Multiple material and color options",
+        "Professional design consultation"
+      ]
+    },
+    "categories": {
+      "title": "Our Product Categories",
+      "clothing": {
+        "title": "Branded Clothing",
+        "description": "T-shirts, hoodies, hats, and more with your custom design",
+        "features": ["Screen printing", "Embroidery", "DTG printing", "Heat transfer"]
+      },
+      "puzzles": {
+        "title": "3D Puzzles",
+        "description": "Custom 3D puzzle designs perfect for gifts and collectibles",
+        "features": ["Custom shapes", "Wooden construction", "Collectible quality", "Unique designs"]
+      },
+      "furniture": {
+        "title": "Decorative Furniture",
+        "description": "Custom furniture pieces with your brand or design",
+        "features": ["Wood options", "Custom sizing", "Professional finish", "Modern designs"]
+      }
+    },
+    "gallery": {
+      "title": "Our Brand Products Portfolio",
+      "subtitle": "See examples of our custom brand products"
+    },
+    "cta": {
+      "title": "Ready to brand your products?",
+      "subtitle": "Our team is ready to help you create custom branded items that stand out.",
+      "button": "Get Started Today"
+    },
+    "addedToCart": "added to cart!",
+    "error": "Error",
+    "fallbackProducts": {
+      "tshirt": {
+        "title": "Custom T-Shirt",
+        "description": "Premium cotton t-shirt with custom logo printing"
+      },
+      "hoodie": {
+        "title": "Branded Hoodie",
+        "description": "Comfortable hoodie with embroidery or print options"
+      },
+      "puzzle": {
+        "title": "Custom 3D Puzzle",
+        "description": "Unique wooden 3D puzzle with custom design"
+      },
+      "shelf": {
+        "title": "Decorative Shelf",
+        "description": "Custom engraved wooden shelf with modern design"
+      },
+      "cap": {
+        "title": "Branded Cap",
+        "description": "Adjustable cap with embroidered or printed logo"
+      },
+      "wallArt": {
+        "title": "Custom Wall Art",
+        "description": "Laser-engraved decorative wall piece"
+      },
+      "polo": {
+        "title": "Corporate Polo Shirt",
+        "description": "Professional polo with custom corporate branding"
+      },
+      "buildingPuzzle": {
+        "title": "3D Building Puzzle",
+        "description": "Architectural 3D puzzle with display stand"
+      },
+      "deskOrganizer": {
+        "title": "Custom Desk Organizer",
+        "description": "Laser-cut wooden desk organizer with compartments"
+      },
+      "jacket": {
+        "title": "Branded Jacket",
+        "description": "Water-resistant jacket with embroidered logo"
+      },
+      "animalPuzzle": {
+        "title": "3D Animal Puzzle",
+        "description": "Educational wooden puzzle featuring animals"
+      },
+      "bookshelf": {
+        "title": "Custom Bookshelf",
+        "description": "Handcrafted wooden bookshelf with custom dimensions"
       }
     }
   }

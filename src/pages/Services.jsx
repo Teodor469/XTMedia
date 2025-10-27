@@ -10,25 +10,36 @@ function Services() {
       icon: '⚡',
       titleKey: 'services.laserEngraving.title',
       descriptionKey: 'services.laserEngraving.description',
-      featuresKey: 'services.laserEngraving.features'
+      featuresKey: 'services.laserEngraving.features',
+      link: '/services/laser-engraving'
     },
     {
       icon: '🎨',
       titleKey: 'services.sublimationPrinting.title',
       descriptionKey: 'services.sublimationPrinting.description',
-      featuresKey: 'services.sublimationPrinting.features'
+      featuresKey: 'services.sublimationPrinting.features',
+      link: '/services/sublimation-printing'
     },
     {
       icon: '👕',
       titleKey: 'services.dtgPrinting.title',
       descriptionKey: 'services.dtgPrinting.description',
-      featuresKey: 'services.dtgPrinting.features'
+      featuresKey: 'services.dtgPrinting.features',
+      link: '/services/dtg-printing'
     },
     {
       icon: '📸',
       titleKey: 'services.photoPrinting.title',
       descriptionKey: 'services.photoPrinting.description',
-      featuresKey: 'services.photoPrinting.features'
+      featuresKey: 'services.photoPrinting.features',
+      link: '/services/photo-printing'
+    },
+    {
+      icon: '🏷️',
+      titleKey: 'services.brandProducts.title',
+      descriptionKey: 'services.brandProducts.description',
+      featuresKey: 'services.brandProducts.features',
+      link: '/services/brand-products'
     }
   ]
 
@@ -60,31 +71,9 @@ function Services() {
                     <li key={idx}>{feature}</li>
                   ))}
                 </ul>
-                {/* Add View Details buttons for specialized services */}
-                {index === 0 && (
+                {service.link && (
                   <div className="service-action">
-                    <Link to="/services/laser-engraving" className="btn-primary">
-                      {t('common.viewGallery')}
-                    </Link>
-                  </div>
-                )}
-                {index === 1 && (
-                  <div className="service-action">
-                    <Link to="/services/sublimation-printing" className="btn-primary">
-                      {t('common.viewGallery')}
-                    </Link>
-                  </div>
-                )}
-                {index === 2 && (
-                  <div className="service-action">
-                    <Link to="/services/dtg-printing" className="btn-primary">
-                      {t('common.viewGallery')}
-                    </Link>
-                  </div>
-                )}
-                {index === 3 && (
-                  <div className="service-action">
-                    <Link to="/services/photo-printing" className="btn-primary">
+                    <Link to={service.link} className="btn-primary">
                       {t('common.viewGallery')}
                     </Link>
                   </div>

@@ -6,6 +6,7 @@ import LaserEngraving from './pages/LaserEngraving'
 import SublimationPrinting from './pages/SublimationPrinting'
 import DTGPrinting from './pages/DTGPrinting'
 import PhotoPrinting from './pages/PhotoPrinting'
+import BrandProducts from './pages/BrandProducts'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: 'services/photo-printing',
         element: <PhotoPrinting />
+      },
+      {
+        path: 'services/brand-products',
+        element: <BrandProducts />
       },
       {
         path: 'about',
