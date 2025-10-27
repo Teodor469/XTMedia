@@ -145,6 +145,10 @@ function Home() {
             <div className="service-nav-icon">📸</div>
             <span>{t('home.services.photoPrinting.title')}</span>
           </Link>
+          <Link to="/services/brand-products" className="service-nav-item brand-products">
+            <div className="service-nav-icon">🏷️</div>
+            <span>{t('home.services.brandProducts.title')}</span>
+          </Link>
         </div>
       </nav>
 

@@ -61,6 +61,10 @@
       "photoPrinting": {
         "title": "Photo Printing",
         "description": "Professional-grade photo reproduction with exceptional clarity and color."
+      },
+      "brandProducts": {
+        "title": "Brand Products",
+        "description": "Custom branded merchandise including clothing, puzzles, and furniture."
       }
     },
     "cta": {
