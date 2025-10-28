@@ -1,50 +1,21 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useState, useEffect } from 'react'
+import { useState, useCallback } from 'react'
 import { useShopify } from '../contexts/ShopifyContext'
-import { shopifyProductService } from '../services/shopifyProducts'
+import { useProductsWithFallback } from '../hooks/useShopifyProducts'
 import ProductCard from '../components/ProductCard'
 import QuoteModal from '../components/QuoteModal'
+import { ProductGridSkeleton } from '../components/LoadingSkeleton'
+import { ShopifyErrorBoundary } from '../components/ErrorBoundary'
 import './BrandProducts.css'
 
 function BrandProducts() {
   const { t } = useTranslation()
   const { addToCart, isLoading: cartLoading } = useShopify()
-  const [products, setProducts] = useState([])
-  const [productsLoading, setProductsLoading] = useState(true)
-  const [error, setError] = useState(null)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
 
-  // Fetch products on component mount
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setProductsLoading(true)
-        setError(null)
-
-        // Try to fetch products from Shopify API
-        // Fetch up to 50 brand products
-        const fetchedProducts = await shopifyProductService.fetchProducts(50)
-
-        // If you have a specific "Brand Products" collection in Shopify,
-        // uncomment the line below and replace 'YOUR_COLLECTION_ID' with the actual ID:
-        // const fetchedProducts = await shopifyProductService.fetchProductsByCollection('YOUR_COLLECTION_ID', 50)
-
-        setProducts(fetchedProducts)
-      } catch (err) {
-        setError(err.message)
-        // Fallback to static products if Shopify fails
-        setProducts(getFallbackProducts())
-      } finally {
-        setProductsLoading(false)
-      }
-    }
-
-    fetchProducts()
-  }, [])
-
   // Fallback products for development/demo
-  const getFallbackProducts = () => [
+  const getFallbackProducts = useCallback(() => [
     {
       id: 'brand-tshirt',
       title: t('brandProducts.fallbackProducts.tshirt.title'),
@@ -165,7 +136,10 @@ function BrandProducts() {
       handle: 'bookshelf',
       variants: [{ id: 'variant-12', title: 'Default', price: 149.99, formattedPrice: '$149.99', availableForSale: true }]
     }
-  ]
+  ], [t])
+
+  // Use React Query with fallback
+  const { data: products = [], isLoading: productsLoading, error } = useProductsWithFallback(getFallbackProducts, 50)
 
   // Handle add to cart
   const handleAddToCart = async (product) => {

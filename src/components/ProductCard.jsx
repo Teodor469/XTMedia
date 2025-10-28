@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import OptimizedImage from './OptimizedImage'
+import { IMAGE_SIZES } from '../utils/imageOptimization'
 import './ProductCard.css'
 
 function ProductCard({
@@ -30,17 +32,18 @@ function ProductCard({
       onClick={variant === 'selectable' ? handleCardClick : undefined}
     >
       <div className="product-card-image">
-        {product.featuredImage?.url || product.image ? (
-          <img
-            src={product.featuredImage?.url || product.image}
-            alt={product.featuredImage?.altText || product.title || product.name}
-            loading="lazy"
-          />
-        ) : (
-          <div className="product-card-placeholder">
-            {product.featuredImage?.altText || product.placeholder || product.icon || '🛍️'}
-          </div>
-        )}
+        <OptimizedImage
+          src={product.featuredImage?.url || product.image}
+          alt={product.featuredImage?.altText || product.title || product.name}
+          width={IMAGE_SIZES.productCard.width}
+          height={IMAGE_SIZES.productCard.height}
+          lazy={true}
+          placeholder={
+            <div className="product-card-placeholder">
+              {product.featuredImage?.altText || product.placeholder || product.icon || '🛍️'}
+            </div>
+          }
+        />
       </div>
 
       <div className="product-card-info">

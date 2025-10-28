@@ -111,7 +111,7 @@ export const ShopifyProvider = ({ children }) => {
             dispatch({ type: CART_ACTIONS.SET_LOADING, payload: false })
             return
           }
-        } catch (error) {
+        } catch {
           console.warn('Saved checkout not found, creating new one')
         }
       }
@@ -279,6 +279,7 @@ export const ShopifyProvider = ({ children }) => {
 }
 
 // Hook to use the context
+// eslint-disable-next-line react-refresh/only-export-components
 export const useShopify = () => {
   const context = useContext(ShopifyContext)
   if (!context) {

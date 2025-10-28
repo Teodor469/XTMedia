@@ -25,6 +25,20 @@
     "premium": "Premium",
     "professional": "Professional"
   },
+  "errors": {
+    "generic": {
+      "title": "Something went wrong",
+      "message": "We're sorry, but something unexpected happened. Please try again."
+    },
+    "shopify": {
+      "title": "Unable to load products",
+      "message": "We're having trouble connecting to our product catalog. Please check your internet connection and try again."
+    },
+    "actions": {
+      "retry": "Try Again",
+      "reload": "Reload Page"
+    }
+  },
   "navigation": {
     "home": "Home",
     "services": "Services",

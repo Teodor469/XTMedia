@@ -1,40 +1,19 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useState, useEffect } from 'react'
-import { shopifyProductService } from '../services/shopifyProducts'
+import { useCallback } from 'react'
 import { useShopify } from '../contexts/ShopifyContext'
+import { useProductsWithFallback } from '../hooks/useShopifyProducts'
 import ProductCard from '../components/ProductCard'
+import { ProductGridSkeleton } from '../components/LoadingSkeleton'
+import { ShopifyErrorBoundary } from '../components/ErrorBoundary'
 import './Home.css'
 
 function Home() {
   const { t } = useTranslation()
   const { addToCart, isLoading: cartLoading } = useShopify()
-  const [products, setProducts] = useState([])
-  const [productsLoading, setProductsLoading] = useState(true)
-  const [error, setError] = useState(null)
-
-  // Fetch products on component mount
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setProductsLoading(true)
-        setError(null)
-        const fetchedProducts = await shopifyProductService.fetchProducts(8)
-        setProducts(fetchedProducts)
-      } catch (err) {
-        setError(err.message)
-        // Fallback to static products if Shopify fails
-        setProducts(getFallbackProducts())
-      } finally {
-        setProductsLoading(false)
-      }
-    }
-
-    fetchProducts()
-  }, [])
 
   // Fallback products for development/demo
-  const getFallbackProducts = () => [
+  const getFallbackProducts = useCallback(() => [
     {
       id: 'demo-1',
       title: 'Custom Phone Cases',
@@ -107,7 +86,10 @@ function Home() {
       handle: 'art-prints',
       variants: [{ id: 'demo-variant-8' }]
     }
-  ]
+  ], [])
+
+  // Use React Query with fallback
+  const { data: products = [], isLoading: productsLoading, error } = useProductsWithFallback(getFallbackProducts, 8)
 
   // Handle add to cart
   const handleAddToCart = async (product) => {
@@ -171,30 +153,29 @@ function Home() {
         <div className="products-content">
           <h2 className="section-title">Featured Products</h2>
           
-          {error && (
-            <div className="error-message">
-              <p>⚠️ {error}</p>
-              <p><small>Showing demo products</small></p>
-            </div>
-          )}
-          
-          {productsLoading ? (
-            <div className="loading-products">
-              <div className="loading-spinner">🔄 Loading products...</div>
-            </div>
-          ) : (
-            <div className="products-carousel">
-              {products.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  onAddToCart={handleAddToCart}
-                  cartLoading={cartLoading}
-                  showActions={true}
-                />
-              ))}
-            </div>
-          )}
+          <ShopifyErrorBoundary fallbackMessage="Unable to load featured products">
+            {error && (
+              <div className="error-message">
+                <p>⚠️ Using demo products</p>
+              </div>
+            )}
+            
+            {productsLoading ? (
+              <ProductGridSkeleton count={8} />
+            ) : (
+              <div className="products-carousel">
+                {products.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    onAddToCart={handleAddToCart}
+                    cartLoading={cartLoading}
+                    showActions={true}
+                  />
+                ))}
+              </div>
+            )}
+          </ShopifyErrorBoundary>
         </div>
       </section>
 

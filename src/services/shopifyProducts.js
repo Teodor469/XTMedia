@@ -1,4 +1,4 @@
-import { shopifyClient, PRODUCT_QUERIES, formatPrice, getProductImageUrl, getProductPrice, getProductVariantId } from '../config/shopify'
+import { shopifyClient, formatPrice } from '../config/shopify'
 
 class ShopifyProductService {
   
