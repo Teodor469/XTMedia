@@ -1,4 +1,5 @@
 import { useShopify } from '../contexts/ShopifyContext'
+import { useToast } from '../contexts/ToastContext'
 import { formatPrice } from '../config/shopify'
 import './ShoppingCart.css'
 
@@ -15,6 +16,7 @@ const ShoppingCart = ({ isOpen, onClose }) => {
     isLoading,
     error 
   } = useShopify()
+  const { error: showError } = useToast()
 
   const handleQuantityChange = async (lineItemId, newQuantity) => {
     if (newQuantity === 0) {
@@ -28,7 +30,7 @@ const ShoppingCart = ({ isOpen, onClose }) => {
     if (checkout?.webUrl) {
       window.open(checkout.webUrl, '_blank')
     } else {
-      alert('Checkout is not available at the moment. Please try again.')
+      showError('Checkout is not available at the moment. Please try again.')
     }
   }
 

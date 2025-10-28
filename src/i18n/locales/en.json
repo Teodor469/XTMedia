@@ -97,6 +97,43 @@
   "cart": {
     "addedToCart": "{{product}} added to cart!"
   },
+  "toast": {
+    "success": {
+      "default": "Success!",
+      "saved": "Changes saved successfully",
+      "submitted": "Form submitted successfully",
+      "uploaded": "File uploaded successfully",
+      "deleted": "Item deleted successfully",
+      "updated": "Updated successfully"
+    },
+    "error": {
+      "default": "Something went wrong",
+      "network": "Network error. Please check your connection",
+      "validation": "Please check your input and try again",
+      "unauthorized": "You are not authorized to perform this action",
+      "notFound": "The requested item was not found",
+      "server": "Server error. Please try again later",
+      "timeout": "Request timed out. Please try again",
+      "generic": "Oops! Something went wrong. Please try again later.",
+      "productVariant": "Product variant not available",
+      "addToCart": "Error adding to cart: {{error}}",
+      "checkout": "Checkout is not available at the moment. Please try again.",
+      "emailSend": "Failed to send email. Please try again later."
+    },
+    "warning": {
+      "default": "Warning",
+      "unsavedChanges": "You have unsaved changes",
+      "slowConnection": "Your connection seems slow",
+      "oldBrowser": "Your browser might not be fully supported"
+    },
+    "info": {
+      "default": "Information",
+      "loading": "Loading...",
+      "processing": "Processing your request...",
+      "demo": "You are viewing demo data",
+      "offline": "You are currently offline"
+    }
+  },
   "navigation": {
     "home": "Home",
     "services": "Services",

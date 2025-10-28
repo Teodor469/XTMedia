@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useCallback } from 'react'
 import { useShopify } from '../contexts/ShopifyContext'
+import { useToast } from '../contexts/ToastContext'
 import { useProductsWithFallback } from '../hooks/useShopifyProducts'
 import ProductCard from '../components/ProductCard'
 import { ProductGridSkeleton } from '../components/LoadingSkeleton'
@@ -11,6 +12,7 @@ import './Home.css'
 function Home() {
   const { t } = useTranslation()
   const { addToCart, isLoading: cartLoading } = useShopify()
+  const { success, error: showError } = useToast()
 
   // Fallback products for development/demo
   const getFallbackProducts = useCallback(() => [
@@ -96,14 +98,14 @@ function Home() {
     try {
       const variantId = product.variants[0]?.id
       if (!variantId) {
-        alert('Product variant not available')
+        showError('Product variant not available')
         return
       }
       
       await addToCart(variantId, 1)
-      alert(`${product.title} added to cart!`)
-    } catch (error) {
-      alert(`Error adding to cart: ${error.message}`)
+      success(`${product.title} added to cart!`)
+    } catch (err) {
+      showError(`Error adding to cart: ${err.message}`)
     }
   }
 

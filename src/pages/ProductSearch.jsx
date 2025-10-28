@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useShopify } from '../contexts/ShopifyContext'
+import { useToast } from '../contexts/ToastContext'
 import {
   useProductSearchWithFallback,
   useProductsWithFallback,
@@ -19,6 +20,7 @@ import './ProductSearch.css'
 function ProductSearch() {
   const { t } = useTranslation()
   const { addToCart, isLoading: cartLoading } = useShopify()
+  const { success, error } = useToast()
   const [searchParams, setSearchParams] = useSearchParams()
   
   // State for search and filters
@@ -187,14 +189,14 @@ function ProductSearch() {
     try {
       const variantId = product.variants[0]?.id
       if (!variantId) {
-        alert(t('errors.noVariant'))
+        error(t('errors.noVariant'))
         return
       }
       
       await addToCart(variantId, 1)
-      alert(t('cart.addedToCart', { product: product.title }))
-    } catch (error) {
-      alert(t('errors.addToCart', { error: error.message }))
+      success(t('cart.addedToCart', { product: product.title }))
+    } catch (err) {
+      error(t('errors.addToCart', { error: err.message }))
     }
   }
 

@@ -1,8 +1,11 @@
 import { useForm } from 'react-hook-form';
 import emailjs from 'emailjs-com'; // Make sure you've run: npm install emailjs-com
+import { useToast } from '../contexts/ToastContext'
 import './Contact.css';
 
 function Contact() {
+  const { error } = useToast()
+  
   const {
     register,
     handleSubmit,
@@ -25,10 +28,10 @@ function Contact() {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, data, PUBLIC_KEY);
       // Reset the form fields after successful submission
       reset();
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      // You can add user-facing error handling here, like a toast notification.
-      alert('Oops! Something went wrong. Please try again later.');
+    } catch (err) {
+      console.error('EmailJS Error:', err);
+      // Show user-facing error with toast notification
+      error('Oops! Something went wrong. Please try again later.');
     }
   };
 

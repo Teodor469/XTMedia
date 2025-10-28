@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from 'emailjs-com';
+import { useToast } from '../contexts/ToastContext'
 import './QuoteModal.css'
 
 function QuoteModal({ isOpen, onClose, projectType = '', material = '', design = '' }) {
+  const { error } = useToast()
+  
   // --- React Hook Form Setup ---
   const {
     register,
@@ -85,9 +88,9 @@ function QuoteModal({ isOpen, onClose, projectType = '', material = '', design =
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, data, PUBLIC_KEY);
       // The useEffect for isSubmitSuccessful will handle the rest.
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      alert('Oops! Something went wrong. Please try again later.');
+    } catch (err) {
+      console.error('EmailJS Error:', err);
+      error('Oops! Something went wrong. Please try again later.');
     }
   };
 
