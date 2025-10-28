@@ -1,0 +1,258 @@
+.product-search-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding-top: 60px; /* Account for fixed navbar */
+}
+
+/* Search Header */
+.search-header {
+  background: linear-gradient(135deg, #08b688 0%, #059669 100%);
+  color: white;
+  padding: 40px 0 80px;
+}
+
+.search-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  margin: 0 0 32px 0;
+  opacity: 0.9;
+}
+
+.main-search-bar {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.main-search-bar .search-input-container {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Main Content */
+.search-content {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  padding: 0 20px 40px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebar */
+.search-sidebar {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+/* Results Section */
+.search-results {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+}
+
+.results-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.results-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.results-count {
+  color: #6b7280;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.error-message {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #fef7f0;
+  border: 1px solid #fed7aa;
+  border-radius: 6px;
+}
+
+.error-message p {
+  margin: 0;
+  color: #7c2d12;
+  font-size: 0.875rem;
+}
+
+/* Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.no-results-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+.no-results p {
+  color: #6b7280;
+  margin: 0 0 24px 0;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #08b688 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(8, 182, 136, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .search-content {
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-header {
+    padding: 20px 0 60px;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .search-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .search-sidebar {
+    position: static;
+    order: -1;
+  }
+  
+  .search-results {
+    padding: 16px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  
+  .no-results {
+    padding: 40px 16px;
+  }
+  
+  .no-results-icon {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-header-content {
+    padding: 0 16px;
+  }
+  
+  .search-content {
+    padding: 0 16px 20px;
+  }
+  
+  .page-title {
+    font-size: 1.75rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1rem;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .results-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Loading and Error States */
+.search-results.loading {
+  opacity: 0.7;
+}
+
+/* Smooth transitions */
+.products-grid > * {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.products-grid > *:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus styles for accessibility */
+.btn-primary:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .search-header {
+    background: #000;
+  }
+  
+  .search-results {
+    border: 2px solid #000;
+  }
+}

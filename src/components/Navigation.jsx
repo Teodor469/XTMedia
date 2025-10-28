@@ -28,6 +28,12 @@ function Navigation() {
               {t('navigation.services')}
             </Link>
             <Link
+              to="/products"
+              className={isActive('/products') ? 'active' : ''}
+            >
+              {t('navigation.products')}
+            </Link>
+            <Link
               to="/reviews"
               className={isActive('/reviews') ? 'active' : ''}
             >

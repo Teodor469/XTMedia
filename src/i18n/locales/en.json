@@ -37,11 +37,70 @@
     "actions": {
       "retry": "Try Again",
       "reload": "Reload Page"
+    },
+    "noVariant": "Product variant not available",
+    "addToCart": "Error adding to cart: {{error}}"
+  },
+  "search": {
+    "placeholder": "Search products...",
+    "clear": "Clear search",
+    "submit": "Search"
+  },
+  "filters": {
+    "title": "Filters",
+    "clearAll": "Clear All",
+    "sortBy": {
+      "title": "Sort By",
+      "relevance": "Relevance",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "newest": "Newest First",
+      "titleAsc": "Name: A to Z"
+    },
+    "collections": {
+      "title": "Collections"
+    },
+    "priceRange": {
+      "title": "Price Range",
+      "min": "Min",
+      "max": "Max",
+      "apply": "Apply"
+    },
+    "tags": {
+      "title": "Materials & Features"
+    },
+    "vendors": {
+      "title": "Brands"
+    },
+    "availability": {
+      "title": "Availability",
+      "all": "All Products",
+      "inStock": "In Stock",
+      "outOfStock": "Out of Stock"
     }
+  },
+  "productSearch": {
+    "title": "Find Your Perfect Product",
+    "subtitle": "Search through our extensive catalog of custom printing and engraving solutions",
+    "searchPlaceholder": "What are you looking for?",
+    "errorLoading": "Unable to load search results",
+    "resultsFor": "Results for \"{{query}}\"",
+    "searching": "Searching...",
+    "resultCount": "{{count}} products found",
+    "usingDemo": "Using demo products - connect Shopify for full catalog",
+    "noResults": {
+      "title": "No products found",
+      "message": "Try adjusting your search terms or filters to find what you're looking for.",
+      "clearFilters": "Clear All Filters"
+    }
+  },
+  "cart": {
+    "addedToCart": "{{product}} added to cart!"
   },
   "navigation": {
     "home": "Home",
     "services": "Services",
+    "products": "Products",
     "about": "About",
     "contact": "Contact",
     "reviews": "Reviews",

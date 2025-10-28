@@ -1,5 +1,55 @@
 import { shopifyClient, formatPrice } from '../config/shopify'
 
+// Shopify search and filter utilities
+const SORT_KEY_MAP = {
+  'relevance': 'RELEVANCE',
+  'price_asc': 'PRICE',
+  'price_desc': 'PRICE',
+  'created_desc': 'CREATED_AT',
+  'title_asc': 'TITLE',
+  'updated_desc': 'UPDATED_AT'
+}
+
+const buildSearchFilters = (filters = {}) => {
+  const searchFilters = []
+  
+  // Price range filter
+  if (filters.priceMin !== undefined && filters.priceMin > 0) {
+    searchFilters.push(`variants.price:>=${filters.priceMin}`)
+  }
+  if (filters.priceMax !== undefined && filters.priceMax < 99999) {
+    searchFilters.push(`variants.price:<=${filters.priceMax}`)
+  }
+  
+  // Vendor filter
+  if (filters.vendors && filters.vendors.length > 0) {
+    const vendorQuery = filters.vendors.map(vendor => `vendor:${vendor}`).join(' OR ')
+    searchFilters.push(`(${vendorQuery})`)
+  }
+  
+  // Product type filter
+  if (filters.productTypes && filters.productTypes.length > 0) {
+    const typeQuery = filters.productTypes.map(type => `product_type:${type}`).join(' OR ')
+    searchFilters.push(`(${typeQuery})`)
+  }
+  
+  // Tags filter
+  if (filters.tags && filters.tags.length > 0) {
+    filters.tags.forEach(tag => {
+      searchFilters.push(`tag:${tag}`)
+    })
+  }
+  
+  // Availability filter
+  if (filters.availability === 'in_stock') {
+    searchFilters.push('available:true')
+  } else if (filters.availability === 'out_of_stock') {
+    searchFilters.push('available:false')
+  }
+  
+  return searchFilters.join(' AND ')
+}
+
 class ShopifyProductService {
   
   // Fetch all products
@@ -32,6 +82,109 @@ class ShopifyProductService {
     } catch (error) {
       console.error('Error fetching collection products:', error)
       throw new Error('Failed to fetch collection products')
+    }
+  }
+
+  // Search products with filters
+  async searchProducts(query = '', filters = {}, limit = 20) {
+    try {
+      const searchFilters = buildSearchFilters(filters)
+      const fullQuery = [query, searchFilters].filter(Boolean).join(' AND ')
+      
+      const sortKey = SORT_KEY_MAP[filters.sortBy] || 'RELEVANCE'
+      const reverse = filters.sortBy === 'price_desc'
+      
+      const searchOptions = {
+        query: fullQuery || '*',
+        sortKey,
+        reverse,
+        first: limit
+      }
+      
+      const products = await shopifyClient.product.search(searchOptions)
+      return products.map(this.transformProduct)
+    } catch (error) {
+      console.error('Error searching products:', error)
+      throw new Error('Failed to search products')
+    }
+  }
+
+  // Get product suggestions for autocomplete
+  async getProductSuggestions(query, limit = 5) {
+    try {
+      if (!query || query.length < 2) return []
+      
+      const products = await shopifyClient.product.search({
+        query: `title:*${query}*`,
+        first: limit
+      })
+      
+      return products.map(product => ({
+        id: product.id,
+        handle: product.handle,
+        title: product.title,
+        price: product.variants[0]?.price,
+        formattedPrice: formatPrice(product.variants[0]?.price || '0'),
+        productType: product.productType,
+        image: product.images[0]?.src
+      }))
+    } catch (error) {
+      console.error('Error fetching suggestions:', error)
+      return []
+    }
+  }
+
+  // Fetch collections for filter options
+  async fetchCollections(limit = 50) {
+    try {
+      const collections = await shopifyClient.collection.fetchAll(limit)
+      return collections.map(collection => ({
+        id: collection.id,
+        handle: collection.handle,
+        title: collection.title,
+        description: collection.description,
+        productCount: collection.products ? collection.products.length : 0,
+        image: collection.image ? {
+          url: collection.image.src,
+          altText: collection.image.altText
+        } : null
+      }))
+    } catch (error) {
+      console.error('Error fetching collections:', error)
+      return []
+    }
+  }
+
+  // Get available filter options from products
+  async getFilterOptions(products = []) {
+    const vendors = new Set()
+    const tags = new Set()
+    const productTypes = new Set()
+    let minPrice = Infinity
+    let maxPrice = 0
+    
+    products.forEach(product => {
+      if (product.vendor) vendors.add(product.vendor)
+      if (product.productType) productTypes.add(product.productType)
+      if (product.tags) {
+        product.tags.forEach(tag => tags.add(tag))
+      }
+      
+      const price = parseFloat(product.price || 0)
+      if (price > 0) {
+        minPrice = Math.min(minPrice, price)
+        maxPrice = Math.max(maxPrice, price)
+      }
+    })
+    
+    return {
+      vendors: Array.from(vendors).sort(),
+      tags: Array.from(tags).sort(),
+      productTypes: Array.from(productTypes).sort(),
+      priceRange: {
+        min: minPrice === Infinity ? 0 : Math.floor(minPrice),
+        max: maxPrice === 0 ? 500 : Math.ceil(maxPrice)
+      }
     }
   }
 
