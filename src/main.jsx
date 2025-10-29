@@ -4,6 +4,7 @@ import './index.css'
 import './i18n'
 import App from './App.jsx'
 import { ShopifyProvider } from './contexts/ShopifyContext'
+import { AuthProvider } from './contexts/AuthContext'
 import { ToastProvider } from './contexts/ToastContext'
 import QueryProvider from './providers/QueryProvider'
 
@@ -12,7 +13,9 @@ createRoot(document.getElementById('root')).render(
     <QueryProvider>
       <ToastProvider>
         <ShopifyProvider>
-          <App />
+          <AuthProvider>
+            <App />
+          </AuthProvider>
         </ShopifyProvider>
       </ToastProvider>
     </QueryProvider>
