@@ -5,7 +5,7 @@ export function cspPlugin() {
     transformIndexHtml(html) {
       // Get environment variables
       const isDev = process.env.NODE_ENV === 'development'
-      const gaId = process.env.VITE_GA_MEASUREMENT_ID
+      const _gaId = process.env.VITE_GA_MEASUREMENT_ID
       const sentryDsn = process.env.VITE_SENTRY_DSN
       
       // Build CSP directives
@@ -76,10 +76,10 @@ export function cspPlugin() {
       const cspMeta = `<meta http-equiv="Content-Security-Policy" content="${cspString}">`
       
       // Add other security headers as meta tags (fallback for environments without proper header support)
+      // Note: X-Frame-Options is removed as it should only be set via HTTP headers, not meta tags
       const securityMetas = [
         cspMeta,
         '<meta http-equiv="X-Content-Type-Options" content="nosniff">',
-        '<meta http-equiv="X-Frame-Options" content="DENY">',
         '<meta http-equiv="X-XSS-Protection" content="1; mode=block">',
         '<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">'
       ]

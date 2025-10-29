@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { useShopify } from './ShopifyContext'
 import { shopifyAuthService } from '../services/shopifyAuth'
@@ -20,18 +20,10 @@ export function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-  // Initialize auth service and check for existing session
-  useEffect(() => {
-    if (client) {
-      shopifyAuthService.initialize(client)
-      checkExistingSession()
-    }
-  }, [client])
-
   /**
    * Check for existing session in localStorage
    */
-  const checkExistingSession = async () => {
+  const checkExistingSession = useCallback(async () => {
     try {
       const token = localStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN)
       const expiry = localStorage.getItem(STORAGE_KEYS.TOKEN_EXPIRY)
@@ -51,7 +43,7 @@ export function AuthProvider({ children }) {
         try {
           const renewed = await shopifyAuthService.renewAccessToken(token)
           saveSession(renewed.accessToken, renewed.expiresAt, JSON.parse(storedCustomer))
-        } catch (err) {
+        } catch (_err) {
           // Renewal failed, clear session
           clearSession()
         }
@@ -67,7 +59,15 @@ export function AuthProvider({ children }) {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [])
+
+  // Initialize auth service and check for existing session
+  useEffect(() => {
+    if (client) {
+      shopifyAuthService.initialize(client)
+      checkExistingSession()
+    }
+  }, [client, checkExistingSession])
 
   /**
    * Save session to state and localStorage

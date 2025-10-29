@@ -17,9 +17,22 @@ export default defineConfig({
         // Obfuscate chunk names
         chunkFileNames: 'assets/[hash].js',
         entryFileNames: 'assets/[hash].js',
-        assetFileNames: 'assets/[hash].[ext]'
+        assetFileNames: 'assets/[hash].[ext]',
+        // Manual chunks for better optimization
+        manualChunks: {
+          // Vendor libraries (only include packages that are actually used)
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-shopify': ['shopify-buy'],
+          'vendor-sentry': ['@sentry/react'],
+          'vendor-query': ['@tanstack/react-query'],
+          'vendor-i18n': ['i18next', 'react-i18next', 'i18next-browser-languagedetector'],
+          'vendor-forms': ['react-hook-form'],
+          'vendor-utils': ['prop-types', 'react-helmet-async', 'react-router-dom']
+        }
       }
-    }
+    },
+    // Increase chunk size warning limit
+    chunkSizeWarningLimit: 600
   },
   server: {
     // Security headers for development

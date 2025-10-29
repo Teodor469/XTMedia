@@ -1,6 +1,5 @@
 // Sentry Error Logging and Performance Monitoring Service
 import * as Sentry from '@sentry/react'
-import { BrowserTracing } from '@sentry/tracing'
 import React from 'react'
 
 class SentryService {
@@ -17,10 +16,8 @@ class SentryService {
       dsn: dsn,
       environment: environment,
       integrations: [
-        new BrowserTracing({
-          // Performance monitoring - simplified without router instrumentation for now
-        }),
-        new Sentry.Replay({
+        Sentry.browserTracingIntegration(),
+        Sentry.replayIntegration({
           // Session replay for debugging
           maskAllText: true,
           blockAllMedia: true,
@@ -38,7 +35,7 @@ class SentryService {
       release: import.meta.env.VITE_APP_VERSION || '1.0.0',
       
       // Error filtering
-      beforeSend(event, hint) {
+      beforeSend(event, _hint) {
         // Filter out non-critical errors in production
         if (environment === 'production') {
           // Filter out network errors that aren't actionable
@@ -131,10 +128,10 @@ class SentryService {
 
   // Performance monitoring
   static startTransaction(name, op = 'navigation') {
-    return Sentry.startTransaction({
+    return Sentry.startSpan({
       name,
       op
-    })
+    }, (span) => span)
   }
 
   // Track Shopify API errors
@@ -202,7 +199,7 @@ class SentryService {
   // Create higher-order component for error boundaries
   static createErrorBoundary(fallback) {
     return Sentry.withErrorBoundary(fallback, {
-      fallback: ({ error, resetError }) => React.createElement('div', 
+      fallback: ({ error: _error, resetError }) => React.createElement('div', 
         { className: 'error-boundary' },
         React.createElement('h2', null, 'Something went wrong'),
         React.createElement('p', null, "We've been notified about this error and will fix it soon."),

@@ -39,7 +39,7 @@ function Wishlist() {
         } else {
           failCount++
         }
-      } catch (err) {
+      } catch (_err) {
         failCount++
       }
     }
