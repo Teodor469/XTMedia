@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import LanguageSwitcher from './LanguageSwitcher'
+import WishlistIcon from './WishlistIcon'
 import CartIcon from './CartIcon'
 import ShoppingCart from './ShoppingCart'
 
@@ -84,6 +85,14 @@ function Navigation() {
                       <p className="user-dropdown-email">{customer?.email}</p>
                     </div>
                     <div className="user-dropdown-divider"></div>
+                    <Link
+                      to="/account"
+                      className="user-dropdown-item"
+                      onClick={() => setShowUserMenu(false)}
+                    >
+                      <span>⚙️</span> Account Settings
+                    </Link>
+                    <div className="user-dropdown-divider"></div>
                     <button
                       onClick={handleLogout}
                       className="user-dropdown-item logout"
@@ -104,6 +113,7 @@ function Navigation() {
               </div>
             )}
 
+            <WishlistIcon />
             <CartIcon onCartClick={() => setIsCartOpen(true)} />
           </div>
         </div>

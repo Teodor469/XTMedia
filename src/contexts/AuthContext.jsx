@@ -179,6 +179,135 @@ export function AuthProvider({ children }) {
     }
   }
 
+  /**
+   * Update customer profile
+   */
+  const updateProfile = async (profileData) => {
+    if (!accessToken) {
+      showError('You must be logged in to update your profile')
+      return { success: false }
+    }
+
+    try {
+      setIsLoading(true)
+      const updatedCustomer = await shopifyAuthService.updateCustomer(accessToken, profileData)
+
+      // Update local state
+      setCustomer(prev => ({ ...prev, ...updatedCustomer }))
+      localStorage.setItem(STORAGE_KEYS.CUSTOMER, JSON.stringify({ ...customer, ...updatedCustomer }))
+
+      success('Profile updated successfully!')
+      return { success: true, customer: updatedCustomer }
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to update profile'
+      showError(errorMessage)
+      return { success: false, error: errorMessage }
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  /**
+   * Get customer with orders and addresses
+   */
+  const getCustomerDetails = async () => {
+    if (!accessToken) return null
+
+    try {
+      const customerData = await shopifyAuthService.getCustomerWithOrders(accessToken)
+      return customerData
+    } catch (err) {
+      console.error('Get customer details error:', err)
+      return null
+    }
+  }
+
+  /**
+   * Address management methods
+   */
+  const createAddress = async (address) => {
+    if (!accessToken) {
+      showError('You must be logged in')
+      return { success: false }
+    }
+
+    try {
+      const newAddress = await shopifyAuthService.createAddress(accessToken, address)
+      success('Address added successfully!')
+      return { success: true, address: newAddress }
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to create address'
+      showError(errorMessage)
+      return { success: false, error: errorMessage }
+    }
+  }
+
+  const updateAddress = async (addressId, address) => {
+    if (!accessToken) {
+      showError('You must be logged in')
+      return { success: false }
+    }
+
+    try {
+      const updatedAddress = await shopifyAuthService.updateAddress(accessToken, addressId, address)
+      success('Address updated successfully!')
+      return { success: true, address: updatedAddress }
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to update address'
+      showError(errorMessage)
+      return { success: false, error: errorMessage }
+    }
+  }
+
+  const deleteAddress = async (addressId) => {
+    if (!accessToken) {
+      showError('You must be logged in')
+      return { success: false }
+    }
+
+    try {
+      await shopifyAuthService.deleteAddress(accessToken, addressId)
+      success('Address deleted successfully!')
+      return { success: true }
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to delete address'
+      showError(errorMessage)
+      return { success: false, error: errorMessage }
+    }
+  }
+
+  const setDefaultAddress = async (addressId) => {
+    if (!accessToken) {
+      showError('You must be logged in')
+      return { success: false }
+    }
+
+    try {
+      await shopifyAuthService.setDefaultAddress(accessToken, addressId)
+      success('Default address updated!')
+      return { success: true }
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to set default address'
+      showError(errorMessage)
+      return { success: false, error: errorMessage }
+    }
+  }
+
+  /**
+   * Password recovery
+   */
+  const recoverPassword = async (email) => {
+    try {
+      await shopifyAuthService.recoverPassword(email)
+      success('Password reset email sent! Check your inbox.')
+      return { success: true }
+    } catch (err) {
+      const errorMessage = err.message || 'Failed to send reset email'
+      showError(errorMessage)
+      return { success: false, error: errorMessage }
+    }
+  }
+
   const value = {
     customer,
     accessToken,
@@ -187,7 +316,14 @@ export function AuthProvider({ children }) {
     register,
     login,
     logout,
-    refreshCustomer
+    refreshCustomer,
+    updateProfile,
+    getCustomerDetails,
+    createAddress,
+    updateAddress,
+    deleteAddress,
+    setDefaultAddress,
+    recoverPassword
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

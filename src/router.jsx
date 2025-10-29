@@ -8,11 +8,14 @@ import DTGPrinting from './pages/DTGPrinting'
 import PhotoPrinting from './pages/PhotoPrinting'
 import BrandProducts from './pages/BrandProducts'
 import ProductSearch from './pages/ProductSearch'
+import Wishlist from './pages/Wishlist'
 import Reviews from './pages/Reviews'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import ForgotPassword from './pages/ForgotPassword'
+import Account from './pages/Account'
 import NotFound from './pages/NotFound'
 
 export const router = createBrowserRouter([
@@ -58,6 +61,10 @@ export const router = createBrowserRouter([
         element: <ProductSearch />
       },
       {
+        path: 'wishlist',
+        element: <Wishlist />
+      },
+      {
         path: 'reviews',
         element: <Reviews />
       },
@@ -76,6 +83,14 @@ export const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register />
+      },
+      {
+        path: 'forgot-password',
+        element: <ForgotPassword />
+      },
+      {
+        path: 'account',
+        element: <Account />
       }
     ]
   }

@@ -143,6 +143,11 @@ function Login() {
                 {errors.password && (
                   <p className="form-error">{errors.password}</p>
                 )}
+                <div style={{ marginTop: '8px', textAlign: 'right' }}>
+                  <Link to="/forgot-password" className="auth-link" style={{ fontSize: '0.875rem' }}>
+                    Forgot password?
+                  </Link>
+                </div>
               </div>
 
               {/* Submit Button */}

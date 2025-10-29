@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useWishlist } from '../contexts/WishlistContext'
 import OptimizedImage from './OptimizedImage'
 import { IMAGE_SIZES } from '../utils/imageOptimization'
 import './ProductCard.css'
@@ -11,12 +12,22 @@ function ProductCard({
   isSelected = false,
   onSelect,
   showActions = true,
+  showWishlist = true,
   className = ''
 }) {
+  const { toggleWishlist, isInWishlist } = useWishlist()
+  const inWishlist = isInWishlist(product.id)
+
   const handleCardClick = () => {
     if (variant === 'selectable' && onSelect) {
       onSelect(product)
     }
+  }
+
+  const handleWishlistClick = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
+    toggleWishlist(product)
   }
 
   const cardClasses = `
@@ -44,6 +55,17 @@ function ProductCard({
             </div>
           }
         />
+
+        {showWishlist && (
+          <button
+            className={`wishlist-btn ${inWishlist ? 'active' : ''}`}
+            onClick={handleWishlistClick}
+            aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+            title={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+          >
+            <span className="heart-icon">{inWishlist ? '❤️' : '🤍'}</span>
+          </button>
+        )}
       </div>
 
       <div className="product-card-info">

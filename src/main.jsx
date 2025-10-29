@@ -5,6 +5,7 @@ import './i18n'
 import App from './App.jsx'
 import { ShopifyProvider } from './contexts/ShopifyContext'
 import { AuthProvider } from './contexts/AuthContext'
+import { WishlistProvider } from './contexts/WishlistContext'
 import { ToastProvider } from './contexts/ToastContext'
 import QueryProvider from './providers/QueryProvider'
 
@@ -14,7 +15,9 @@ createRoot(document.getElementById('root')).render(
       <ToastProvider>
         <ShopifyProvider>
           <AuthProvider>
-            <App />
+            <WishlistProvider>
+              <App />
+            </WishlistProvider>
           </AuthProvider>
         </ShopifyProvider>
       </ToastProvider>
