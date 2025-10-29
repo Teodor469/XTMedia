@@ -213,11 +213,14 @@ function ProductSearch() {
 
   return (
     <div className="product-search-page">
-      {/* Page Header */}
-      <div className="search-header">
+      {/* Page Header - Hero Section */}
+      <section className="search-header">
         <div className="search-header-content">
           <h1 className="page-title">{t('productSearch.title')}</h1>
-          
+          <p className="page-subtitle">
+            {t('productSearch.subtitle', 'Discover our full range of custom products and services')}
+          </p>
+
           <SearchBar
             onSearch={handleSearch}
             onSuggestionSelect={handleSuggestionSelect}
@@ -226,7 +229,7 @@ function ProductSearch() {
             className="main-search-bar"
           />
         </div>
-      </div>
+      </section>
 
       {/* Main Content */}
       <div className="search-content">

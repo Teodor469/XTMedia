@@ -171,7 +171,7 @@ const SearchBar = ({
             <button
               type="submit"
               className="search-submit-btn"
-              disabled={isLoading || !query.trim()}
+              disabled={isLoading}
               aria-label={t('search.submit')}
             >
               {isLoading ? (
