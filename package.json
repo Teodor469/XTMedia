@@ -5,12 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run generate:sitemap && vite build",
+    "build:prod": "npm run generate:sitemap && vite build --mode production",
+    "generate:sitemap": "node scripts/generateSitemap.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@sentry/react": "^10.22.0",
+    "@sentry/tracing": "^7.120.4",
     "@shopify/storefront-api-client": "^1.0.9",
     "@tanstack/react-query": "^5.90.5",
     "emailjs-com": "^3.2.0",
@@ -19,10 +23,12 @@
     "prop-types": "^15.8.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.64.0",
     "react-i18next": "^16.0.0",
     "react-router-dom": "^7.9.3",
-    "shopify-buy": "^3.0.7"
+    "shopify-buy": "^3.0.7",
+    "web-vitals": "^5.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

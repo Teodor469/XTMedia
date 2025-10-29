@@ -1,10 +1,14 @@
 import { useForm } from 'react-hook-form';
 import emailjs from 'emailjs-com'; // Make sure you've run: npm install emailjs-com
 import { useToast } from '../contexts/ToastContext'
+import { useAnalytics } from '../hooks/useAnalytics'
+import { usePageSEO } from '../hooks/useSEO.jsx'
 import './Contact.css';
 
 function Contact() {
   const { error } = useToast()
+  const { trackContact } = useAnalytics()
+  const { SEOHelmet } = usePageSEO('contact')
   
   const {
     register,
@@ -26,6 +30,10 @@ function Contact() {
     // We pass this directly to EmailJS as the template parameters.
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, data, PUBLIC_KEY);
+      
+      // Track contact form submission
+      trackContact('contact_form')
+      
       // Reset the form fields after successful submission
       reset();
     } catch (err) {
@@ -37,6 +45,7 @@ function Contact() {
 
   return (
     <>
+      <SEOHelmet />
       <section className="page-hero">
         <div className="page-hero-content">
           <h1 className="page-title">Get in Touch</h1>

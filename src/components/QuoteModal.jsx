@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from 'emailjs-com';
 import { useToast } from '../contexts/ToastContext'
+import { useAnalytics } from '../hooks/useAnalytics'
 import './QuoteModal.css'
 
 function QuoteModal({ isOpen, onClose, projectType = '', material = '', design = '' }) {
   const { error } = useToast()
+  const { trackGenerateLead } = useAnalytics()
   
   // --- React Hook Form Setup ---
   const {
@@ -87,6 +89,10 @@ function QuoteModal({ isOpen, onClose, projectType = '', material = '', design =
   const onSubmit = async (data) => {
     try {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, data, PUBLIC_KEY);
+      
+      // Track quote request lead generation
+      trackGenerateLead('quote_form')
+      
       // The useEffect for isSubmitSuccessful will handle the rest.
     } catch (err) {
       console.error('EmailJS Error:', err);

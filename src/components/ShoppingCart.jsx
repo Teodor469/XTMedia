@@ -1,5 +1,6 @@
 import { useShopify } from '../contexts/ShopifyContext'
 import { useToast } from '../contexts/ToastContext'
+import { useAnalytics } from '../hooks/useAnalytics'
 import { formatPrice } from '../config/shopify'
 import './ShoppingCart.css'
 
@@ -17,9 +18,15 @@ const ShoppingCart = ({ isOpen, onClose }) => {
     error 
   } = useShopify()
   const { error: showError } = useToast()
+  const { trackBeginCheckout, trackRemoveFromCart } = useAnalytics()
 
   const handleQuantityChange = async (lineItemId, newQuantity) => {
     if (newQuantity === 0) {
+      // Find the item being removed for analytics
+      const item = lineItems.find(item => item.id === lineItemId)
+      if (item) {
+        trackRemoveFromCart(item.variant || item, item.quantity)
+      }
       await removeFromCart(lineItemId)
     } else {
       await updateCartItemQuantity(lineItemId, newQuantity)
@@ -28,6 +35,10 @@ const ShoppingCart = ({ isOpen, onClose }) => {
 
   const handleCheckout = () => {
     if (checkout?.webUrl) {
+      // Track begin checkout analytics
+      const totalValue = parseFloat(totalPrice) || 0
+      trackBeginCheckout(lineItems, totalValue)
+      
       window.open(checkout.webUrl, '_blank')
     } else {
       showError('Checkout is not available at the moment. Please try again.')

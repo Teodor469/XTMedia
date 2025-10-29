@@ -7,12 +7,14 @@ import { useProductsWithFallback } from '../hooks/useShopifyProducts'
 import ProductCard from '../components/ProductCard'
 import { ProductGridSkeleton } from '../components/LoadingSkeleton'
 import { ShopifyErrorBoundary } from '../components/ErrorBoundary'
+import { usePageSEO } from '../hooks/useSEO.jsx'
 import './Home.css'
 
 function Home() {
   const { t } = useTranslation()
   const { addToCart, isLoading: cartLoading } = useShopify()
   const { success, error: showError } = useToast()
+  const { SEOHelmet } = usePageSEO('home')
 
   // Fallback products for development/demo
   const getFallbackProducts = useCallback(() => [
@@ -111,6 +113,7 @@ function Home() {
 
   return (
     <>
+      <SEOHelmet />
       <nav className="services-nav">
         <div className="services-nav-content">
           <Link to="/services/laser-engraving" className="service-nav-item laser-engraving">

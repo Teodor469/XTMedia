@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useShopify } from '../contexts/ShopifyContext'
 import { useToast } from '../contexts/ToastContext'
+import { useAnalytics } from '../hooks/useAnalytics'
 import {
   useProductSearchWithFallback,
   useProductsWithFallback,
@@ -15,12 +16,15 @@ import ProductFilters from '../components/ProductFilters'
 import ProductCard from '../components/ProductCard'
 import { ProductGridSkeleton } from '../components/LoadingSkeleton'
 import { ShopifyErrorBoundary } from '../components/ErrorBoundary'
+import { usePageSEO } from '../hooks/useSEO.jsx'
 import './ProductSearch.css'
 
 function ProductSearch() {
   const { t } = useTranslation()
   const { addToCart, isLoading: cartLoading } = useShopify()
   const { success, error } = useToast()
+  const { trackSearch, trackAddToCart, trackViewItemList } = useAnalytics()
+  const { SEOHelmet } = usePageSEO('products')
   const [searchParams, setSearchParams] = useSearchParams()
   
   // State for search and filters
@@ -164,6 +168,11 @@ function ProductSearch() {
     setSearchQuery(query)
     setSuggestionsQuery('') // Clear suggestions
     
+    // Track search analytics
+    if (query.trim()) {
+      trackSearch(query.trim())
+    }
+    
     // If query is empty, also reset filters to make it more intuitive
     if (!query.trim()) {
       setFilters(prev => ({
@@ -194,6 +203,10 @@ function ProductSearch() {
       }
       
       await addToCart(variantId, 1)
+      
+      // Track add to cart analytics
+      trackAddToCart(product, 1)
+      
       success(t('cart.addedToCart', { product: product.title }))
     } catch (err) {
       error(t('errors.addToCart', { error: err.message }))
@@ -211,8 +224,24 @@ function ProductSearch() {
   const availableVendors = filterOptions?.vendors || ['XT Media']
   const priceRange = filterOptions?.priceRange || { min: 0, max: 500 }
 
+  // Track product list views
+  useEffect(() => {
+    if (products.length > 0 && !productsLoading) {
+      const listName = searchQuery 
+        ? `Search Results: "${searchQuery}"` 
+        : 'All Products'
+      trackViewItemList(products, listName)
+      
+      // Also track search with results count
+      if (searchQuery) {
+        trackSearch(searchQuery, products.length)
+      }
+    }
+  }, [products, productsLoading, searchQuery, trackViewItemList, trackSearch])
+
   return (
     <div className="product-search-page">
+      <SEOHelmet />
       {/* Page Header - Hero Section */}
       <section className="search-header">
         <div className="search-header-content">
